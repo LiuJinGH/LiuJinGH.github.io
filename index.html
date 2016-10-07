@@ -259,11 +259,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T13:48:02+08:00" content="2016-10-07">
+            <time itemprop="dateCreated" datetime="2016-10-07T16:11:42+08:00" content="2016-10-07">
               2016-10-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IOS编程/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -289,29 +308,29 @@
       
         
           
-            <h4 id="CoreAnimation简介"><a href="#CoreAnimation简介" class="headerlink" title="CoreAnimation简介"></a>CoreAnimation简介</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8521ccc00946f1c896f0409a634d8f51?method=download&amp;inline=true&amp;shareKey=aff35856ab2b65a189b12590ed8988ba" alt="image"></p>
+            <h2 id="CoreAnimation简介"><a href="#CoreAnimation简介" class="headerlink" title="CoreAnimation简介"></a>CoreAnimation简介</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8521ccc00946f1c896f0409a634d8f51?method=download&amp;inline=true&amp;shareKey=aff35856ab2b65a189b12590ed8988ba" alt="image"></p>
 <ol>
 <li>能用的动画类只有4个子类：CABasicAnimation、CAKeyframeAnimation、CATransition、CAAnimationGroup</li>
 <li>CAPropertyAnimation是CAAnimation的子类，但是不能直接使用，要想创建动画对象，应该使用它的两个子类：CABasicAnimation和CAKeyframeAnimation</li>
 <li>CAMediaTiming是一个协议(protocol)</li>
 </ol>
 <p>它有个NSString类型的keyPath属性，你可以指定CALayer的某个属性名为keyPath，并且对CALayer的这个属性的值进行修改，达到相应的动画效果。比如，指定@”position”为keyPath，就会修改CALayer的position属性的值，以达到平移的动画效果</p>
-<h5 id="属性解析：-标识代表来自CAMediaTiming协议的属性"><a href="#属性解析：-标识代表来自CAMediaTiming协议的属性" class="headerlink" title="属性解析：(标识代表来自CAMediaTiming协议的属性)"></a>属性解析：(标识代表来自CAMediaTiming协议的属性)</h5><blockquote>
-<p>==duration==：动画的持续时间</p>
-<p>==repeatCount==：动画的重复次数</p>
-<p>==repeatDuration==：动画的重复时间</p>
+<h3 id="属性解析：-标识代表来自CAMediaTiming协议的属性"><a href="#属性解析：-标识代表来自CAMediaTiming协议的属性" class="headerlink" title="属性解析：(标识代表来自CAMediaTiming协议的属性)"></a>属性解析：(标识代表来自CAMediaTiming协议的属性)</h3><blockquote>
+<p>duration：动画的持续时间</p>
+<p>repeatCount：动画的重复次数</p>
+<p>repeatDuration：动画的重复时间</p>
 <p>removedOnCompletion：默认为YES，代表动画执行完毕后就从图层上移除，图形会恢复到动画执行前的状态。如果想让图层保持显示动画执行后的状态，那就设置为NO，不过还要设置fillMode为kCAFillModeForwards</p>
-<p>==fillMode==：决定当前对象在非active时间段的行为.比如动画开始之前,动画结束之后</p>
-<p>==beginTime==：可以用来设置动画延迟执行时间，若想延迟2s，就设置为CACurrentMediaTime()+2，CACurrentMediaTime()为图层的当前时间</p>
+<p>fillMode：决定当前对象在非active时间段的行为.比如动画开始之前,动画结束之后</p>
+<p>beginTime：可以用来设置动画延迟执行时间，若想延迟2s，就设置为CACurrentMediaTime()+2，CACurrentMediaTime()为图层的当前时间</p>
 <p>timingFunction：速度控制函数，控制动画运行的节奏</p>
 <p>delegate：动画代理</p>
 </blockquote>
-<h5 id="Core-Animation的使用步骤"><a href="#Core-Animation的使用步骤" class="headerlink" title="Core Animation的使用步骤"></a>Core Animation的使用步骤</h5><ol>
+<h3 id="Core-Animation的使用步骤"><a href="#Core-Animation的使用步骤" class="headerlink" title="Core Animation的使用步骤"></a>Core Animation的使用步骤</h3><ol>
 <li>初始化一个CAAnimation对象，并设置一些动画相关属性</li>
 <li>通过调用CALayer的addAnimation:forKey:方法增加CAAnimation对象到CALayer中，这样就能开始执行动画了</li>
 <li>通过调用CALayer的removeAnimationForKey:方法可以停止CALayer中的动画</li>
 </ol>
-<h4 id="CABasicAnimation"><a href="#CABasicAnimation" class="headerlink" title="CABasicAnimation"></a>CABasicAnimation</h4><blockquote>
+<h2 id="CABasicAnimation"><a href="#CABasicAnimation" class="headerlink" title="CABasicAnimation"></a>CABasicAnimation</h2><blockquote>
 <p>fromValue：keyPath相应属性的初始值</p>
 <p>toValue：keyPath相应属性的结束值</p>
 <p>随着动画的进行，在长度为duration的持续时间内，keyPath相应属性的值从fromValue渐渐地变为toValue</p>
@@ -320,7 +339,7 @@
 <p>CABasicAnimation使用</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//transform 形变属性，基于<span class="keyword">x</span>/<span class="regexp">y/z轴</span></div><div class="line">CABasicAnimation *animation = [self animationInstanceWithKeyPath:@"transform"];</div><div class="line">//还有一个fromValue属性，表示起始值，这里由于使用默认起始值，所以不设置fromValue</div><div class="line">animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)];</div><div class="line"><span class="regexp">//</span>将动画添加到layer层即可    </div><div class="line">[self.rLayer addAnimation:animation forKey:nil];</div></pre></td></tr></table></figure>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEBc9a6a7262bc3b2cfc34b44608dc39624?method=download&amp;inline=true&amp;shareKey=30b50c815efe0cb7bedd6e3cde2dd7d0" alt="image"></p>
-<h4 id="CAKeyframeAnimation"><a href="#CAKeyframeAnimation" class="headerlink" title="CAKeyframeAnimation"></a>CAKeyframeAnimation</h4><blockquote>
+<h2 id="CAKeyframeAnimation"><a href="#CAKeyframeAnimation" class="headerlink" title="CAKeyframeAnimation"></a>CAKeyframeAnimation</h2><blockquote>
 <ol>
 <li><p>跟CABasicAnimation的区别是：CABasicAnimation只能从一个数值(fromValue)变到另一个数值(toValue)，而CAKeyframeAnimation会使用一个NSArray保存这些数值</p>
 </li>
@@ -339,7 +358,7 @@
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">kCAMediaTimingFunctionLinear</span> 线性（匀速）</div><div class="line">kCAMediaTimingFunctionEaseIn 先慢</div><div class="line">kCAMediaTimingFunctionEaseOut 后慢</div><div class="line">kCAMediaTimingFunctionEaseInEaseOut 先慢 后慢 中间快</div><div class="line">kCAMediaTimingFunctionDefault 默认</div></pre></td></tr></table></figure>
 <p>CAKeyframeAnimation使用<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对bounds属性进行动画</span></div><div class="line"><span class="built_in">CAKeyframeAnimation</span> *animation = [<span class="keyword">self</span> animationInstanceWithKeyPath:<span class="string">@"bounds"</span>];</div><div class="line">    </div><div class="line"><span class="built_in">NSValue</span> *v1 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v2 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">125</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v3 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">125</span>, <span class="number">125</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v4 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">125</span>, <span class="number">50</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v5 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line">    </div><div class="line">animation.values = @[v1, v2, v3, v4, v5];</div><div class="line">    </div><div class="line">[<span class="keyword">self</span>.sLayer addAnimation:animation forKey:<span class="literal">nil</span>];</div></pre></td></tr></table></figure></p>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEBe9d00dafdac4048a504c8bba0fb3ff8e?method=download&amp;inline=true&amp;shareKey=fa6b191a2e5b53d82861ff0862b75f42" alt="image"></p>
-<h4 id="CATransition"><a href="#CATransition" class="headerlink" title="CATransition"></a>CATransition</h4><p>CAAnimation的子类，用于做转场动画，能够为层提供移出屏幕和移入屏幕的动画效果。iOS比Mac OS X的转场动画效果少一点</p>
+<h2 id="CATransition"><a href="#CATransition" class="headerlink" title="CATransition"></a>CATransition</h2><p>CAAnimation的子类，用于做转场动画，能够为层提供移出屏幕和移入屏幕的动画效果。iOS比Mac OS X的转场动画效果少一点</p>
 <p>UINavigationController就是通过CATransition实现了将控制器的视图推入屏幕的动画效果</p>
 <blockquote>
 <p>type 进场的效果</p>
@@ -352,24 +371,24 @@
 <p>CATransition 使用</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.animation1 = [<span class="keyword">self</span> <span class="symbol">animationInstanceWithKeyPath:</span>@<span class="string">"cube"</span> <span class="symbol">WithSubtype:</span>subtype];</div><div class="line">    </div><div class="line">[<span class="keyword">self</span>.imageView1.layer <span class="symbol">addAnimation:</span><span class="keyword">self</span>.animation1 <span class="symbol">forKey:</span><span class="keyword">nil</span>];</div></pre></td></tr></table></figure>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEBfde529ccfe75edb165aefa87dc26a356?method=download&amp;inline=true&amp;shareKey=0948d5e7bdcdb0e96458c4ae83c69fa5" alt="image"></p>
-<h4 id="CAAnimationGroup"><a href="#CAAnimationGroup" class="headerlink" title="CAAnimationGroup"></a>CAAnimationGroup</h4><p>CAAnimation的子类，可以保存一组动画对象，将CAAnimationGroup对象加入层后，组中所有动画对象可以同时并发运行</p>
+<h2 id="CAAnimationGroup"><a href="#CAAnimationGroup" class="headerlink" title="CAAnimationGroup"></a>CAAnimationGroup</h2><p>CAAnimation的子类，可以保存一组动画对象，将CAAnimationGroup对象加入层后，组中所有动画对象可以同时并发运行</p>
 <blockquote>
 <p>animations：用来保存一组动画对象的NSArray</p>
 </blockquote>
 <p>默认情况下，一组动画对象是同时运行的，也可以通过设置动画对象的beginTime属性来更改动画的开始时间</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@<span class="string">"position"</span>]<span class="comment">;</span></div><div class="line">animation1.toValue = [NSValue valueWithCGPoint:CGPointMake(<span class="number">220</span>, <span class="number">320</span>)]<span class="comment">;</span></div><div class="line">    </div><div class="line">CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@<span class="string">"transform.scale"</span>]<span class="comment">;</span></div><div class="line">animation2.toValue = @(<span class="number">0</span>.<span class="number">0</span>)<span class="comment">;</span></div><div class="line">    </div><div class="line">CABasicAnimation *animation3 = [CABasicAnimation animationWithKeyPath:@<span class="string">"transform.rotation"</span>]<span class="comment">;</span></div><div class="line">animation3.toValue= @(M_PI)<span class="comment">;</span></div><div class="line">    </div><div class="line">CAAnimationGroup *groupAnimation = [CAAnimationGroup animation]<span class="comment">;</span></div><div class="line">groupAnimation.animations = @[animation1, animation2, animation3]<span class="comment">;</span></div><div class="line">groupAnimation.duration = <span class="number">3</span>.<span class="number">0</span><span class="comment">;</span></div><div class="line">groupAnimation.repeatCount = MAXFLOAT<span class="comment">;</span></div><div class="line">    </div><div class="line">[self.layer <span class="keyword">addAnimation:groupAnimation </span>forKey:nil]<span class="comment">;</span></div></pre></td></tr></table></figure>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEB07f98d892ed2024a6997cf632b066d09?method=download&amp;inline=true&amp;shareKey=f1b534f80fa8e0d94ac5927db06ab4fb" alt="image"></p>
-<h4 id="UIView封装动画"><a href="#UIView封装动画" class="headerlink" title="UIView封装动画"></a>UIView封装动画</h4><h5 id="首尾方式"><a href="#首尾方式" class="headerlink" title="首尾方式"></a>首尾方式</h5><p>UIKit直接将动画集成到UIView类中，当内部的一些属性发生改变时，UIView将为这些改变提供动画支持</p>
+<h2 id="UIView封装动画"><a href="#UIView封装动画" class="headerlink" title="UIView封装动画"></a>UIView封装动画</h2><h3 id="首尾方式"><a href="#首尾方式" class="headerlink" title="首尾方式"></a>首尾方式</h3><p>UIKit直接将动画集成到UIView类中，当内部的一些属性发生改变时，UIView将为这些改变提供动画支持</p>
 <p>执行动画所需要的工作由UIView类自动完成，但仍要在希望执行动画时通知视图，为此需要将改变属性的代码放在[UIView beginAnimations:nil context:nil]和[UIView commitAnimations]之间</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置动画代理对象，当动画开始或者结束时会发消息给代理对象</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDelegate:</span>(id)delegate  </div><div class="line"></div><div class="line"><span class="comment">//当动画即将开始时，执行delegate对象的selector，并且把beginAnimations:context:中传入的参数传进selector</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationWillStartSelector:</span>(SEL)selector   </div><div class="line"></div><div class="line"><span class="comment">//当动画结束时，执行delegate对象的selector，并且把beginAnimations:context:中传入的参数传进selector</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDidStopSelector:</span>(SEL)selector  </div><div class="line"></div><div class="line"><span class="comment">//动画的持续时间，秒为单位</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDuration:</span>(NSTimeInterval)duration   </div><div class="line"></div><div class="line"><span class="comment">//动画延迟delay秒后再开始</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDelay:</span>(NSTimeInterval)delay </div><div class="line"></div><div class="line"><span class="comment">//动画的开始时间，默认为now</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationStartDate:</span>(NSDate *)startDate   </div><div class="line"></div><div class="line"><span class="comment">//动画的节奏控制</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationCurve:</span>(UIViewAnimationCurve)curve</div><div class="line"></div><div class="line"><span class="comment">//动画的重复次数</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationRepeatCount:</span>(<span class="keyword">float</span>)repeatCount  </div><div class="line"></div><div class="line"><span class="comment">//如果设置为YES,代表动画每次重复执行的效果会跟上一次相反</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationRepeatAutoreverses:</span>(BOOL)repeatAutoreverses  </div><div class="line"></div><div class="line"><span class="comment">//设置视图view的过渡效果, transition指定过渡类型, cache设置YES代表使用视图缓存，性能较好</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationTransition:</span>(UIViewAnimationTransition)transition <span class="string">forView:</span>(UIView *)view <span class="string">cache:</span>(BOOL)cache</div></pre></td></tr></table></figure>
 <p>示例</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首尾式动画</span></div><div class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</div><div class="line"><span class="comment">//执行动画</span></div><div class="line"><span class="comment">//设置动画执行时间</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">2.0</span>];</div><div class="line"><span class="comment">//设置代理</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDelegate:<span class="keyword">self</span>];</div><div class="line"><span class="comment">//设置动画执行完毕调用的事件</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDidStopSelector:<span class="keyword">@selector</span>(didStopAnimation)];</div><div class="line"><span class="keyword">self</span>.v1.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">[<span class="built_in">UIView</span> commitAnimations];</div></pre></td></tr></table></figure>
-<h5 id="Block方式"><a href="#Block方式" class="headerlink" title="Block方式"></a>Block方式</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)<span class="string">animateWithDuration:</span>(NSTimeInterval)duration <span class="string">delay:</span>(NSTimeInterval)delay <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">delay：动画延迟delay秒后开始</div><div class="line"></div><div class="line">options：动画的节奏控制</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="Block方式"><a href="#Block方式" class="headerlink" title="Block方式"></a>Block方式</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)<span class="string">animateWithDuration:</span>(NSTimeInterval)duration <span class="string">delay:</span>(NSTimeInterval)delay <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">delay：动画延迟delay秒后开始</div><div class="line"></div><div class="line">options：动画的节奏控制</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">转场动画</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">transitionWithView:</span>(UIView *)view <span class="string">duration:</span>(NSTimeInterval)duration <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">view：需要进行转场动画的视图</div><div class="line"></div><div class="line">options：转场动画的类型</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">transitionFromView:</span>(UIView *)fromView <span class="string">toView:</span>(UIView *)toView <span class="string">duration:</span>(NSTimeInterval)duration <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line">方法调用完毕后，相当于执行了下面两句代码：</div><div class="line"></div><div class="line"><span class="comment">// 添加toView到父视图</span></div><div class="line"></div><div class="line">[fromView.superview <span class="string">addSubview:</span>toView]; </div><div class="line"></div><div class="line"><span class="comment">// 把fromView从父视图中移除</span></div><div class="line"></div><div class="line">[fromView.superview removeFromSuperview];</div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">options：转场动画的类型</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">2.0</span> delay:<span class="number">0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</div><div class="line">        <span class="keyword">self</span>.v2.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line">        <span class="keyword">self</span>.v2.center=<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">    &#125;];</div><div class="line"></div><div class="line">[<span class="built_in">UIView</span> transitionWithView:<span class="keyword">self</span>.v3 duration:<span class="number">2.0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</div><div class="line">        <span class="keyword">self</span>.v3.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line">        <span class="keyword">self</span>.v3.center=<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEB6986fe51522e1e0bee85b9ec3236dc12?method=download&amp;inline=true&amp;shareKey=4f7d6a288a0df1a889d9dd3c224ac009" alt="image"></p>
-<h4 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h4><h5 id="移除动画"><a href="#移除动画" class="headerlink" title="移除动画"></a>移除动画</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.v1.layer <span class="string">addAnimation:</span>keyAnima <span class="string">forKey:</span>@<span class="string">"test"</span>];</div><div class="line">[self.v1.layer <span class="string">removeAnimationForKey:</span>@<span class="string">"test"</span>];</div></pre></td></tr></table></figure>
-<h5 id="UIActivityIndicatorView"><a href="#UIActivityIndicatorView" class="headerlink" title="UIActivityIndicatorView"></a>UIActivityIndicatorView</h5><p>是一个旋转进度轮，可以用来告知用户有一个操作正在进行中，一般用initWithActivityIndicatorStyle初始化</p>
+<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><h3 id="移除动画"><a href="#移除动画" class="headerlink" title="移除动画"></a>移除动画</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.v1.layer <span class="string">addAnimation:</span>keyAnima <span class="string">forKey:</span>@<span class="string">"test"</span>];</div><div class="line">[self.v1.layer <span class="string">removeAnimationForKey:</span>@<span class="string">"test"</span>];</div></pre></td></tr></table></figure>
+<h3 id="UIActivityIndicatorView"><a href="#UIActivityIndicatorView" class="headerlink" title="UIActivityIndicatorView"></a>UIActivityIndicatorView</h3><p>是一个旋转进度轮，可以用来告知用户有一个操作正在进行中，一般用initWithActivityIndicatorStyle初始化</p>
 <p>方法解析:</p>
 <ul>
 <li><p>(void)startAnimating; 开始动画</p>
@@ -446,11 +465,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-07T12:46:57+08:00" content="2016-10-07">
+            <time itemprop="dateCreated" datetime="2016-10-07T16:03:06+08:00" content="2016-10-07">
               2016-10-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Testing/" itemprop="url" rel="index">
+                    <span itemprop="name">Testing</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -513,6 +551,99 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/07/分类测试文章/" itemprop="url">
+                  分类测试文章
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T15:28:30+08:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -546,7 +677,7 @@
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="http://note.youdao.com/yws/api/personal/file/WEB18fdbd081a6dc47f1dc6a52866821f25?method=download&inline=true&shareKey=b2d54466360a3f26f26f6341152c4f6e"
                alt="刘瑾" />
           <p class="site-author-name" itemprop="name">刘瑾</p>
           <p class="site-description motion-element" itemprop="description"></p>
@@ -554,11 +685,18 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
