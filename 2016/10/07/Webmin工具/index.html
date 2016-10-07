@@ -1,0 +1,638 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Webmin简介Webmin安装方式一：123wget http://download.webmin.com/download/yum/webmin-1.810-1.noarch.rpmrpm -ivh webmin-1.810-1.noarch.rpm/etc/rc.d/init.d/webmin start
+方式二：1234567891011vim /etc/yum.repos.d/webmi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webmin">
+<meta property="og:url" content="http://yoursite.com/2016/10/07/Webmin工具/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="Webmin简介Webmin安装方式一：123wget http://download.webmin.com/download/yum/webmin-1.810-1.noarch.rpmrpm -ivh webmin-1.810-1.noarch.rpm/etc/rc.d/init.d/webmin start
+方式二：1234567891011vim /etc/yum.repos.d/webmi">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&inline=true&shareKey=4300f4463ec5cc3cbbebfbedc03000a7">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB9d04a24e16b1ef37d132ec0e74e35c36?method=download&inline=true&shareKey=4d90c6f205253b6915025e4390bef955">
+<meta property="og:updated_time" content="2016-10-07T10:33:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webmin">
+<meta name="twitter:description" content="Webmin简介Webmin安装方式一：123wget http://download.webmin.com/download/yum/webmin-1.810-1.noarch.rpmrpm -ivh webmin-1.810-1.noarch.rpm/etc/rc.d/init.d/webmin start
+方式二：1234567891011vim /etc/yum.repos.d/webmi">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&inline=true&shareKey=4300f4463ec5cc3cbbebfbedc03000a7">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/07/Webmin工具/"/>
+
+  <title> Webmin | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Webmin
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T18:33:05+08:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux服务器</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/07/Webmin工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Webmin工具/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Webmin简介"><a href="#Webmin简介" class="headerlink" title="Webmin简介"></a>Webmin简介</h2><h2 id="Webmin安装"><a href="#Webmin安装" class="headerlink" title="Webmin安装"></a>Webmin安装</h2><p>方式一：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget <span class="string">http:</span><span class="comment">//download.webmin.com/download/yum/webmin-1.810-1.noarch.rpm</span></div><div class="line">rpm -ivh webmin<span class="number">-1.810</span><span class="number">-1.</span>noarch.rpm</div><div class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>webmin start</div></pre></td></tr></table></figure></p>
+<p>方式二：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/webmin<span class="selector-class">.repo</span></div><div class="line">[Webmin]</div><div class="line"></div><div class="line">name=Webmin Distribution Neutral</div><div class="line">#baseurl=http:<span class="comment">//download.webmin.com/download/yum</span></div><div class="line">mirrorlist=http:<span class="comment">//download.webmin.com/download/yum/mirrorlist</span></div><div class="line"></div><div class="line"></div><div class="line">wget http:<span class="comment">//www.webmin.com/jcameron-key.asc</span></div><div class="line">rpm --import jcameron-key<span class="selector-class">.asc</span></div><div class="line">yum install webmin</div></pre></td></tr></table></figure></p>
+<p>安装成功提示：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Webmin <span class="keyword">install</span> complete. You can <span class="keyword">now</span> login <span class="keyword">to</span> https://localhost.localdomain:<span class="number">10000</span>/</div></pre></td></tr></table></figure></p>
+<p>安装成功之后，还要处理一下防火墙问题，要么打开防火墙的10000端口，要么直接关闭掉防火墙。这里是直接关掉防火墙。</p>
+<p>CentOS 7.2默认使用的是firewall作为防火墙。<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#停止firewall</span></div><div class="line">systemctl <span class="keyword">stop</span> firewalld.service </div><div class="line"><span class="meta">#禁止firewall开机启动</span></div><div class="line">systemctl <span class="keyword">disable</span> firewalld.service</div></pre></td></tr></table></figure></p>
+<h2 id="登录Webmin"><a href="#登录Webmin" class="headerlink" title="登录Webmin"></a>登录Webmin</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#172.16.204.135是我的虚拟机的IP地址，请自行替换</span></div><div class="line">https:<span class="comment">//172.16.204.135:10000</span></div><div class="line"><span class="meta">#如果浏览器提示安全连接问题(由于https造成的)登录不上，可以换一个浏览器试试，我用火狐连接不了</span></div></pre></td></tr></table></figure>
+<p>登录界面</p>
+<blockquote>
+<p>登录密码为Linux的root账户的密码</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&amp;inline=true&amp;shareKey=4300f4463ec5cc3cbbebfbedc03000a7" alt="image"></p>
+<h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB9d04a24e16b1ef37d132ec0e74e35c36?method=download&amp;inline=true&amp;shareKey=4d90c6f205253b6915025e4390bef955" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/07/CentOS7.2 配置FTP服务器/" rel="next" title="FTP服务器">
+                <i class="fa fa-chevron-left"></i> FTP服务器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/07/CentOS 7.2 安装Apache HTTP Server/" rel="prev" title="Apache HTTP服务器">
+                Apache HTTP服务器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/07/Webmin工具/"
+           data-title="Webmin" data-url="http://yoursite.com/2016/10/07/Webmin工具/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB18fdbd081a6dc47f1dc6a52866821f25?method=download&inline=true&shareKey=b2d54466360a3f26f26f6341152c4f6e"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Webmin简介"><span class="nav-number">1.</span> <span class="nav-text">Webmin简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Webmin安装"><span class="nav-number">2.</span> <span class="nav-text">Webmin安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录Webmin"><span class="nav-number">3.</span> <span class="nav-text">登录Webmin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主界面"><span class="nav-number">3.1.</span> <span class="nav-text">主界面</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
