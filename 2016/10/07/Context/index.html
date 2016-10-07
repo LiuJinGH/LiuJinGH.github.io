@@ -1,0 +1,685 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="简单示例——画一条线
+123456789101112//获取当前图形上下文CGContextRef ctx = UIGraphicsGetCurrentContext();//将画笔的起点移动到（100，100）CGContextMoveToPoint(ctx, 100, 100);//画一条线，起点为(100，100) 终点（200，100）CGContextAddLineToPoint(ctx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CGContext">
+<meta property="og:url" content="http://yoursite.com/2016/10/07/Context/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="简单示例——画一条线
+123456789101112//获取当前图形上下文CGContextRef ctx = UIGraphicsGetCurrentContext();//将画笔的起点移动到（100，100）CGContextMoveToPoint(ctx, 100, 100);//画一条线，起点为(100，100) 终点（200，100）CGContextAddLineToPoint(ctx">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&shareKey=02532a25231bd37d7aa273e411cb7828">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&shareKey=cfbc6cf2981002d82841ba2ea0db6834">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&shareKey=612230f9050e5912511d9d8b1d64b1df">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&shareKey=6979128287040dd3d1494c279a6df126">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&shareKey=051d2262078d81071b525ee64632d5af">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&shareKey=fd355a40bc260311fdeb871363255ff1">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&shareKey=f269636280541f08a799fd38cf981879">
+<meta property="og:updated_time" content="2016-10-07T10:12:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CGContext">
+<meta name="twitter:description" content="简单示例——画一条线
+123456789101112//获取当前图形上下文CGContextRef ctx = UIGraphicsGetCurrentContext();//将画笔的起点移动到（100，100）CGContextMoveToPoint(ctx, 100, 100);//画一条线，起点为(100，100) 终点（200，100）CGContextAddLineToPoint(ctx">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/07/Context/"/>
+
+  <title> CGContext | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CGContext
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-07T18:12:29+08:00" content="2016-10-07">
+              2016-10-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IOS编程/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/07/Context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Context/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
+<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
+<li>获取图形上下文：</li>
+</ol>
+<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
+<ol>
+<li>绘制图形：</li>
+</ol>
+<p>先设置绘制起点</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>然后根据需要绘制图形</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>绘制参数配置：</li>
+</ol>
+<p>宽度：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>颜色：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>将图形上下文绘制出来：</li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
+<ol>
+<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
+<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
+</ol>
+<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
+<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
+<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
+<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>CGContextFillPath是填充</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
+<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
+<p>画矩形</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
+<p>画曲线</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
+<p>画椭圆</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
+<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>设置线之间的交点为圆角</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>设置透明度</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/07/CoreAnimation/" rel="next" title="CoreAnimation">
+                <i class="fa fa-chevron-left"></i> CoreAnimation
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/07/Context/"
+           data-title="CGContext" data-url="http://yoursite.com/2016/10/07/Context/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB18fdbd081a6dc47f1dc6a52866821f25?method=download&inline=true&shareKey=b2d54466360a3f26f26f6341152c4f6e"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单示例——画一条线"><span class="nav-number">1.</span> <span class="nav-text">简单示例——画一条线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单示例二——画一个正方形"><span class="nav-number">2.</span> <span class="nav-text">简单示例二——画一个正方形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Context绘图的步骤"><span class="nav-number">3.</span> <span class="nav-text">使用Context绘图的步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context的几个注意点"><span class="nav-number">4.</span> <span class="nav-text">Context的几个注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用起点移动函数？"><span class="nav-number">4.1.</span> <span class="nav-text">为什么要使用起点移动函数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起点和终点怎么闭合？"><span class="nav-number">4.2.</span> <span class="nav-text">起点和终点怎么闭合？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CGContextStrokePath和CGContextFillPath的区别"><span class="nav-number">4.3.</span> <span class="nav-text">CGContextStrokePath和CGContextFillPath的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context其它绘制函数"><span class="nav-number">5.</span> <span class="nav-text">Context其它绘制函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context参数配置函数"><span class="nav-number">6.</span> <span class="nav-text">Context参数配置函数</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
