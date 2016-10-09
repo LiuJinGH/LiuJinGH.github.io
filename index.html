@@ -245,7 +245,147 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/TableView和TableViewCell学习笔记/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/" itemprop="url">
+                  UIAlertController
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-09T10:08:49+08:00" content="2016-10-09">
+              2016-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IOS编程/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="UIAlertController简介"><a href="#UIAlertController简介" class="headerlink" title="UIAlertController简介"></a>UIAlertController简介</h2><p>UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。</p>
+<h2 id="UIAlertController使用说明"><a href="#UIAlertController使用说明" class="headerlink" title="UIAlertController使用说明"></a>UIAlertController使用说明</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//类方法</div><div class="line">//title 标题  message 警告信息  preferredStyle 显示样式</div><div class="line">+ (instance<span class="keyword">type</span>)alertControllerWithTitle:(nullable <span class="type">NSString</span> *)title message:(nullable <span class="type">NSString</span> *)message preferredStyle:(<span class="type">UIAlertControllerStyle</span>)preferredStyle;</div></pre></td></tr></table></figure>
+<p>显示样式有两种，示例如下：</p>
+<p><strong>UIAlertControllerStyleActionSheet</strong></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&amp;inline=true&amp;shareKey=59cbbb6f62824ad7001d971e5f844077" alt="UIAlertControllerStyleActionSheet"></p>
+<p><strong>UIAlertControllerStyleAlert</strong></p>
+<p>当按钮超过三个时，按钮的排列方向会改变为纵向排列</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB1a899d6c58750890d9479c33efc900a4?method=download&amp;inline=true&amp;shareKey=e8c66bfc02c0249f582219bce0001c4a" alt="UIAlertControllerStyleAlert"></p>
+<h3 id="向UIAlertController中添加UIAlertAction"><a href="#向UIAlertController中添加UIAlertAction" class="headerlink" title="向UIAlertController中添加UIAlertAction"></a>向UIAlertController中添加UIAlertAction</h3><p>UIAlertAction其实就是在警告框中看到的按钮，</p>
+<h4 id="UIAlertAction初始化"><a href="#UIAlertAction初始化" class="headerlink" title="UIAlertAction初始化"></a>UIAlertAction初始化</h4><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//title 按钮名称 style 按钮样式 handler 点击按钮要处理的事情</div><div class="line">+ (instance<span class="keyword">type</span>)actionWithTitle:(nullable <span class="type">NSString</span> *)title style:(<span class="type">UIAlertActionStyle</span>)style handler:(void (^ __nullable)(<span class="type">UIAlertAction</span> *action))handler;</div></pre></td></tr></table></figure>
+<p>UIAlertAction的样式有三种：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB4fac04263f6484a940d9ba6383a12c5e?method=download&amp;inline=true&amp;shareKey=0eeae452d6492a13b3814190447340a8" alt="image"></p>
+<p><strong>UIAlertActionStyleDefault 默认</strong></p>
+<p>默认样式总会在最顶部显示</p>
+<p><strong>UIAlertActionStyleCancel 放弃</strong></p>
+<p>放弃样式总会选择总会选择最低部或左边显示</p>
+<p><strong>UIAlertActionStyleDestructive 删除</strong></p>
+<p>删除样式总会以红色来提醒用户</p>
+<h4 id="添加UIAlertAction"><a href="#添加UIAlertAction" class="headerlink" title="添加UIAlertAction"></a>添加UIAlertAction</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">addAction:</span>(UIAlertAction *)action</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert <span class="string">addAction:</span>action1];</div></pre></td></tr></table></figure>
+<h3 id="向UIAlertController中添加TextField-编辑栏"><a href="#向UIAlertController中添加TextField-编辑栏" class="headerlink" title="向UIAlertController中添加TextField(编辑栏)"></a>向UIAlertController中添加TextField(编辑栏)</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&amp;inline=true&amp;shareKey=924981244c600ae6dde387445646bb7f" alt="添加TextField"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//configurationHandler 配置函数块，在这里设置编辑框和自定义设置</span></div><div class="line">- (<span class="keyword">void</span>)addTextFieldWithConfigurationHandler:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">UITextField</span> *textField))configurationHandler;</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert addTextFieldWithConfigurationHandler:^(<span class="built_in">UITextField</span> * _Nonnull textField) &#123;</div><div class="line">        textField.placeholder = <span class="string">@"简洁的任务描述"</span>;</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<h2 id="UIAlertController的坑点"><a href="#UIAlertController的坑点" class="headerlink" title="UIAlertController的坑点"></a>UIAlertController的坑点</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/07/IOS编程/UIKit/TableView和TableViewCell学习笔记/" itemprop="url">
                   UITableView
                 </a>
               
@@ -289,8 +429,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/TableView和TableViewCell学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/TableView和TableViewCell学习笔记/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/IOS编程/UIKit/TableView和TableViewCell学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/IOS编程/UIKit/TableView和TableViewCell学习笔记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -403,7 +543,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/CentOS 7.2 安装Apache HTTP Server/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/Linux/CentOS 7.2 安装Apache HTTP Server/" itemprop="url">
                   Apache HTTP服务器
                 </a>
               
@@ -447,8 +587,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/CentOS 7.2 安装Apache HTTP Server/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/CentOS 7.2 安装Apache HTTP Server/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/Linux/CentOS 7.2 安装Apache HTTP Server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Linux/CentOS 7.2 安装Apache HTTP Server/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -534,7 +674,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/Webmin工具/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/Linux/Webmin工具/" itemprop="url">
                   Webmin
                 </a>
               
@@ -578,8 +718,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/Webmin工具/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Webmin工具/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/Linux/Webmin工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Linux/Webmin工具/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -665,7 +805,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/CentOS7.2 配置FTP服务器/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/Linux/CentOS7.2 配置FTP服务器/" itemprop="url">
                   FTP服务器
                 </a>
               
@@ -709,8 +849,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/CentOS7.2 配置FTP服务器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/CentOS7.2 配置FTP服务器/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/Linux/CentOS7.2 配置FTP服务器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Linux/CentOS7.2 配置FTP服务器/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -805,7 +945,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/IOS 多线程/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/IOS编程/IOS 多线程/" itemprop="url">
                   IOS多线程
                 </a>
               
@@ -849,8 +989,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/IOS 多线程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/IOS 多线程/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/IOS编程/IOS 多线程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/IOS编程/IOS 多线程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -984,7 +1124,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/UIBezierPath/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/IOS编程/UIBezierPath/" itemprop="url">
                   UIBezierPath
                 </a>
               
@@ -1028,8 +1168,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/UIBezierPath/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/UIBezierPath/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/IOS编程/UIBezierPath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/IOS编程/UIBezierPath/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1107,7 +1247,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/Context/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/IOS编程/Context/" itemprop="url">
                   CGContext
                 </a>
               
@@ -1151,8 +1291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/Context/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Context/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/IOS编程/Context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/IOS编程/Context/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1283,7 +1423,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/07/CoreAnimation/" itemprop="url">
+                <a class="post-title-link" href="/2016/10/07/IOS编程/CoreAnimation/" itemprop="url">
                   CoreAnimation
                 </a>
               
@@ -1327,8 +1467,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/07/CoreAnimation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/CoreAnimation/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/IOS编程/CoreAnimation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/IOS编程/CoreAnimation/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1517,7 +1657,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

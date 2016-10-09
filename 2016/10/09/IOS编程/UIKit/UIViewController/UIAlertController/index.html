@@ -1,0 +1,645 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
+UIAlertController使用说明初始化123//类方法//tit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIAlertController">
+<meta property="og:url" content="http://yoursite.com/2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
+UIAlertController使用说明初始化123//类方法//tit">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&inline=true&shareKey=59cbbb6f62824ad7001d971e5f844077">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB1a899d6c58750890d9479c33efc900a4?method=download&inline=true&shareKey=e8c66bfc02c0249f582219bce0001c4a">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB4fac04263f6484a940d9ba6383a12c5e?method=download&inline=true&shareKey=0eeae452d6492a13b3814190447340a8">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&inline=true&shareKey=924981244c600ae6dde387445646bb7f">
+<meta property="og:updated_time" content="2016-10-09T02:08:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIAlertController">
+<meta name="twitter:description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
+UIAlertController使用说明初始化123//类方法//tit">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&inline=true&shareKey=59cbbb6f62824ad7001d971e5f844077">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/"/>
+
+  <title> UIAlertController | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UIAlertController
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-09T10:08:49+08:00" content="2016-10-09">
+              2016-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IOS编程/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="UIAlertController简介"><a href="#UIAlertController简介" class="headerlink" title="UIAlertController简介"></a>UIAlertController简介</h2><p>UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。</p>
+<h2 id="UIAlertController使用说明"><a href="#UIAlertController使用说明" class="headerlink" title="UIAlertController使用说明"></a>UIAlertController使用说明</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//类方法</div><div class="line">//title 标题  message 警告信息  preferredStyle 显示样式</div><div class="line">+ (instance<span class="keyword">type</span>)alertControllerWithTitle:(nullable <span class="type">NSString</span> *)title message:(nullable <span class="type">NSString</span> *)message preferredStyle:(<span class="type">UIAlertControllerStyle</span>)preferredStyle;</div></pre></td></tr></table></figure>
+<p>显示样式有两种，示例如下：</p>
+<p><strong>UIAlertControllerStyleActionSheet</strong></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&amp;inline=true&amp;shareKey=59cbbb6f62824ad7001d971e5f844077" alt="UIAlertControllerStyleActionSheet"></p>
+<p><strong>UIAlertControllerStyleAlert</strong></p>
+<p>当按钮超过三个时，按钮的排列方向会改变为纵向排列</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB1a899d6c58750890d9479c33efc900a4?method=download&amp;inline=true&amp;shareKey=e8c66bfc02c0249f582219bce0001c4a" alt="UIAlertControllerStyleAlert"></p>
+<h3 id="向UIAlertController中添加UIAlertAction"><a href="#向UIAlertController中添加UIAlertAction" class="headerlink" title="向UIAlertController中添加UIAlertAction"></a>向UIAlertController中添加UIAlertAction</h3><p>UIAlertAction其实就是在警告框中看到的按钮，</p>
+<h4 id="UIAlertAction初始化"><a href="#UIAlertAction初始化" class="headerlink" title="UIAlertAction初始化"></a>UIAlertAction初始化</h4><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//title 按钮名称 style 按钮样式 handler 点击按钮要处理的事情</div><div class="line">+ (instance<span class="keyword">type</span>)actionWithTitle:(nullable <span class="type">NSString</span> *)title style:(<span class="type">UIAlertActionStyle</span>)style handler:(void (^ __nullable)(<span class="type">UIAlertAction</span> *action))handler;</div></pre></td></tr></table></figure>
+<p>UIAlertAction的样式有三种：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB4fac04263f6484a940d9ba6383a12c5e?method=download&amp;inline=true&amp;shareKey=0eeae452d6492a13b3814190447340a8" alt="image"></p>
+<p><strong>UIAlertActionStyleDefault 默认</strong></p>
+<p>默认样式总会在最顶部显示</p>
+<p><strong>UIAlertActionStyleCancel 放弃</strong></p>
+<p>放弃样式总会选择总会选择最低部或左边显示</p>
+<p><strong>UIAlertActionStyleDestructive 删除</strong></p>
+<p>删除样式总会以红色来提醒用户</p>
+<h4 id="添加UIAlertAction"><a href="#添加UIAlertAction" class="headerlink" title="添加UIAlertAction"></a>添加UIAlertAction</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">addAction:</span>(UIAlertAction *)action</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert <span class="string">addAction:</span>action1];</div></pre></td></tr></table></figure>
+<h3 id="向UIAlertController中添加TextField-编辑栏"><a href="#向UIAlertController中添加TextField-编辑栏" class="headerlink" title="向UIAlertController中添加TextField(编辑栏)"></a>向UIAlertController中添加TextField(编辑栏)</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&amp;inline=true&amp;shareKey=924981244c600ae6dde387445646bb7f" alt="添加TextField"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//configurationHandler 配置函数块，在这里设置编辑框和自定义设置</span></div><div class="line">- (<span class="keyword">void</span>)addTextFieldWithConfigurationHandler:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">UITextField</span> *textField))configurationHandler;</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert addTextFieldWithConfigurationHandler:^(<span class="built_in">UITextField</span> * _Nonnull textField) &#123;</div><div class="line">        textField.placeholder = <span class="string">@"简洁的任务描述"</span>;</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<h2 id="UIAlertController的坑点"><a href="#UIAlertController的坑点" class="headerlink" title="UIAlertController的坑点"></a>UIAlertController的坑点</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/07/IOS编程/UIKit/TableView和TableViewCell学习笔记/" rel="next" title="UITableView">
+                <i class="fa fa-chevron-left"></i> UITableView
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/"
+           data-title="UIAlertController" data-url="http://yoursite.com/2016/10/09/IOS编程/UIKit/UIViewController/UIAlertController/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB18fdbd081a6dc47f1dc6a52866821f25?method=download&inline=true&shareKey=b2d54466360a3f26f26f6341152c4f6e"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController简介"><span class="nav-number">1.</span> <span class="nav-text">UIAlertController简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController使用说明"><span class="nav-number">2.</span> <span class="nav-text">UIAlertController使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向UIAlertController中添加UIAlertAction"><span class="nav-number">2.2.</span> <span class="nav-text">向UIAlertController中添加UIAlertAction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIAlertAction初始化"><span class="nav-number">2.2.1.</span> <span class="nav-text">UIAlertAction初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加UIAlertAction"><span class="nav-number">2.2.2.</span> <span class="nav-text">添加UIAlertAction</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向UIAlertController中添加TextField-编辑栏"><span class="nav-number">2.3.</span> <span class="nav-text">向UIAlertController中添加TextField(编辑栏)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController的坑点"><span class="nav-number">3.</span> <span class="nav-text">UIAlertController的坑点</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
