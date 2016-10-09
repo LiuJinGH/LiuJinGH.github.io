@@ -579,138 +579,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/IOS编程/UIBezierPath/" itemprop="url">
-                  UIBezierPath
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/IOS编程/" itemprop="url" rel="index">
-                    <span itemprop="name">IOS编程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/08/IOS编程/UIBezierPath/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/IOS编程/UIBezierPath/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/08/IOS编程/UIBezierPath/" class="leancloud_visitors" data-flag-title="UIBezierPath">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="UIBezierPath的简单实例"><a href="#UIBezierPath的简单实例" class="headerlink" title="UIBezierPath的简单实例"></a>UIBezierPath的简单实例</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&amp;shareKey=000c09a6286d8f52d0ab5d028a9c56d5" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图示代码 在UIView的drawRect:方法中实现</span></div><div class="line">    <span class="comment">//创建曲线Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line">    <span class="comment">//设置起点</span></div><div class="line">    [path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">100</span>)];</div><div class="line">    <span class="comment">//绘制图形</span></div><div class="line">    [path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line">    <span class="comment">//绘制图形</span></div><div class="line">    [path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">300</span>)];</div><div class="line">    </div><div class="line">    <span class="comment">//设置线宽</span></div><div class="line">    [path setLineWidth:<span class="number">3</span>];</div><div class="line">    <span class="comment">//设置颜色</span></div><div class="line">    [[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line">    <span class="comment">//将路径绘制出来</span></div><div class="line">    [path stroke];</div><div class="line">    </div><div class="line">    <span class="comment">//创建矩形Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line">    </div><div class="line">    [path2 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [path2 stroke];</div><div class="line">    </div><div class="line">    <span class="comment">//创建椭圆Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path3 = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">400</span>, <span class="number">80</span>, <span class="number">50</span>)];</div><div class="line">    </div><div class="line">    [path3 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [[<span class="built_in">UIColor</span> greenColor] setFill];</div><div class="line">    [path3 stroke];</div><div class="line">    [path3 fill];</div><div class="line">    </div><div class="line">    <span class="comment">//创建圆角矩形Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path4 = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>, <span class="number">80</span>) cornerRadius:<span class="number">15</span>];</div><div class="line">    </div><div class="line">    [path4 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [path4 stroke];</div><div class="line">    </div><div class="line">    <span class="comment">//创建一个弧线Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path5 = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">400</span>) radius:<span class="number">50</span> startAngle:<span class="number">0</span> endAngle:M_PI_4 clockwise:<span class="literal">NO</span>];</div><div class="line">    </div><div class="line">    [path5 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [path5 stroke];</div></pre></td></tr></table></figure>
-<h4 id="UIBezeiPath的常用绘图函数"><a href="#UIBezeiPath的常用绘图函数" class="headerlink" title="UIBezeiPath的常用绘图函数"></a>UIBezeiPath的常用绘图函数</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘直线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addLineToPoint:</span>(CGPoint)point</div><div class="line"><span class="comment">//绘弧线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addArcWithCenter:</span>(CGPoint)center <span class="string">radius:</span>(CGFloat)radius <span class="string">startAngle:</span>(CGFloat)startAngle <span class="string">endAngle:</span>(CGFloat)endAngle <span class="string">clockwise:</span>(BOOL)clockwise</div><div class="line"><span class="comment">//绘曲线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint1:</span>(CGPoint)controlPoint1 <span class="string">controlPoint2:</span>(CGPoint)controlPoint2</div><div class="line">- (<span class="keyword">void</span>)<span class="string">addQuadCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint:</span>(CGPoint)controlPoint</div></pre></td></tr></table></figure>
-<h4 id="UIBezierPath的有关参数配置"><a href="#UIBezierPath的有关参数配置" class="headerlink" title="UIBezierPath的有关参数配置"></a>UIBezierPath的有关参数配置</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">readonly</span>,<span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div><div class="line">- (<span class="built_in">BOOL</span>)containsPoint:(<span class="built_in">CGPoint</span>)point;</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div><div class="line"></div><div class="line"><span class="comment">//线段风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineCapButt, //默认</div><div class="line">kCGLineCapRound, //圆角</div><div class="line">kCGLineCapSquare //矩形</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">//线段交点风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineJoinMiter, //默认</div><div class="line">kCGLineJoinRound, //圆角</div><div class="line">kCGLineJoinBevel //斜角</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">//最大斜接长度</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit; <span class="comment">// Used when lineJoinStyle is kCGLineJoinMiter</span></div><div class="line"></div><div class="line"><span class="comment">//平滑度 会增大性能消耗</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div><div class="line"></div><div class="line"><span class="comment">//单双数圈规则是否用于绘制路径，默认是NO</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule; </div><div class="line"></div><div class="line"><span class="comment">//设置虚线</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">nullable</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="built_in">NSInteger</span>)count phase:(<span class="built_in">CGFloat</span>)phase;</div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="keyword">nullable</span> <span class="built_in">NSInteger</span> *)count phase:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)phase;</div><div class="line"></div><div class="line"><span class="comment">//填充</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div><div class="line"><span class="comment">//描边</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div><div class="line"></div><div class="line"><span class="comment">//设置混合模式</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/10/08/IOS编程/IOS 多线程/" itemprop="url">
                   IOS多线程
                 </a>
@@ -850,6 +718,138 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [<span class="built_in">NSOperationQueue</span> new];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op0 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op0 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op0 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op1 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op1 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op2 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op2 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op3 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op3 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op3 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op4 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op4 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op4 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op5 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op5 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op5 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op6 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op6 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op6 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op7 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op7 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op7 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op8 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op8 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op8 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op9 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op9 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op9 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">//以为单线程cpu（硬件 ），开始多线程是伪多线程，就是把cpu的线程分很多时间片，每个时间片做一件事，因为速度太快了，所以显得跟多线程一样</span></div><div class="line"><span class="comment">//最佳的线程数量是3—5个</span></div><div class="line">    </div><div class="line"><span class="comment">//NSOperation 就是提供了最大并发数量的属性，此属性必须在任务添加到队列'之前'写才有用！</span></div><div class="line">queue.maxConcurrentOperationCount = <span class="number">3</span>;</div><div class="line">    </div><div class="line"><span class="comment">//规定线程依赖，比如a必须等b线程做完才能进行</span></div><div class="line"><span class="comment">//op0 必须等 op7 和 op9 执行完毕，才能执行</span></div><div class="line">[op0 addDependency:op7];</div><div class="line">[op0 addDependency:op9];</div><div class="line">    </div><div class="line"><span class="comment">//任务添加到队列中之后，任务就会自动执行</span></div><div class="line"><span class="comment">//    [queue addOperation:op0];</span></div><div class="line">    </div><div class="line"><span class="comment">//waitUntilFinished: 参数表示，下方的打印方法是否要等待队列中的任务执行结束之后，在运行</span></div><div class="line">[queue addOperations:@[op0,op1,op2,op3,op4,op5,op6,op7,op8,op9] waitUntilFinished:<span class="literal">NO</span>];</div><div class="line">    </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&gt;&gt;&gt;&gt;&gt;&gt;&gt;"</span>);</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="comment">//取消线程中所有任务：已经执行的任务无法取消</span></div><div class="line"><span class="comment">//    [queue cancelAllOperations];</span></div><div class="line">    </div><div class="line"><span class="comment">//取消个别任务，已经执行的任务无法取消</span></div><div class="line">[op2 cancel];  <span class="comment">//</span></div><div class="line">[op9 cancel];  <span class="comment">//0依赖9 9 被取消 0不再依赖9</span></div><div class="line">    </div><div class="line"><span class="comment">//暂停，已经运行的任务 无法暂停</span></div><div class="line">[queue setSuspended:<span class="literal">YES</span>];</div><div class="line">sleep(<span class="number">10</span>);</div><div class="line">[queue setSuspended:<span class="literal">NO</span>];</div></pre></td></tr></table></figure>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[NSOperationQueue new] 自动开启子线程</span></div><div class="line">[[<span class="built_in">NSOperationQueue</span> new] addOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[[NSOperationQueue new], %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    <span class="comment">//回归主线程</span></div><div class="line">    [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"[[NSOperationQueue mainQueue], %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <h2 id="线程锁"><a href="#线程锁" class="headerlink" title="线程锁"></a>线程锁</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">property</span> (nonatomic) NSLock *<span class="keyword">lock</span><span class="comment">;</span></div><div class="line"></div><div class="line">[self.<span class="keyword">lock</span> <span class="keyword">lock</span>]<span class="comment">;</span></div><div class="line"><span class="comment">//线程所安全执行区域</span></div><div class="line"></div><div class="line">[self.<span class="keyword">lock</span> unlock]<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/08/IOS编程/UIBezierPath/" itemprop="url">
+                  UIBezierPath
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/IOS编程/" itemprop="url" rel="index">
+                    <span itemprop="name">IOS编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/IOS编程/UIBezierPath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/IOS编程/UIBezierPath/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/08/IOS编程/UIBezierPath/" class="leancloud_visitors" data-flag-title="UIBezierPath">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="UIBezierPath的简单实例"><a href="#UIBezierPath的简单实例" class="headerlink" title="UIBezierPath的简单实例"></a>UIBezierPath的简单实例</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&amp;shareKey=000c09a6286d8f52d0ab5d028a9c56d5" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图示代码 在UIView的drawRect:方法中实现</span></div><div class="line">    <span class="comment">//创建曲线Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line">    <span class="comment">//设置起点</span></div><div class="line">    [path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">100</span>)];</div><div class="line">    <span class="comment">//绘制图形</span></div><div class="line">    [path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line">    <span class="comment">//绘制图形</span></div><div class="line">    [path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">300</span>)];</div><div class="line">    </div><div class="line">    <span class="comment">//设置线宽</span></div><div class="line">    [path setLineWidth:<span class="number">3</span>];</div><div class="line">    <span class="comment">//设置颜色</span></div><div class="line">    [[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line">    <span class="comment">//将路径绘制出来</span></div><div class="line">    [path stroke];</div><div class="line">    </div><div class="line">    <span class="comment">//创建矩形Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line">    </div><div class="line">    [path2 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [path2 stroke];</div><div class="line">    </div><div class="line">    <span class="comment">//创建椭圆Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path3 = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">400</span>, <span class="number">80</span>, <span class="number">50</span>)];</div><div class="line">    </div><div class="line">    [path3 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [[<span class="built_in">UIColor</span> greenColor] setFill];</div><div class="line">    [path3 stroke];</div><div class="line">    [path3 fill];</div><div class="line">    </div><div class="line">    <span class="comment">//创建圆角矩形Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path4 = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>, <span class="number">80</span>) cornerRadius:<span class="number">15</span>];</div><div class="line">    </div><div class="line">    [path4 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [path4 stroke];</div><div class="line">    </div><div class="line">    <span class="comment">//创建一个弧线Path</span></div><div class="line">    <span class="built_in">UIBezierPath</span> *path5 = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">400</span>) radius:<span class="number">50</span> startAngle:<span class="number">0</span> endAngle:M_PI_4 clockwise:<span class="literal">NO</span>];</div><div class="line">    </div><div class="line">    [path5 setLineWidth:<span class="number">3</span>];</div><div class="line">    [[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">    [path5 stroke];</div></pre></td></tr></table></figure>
+<h4 id="UIBezeiPath的常用绘图函数"><a href="#UIBezeiPath的常用绘图函数" class="headerlink" title="UIBezeiPath的常用绘图函数"></a>UIBezeiPath的常用绘图函数</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘直线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addLineToPoint:</span>(CGPoint)point</div><div class="line"><span class="comment">//绘弧线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addArcWithCenter:</span>(CGPoint)center <span class="string">radius:</span>(CGFloat)radius <span class="string">startAngle:</span>(CGFloat)startAngle <span class="string">endAngle:</span>(CGFloat)endAngle <span class="string">clockwise:</span>(BOOL)clockwise</div><div class="line"><span class="comment">//绘曲线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint1:</span>(CGPoint)controlPoint1 <span class="string">controlPoint2:</span>(CGPoint)controlPoint2</div><div class="line">- (<span class="keyword">void</span>)<span class="string">addQuadCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint:</span>(CGPoint)controlPoint</div></pre></td></tr></table></figure>
+<h4 id="UIBezierPath的有关参数配置"><a href="#UIBezierPath的有关参数配置" class="headerlink" title="UIBezierPath的有关参数配置"></a>UIBezierPath的有关参数配置</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">readonly</span>,<span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div><div class="line">- (<span class="built_in">BOOL</span>)containsPoint:(<span class="built_in">CGPoint</span>)point;</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div><div class="line"></div><div class="line"><span class="comment">//线段风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineCapButt, //默认</div><div class="line">kCGLineCapRound, //圆角</div><div class="line">kCGLineCapSquare //矩形</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">//线段交点风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineJoinMiter, //默认</div><div class="line">kCGLineJoinRound, //圆角</div><div class="line">kCGLineJoinBevel //斜角</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">//最大斜接长度</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit; <span class="comment">// Used when lineJoinStyle is kCGLineJoinMiter</span></div><div class="line"></div><div class="line"><span class="comment">//平滑度 会增大性能消耗</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div><div class="line"></div><div class="line"><span class="comment">//单双数圈规则是否用于绘制路径，默认是NO</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule; </div><div class="line"></div><div class="line"><span class="comment">//设置虚线</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">nullable</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="built_in">NSInteger</span>)count phase:(<span class="built_in">CGFloat</span>)phase;</div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="keyword">nullable</span> <span class="built_in">NSInteger</span> *)count phase:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)phase;</div><div class="line"></div><div class="line"><span class="comment">//填充</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div><div class="line"><span class="comment">//描边</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div><div class="line"></div><div class="line"><span class="comment">//设置混合模式</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
 
           
         
@@ -1481,7 +1481,7 @@
       
         
           
-            <h2 id="简洁"><a href="#简洁" class="headerlink" title="简洁"></a>简洁</h2><p>这个Demo做了一个富有创意的登录界面，好玩也好看。</p>
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这个Demo做了一个富有创意的登录界面，好玩也好看。</p>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEBc83252c42992880bf40f03aeea43edc1?method=download&amp;inline=true&amp;shareKey=4c37885998d7e4aa7645892f0ded0bc1" alt="图示"></p>
 <p><a href="http://note.youdao.com/noteshare?id=5b087a09f114217600453e77b0fe9fb0" target="_blank" rel="external">Demo地址</a></p>
 
@@ -1612,7 +1612,7 @@
       
         
           
-            <h2 id="WorkBasketVC简洁"><a href="#WorkBasketVC简洁" class="headerlink" title="WorkBasketVC简洁"></a>WorkBasketVC简洁</h2><p>这个Demo使用UITableView做了一个富有动画效果的列表，好玩也好看</p>
+            <h2 id="WorkBasketVC简介"><a href="#WorkBasketVC简介" class="headerlink" title="WorkBasketVC简介"></a>WorkBasketVC简介</h2><p>这个Demo使用UITableView做了一个富有动画效果的列表，好玩也好看</p>
 <p><img src="http://note.youdao.com/yws/api/personal/file/WEB9b026b53a69238aa05bcd0a932ce9924?method=download&amp;inline=true&amp;shareKey=3d30638ce7d804edde40f53d574f8694" alt="WorkBasketVC"></p>
 <p><a href="http://note.youdao.com/noteshare?id=28936fe391edbea8450e9cdb0bca63f8" target="_blank" rel="external">Demo下载</a></p>
 
