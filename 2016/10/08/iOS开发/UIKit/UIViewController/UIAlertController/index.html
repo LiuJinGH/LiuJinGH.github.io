@@ -84,21 +84,27 @@
 
 
 
-<meta name="description" content="UIBezierPath的简单实例
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546//图示代码 在UIView的drawRect:方法中实现//创建曲线PathUIBezierPath *path = [UIBezierPath bezierPath];//设置起点[path m">
+<meta name="description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
+Demo下载
+UIAlertController使用说明初始化123//类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIBezierPath">
-<meta property="og:url" content="https://liujingh.github.io/2016/10/08/iOS编程/UIBezierPath/index.html">
+<meta property="og:title" content="UIAlertController">
+<meta property="og:url" content="https://liujingh.github.io/2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/index.html">
 <meta property="og:site_name" content="流愚">
-<meta property="og:description" content="UIBezierPath的简单实例
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546//图示代码 在UIView的drawRect:方法中实现//创建曲线PathUIBezierPath *path = [UIBezierPath bezierPath];//设置起点[path m">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&shareKey=000c09a6286d8f52d0ab5d028a9c56d5">
-<meta property="og:updated_time" content="2016-10-19T03:51:46.000Z">
+<meta property="og:description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
+Demo下载
+UIAlertController使用说明初始化123//类">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&inline=true&shareKey=59cbbb6f62824ad7001d971e5f844077">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB1a899d6c58750890d9479c33efc900a4?method=download&inline=true&shareKey=e8c66bfc02c0249f582219bce0001c4a">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB4fac04263f6484a940d9ba6383a12c5e?method=download&inline=true&shareKey=0eeae452d6492a13b3814190447340a8">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&inline=true&shareKey=924981244c600ae6dde387445646bb7f">
+<meta property="og:updated_time" content="2016-10-19T03:52:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIBezierPath">
-<meta name="twitter:description" content="UIBezierPath的简单实例
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546//图示代码 在UIView的drawRect:方法中实现//创建曲线PathUIBezierPath *path = [UIBezierPath bezierPath];//设置起点[path m">
-<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&shareKey=000c09a6286d8f52d0ab5d028a9c56d5">
+<meta name="twitter:title" content="UIAlertController">
+<meta name="twitter:description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
+Demo下载
+UIAlertController使用说明初始化123//类">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&inline=true&shareKey=59cbbb6f62824ad7001d971e5f844077">
 
 
 
@@ -119,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="https://liujingh.github.io/2016/10/08/iOS编程/UIBezierPath/"/>
+  <link rel="canonical" href="https://liujingh.github.io/2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/"/>
 
-  <title> UIBezierPath | 流愚 </title>
+  <title> UIAlertController | 流愚 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +290,7 @@
             
             
               
-                UIBezierPath
+                UIAlertController
               
             
           </h1>
@@ -296,7 +302,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+            <time itemprop="dateCreated" datetime="2016-10-08T13:11:37+08:00" content="2016-10-08">
               2016-10-08
             </time>
           </span>
@@ -326,8 +332,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS编程/UIBezierPath/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS编程/UIBezierPath/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -355,11 +361,29 @@
       
 
       
-        <h4 id="UIBezierPath的简单实例"><a href="#UIBezierPath的简单实例" class="headerlink" title="UIBezierPath的简单实例"></a>UIBezierPath的简单实例</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&amp;shareKey=000c09a6286d8f52d0ab5d028a9c56d5" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图示代码 在UIView的drawRect:方法中实现</span></div><div class="line"><span class="comment">//创建曲线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line"><span class="comment">//设置起点</span></div><div class="line">[path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">100</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">300</span>)];</div><div class="line"></div><div class="line"><span class="comment">//设置线宽</span></div><div class="line">[path setLineWidth:<span class="number">3</span>];</div><div class="line"><span class="comment">//设置颜色</span></div><div class="line">[[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line"><span class="comment">//将路径绘制出来</span></div><div class="line">[path stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path2 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path2 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建椭圆Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path3 = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">400</span>, <span class="number">80</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path3 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[[<span class="built_in">UIColor</span> greenColor] setFill];</div><div class="line">[path3 stroke];</div><div class="line">[path3 fill];</div><div class="line"></div><div class="line"><span class="comment">//创建圆角矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path4 = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>, <span class="number">80</span>) cornerRadius:<span class="number">15</span>];</div><div class="line"></div><div class="line">[path4 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path4 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建一个弧线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path5 = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">400</span>) radius:<span class="number">50</span> startAngle:<span class="number">0</span> endAngle:M_PI_4 clockwise:<span class="literal">NO</span>];</div><div class="line"></div><div class="line">[path5 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path5 stroke];</div></pre></td></tr></table></figure>
-<h4 id="UIBezeiPath的常用绘图函数"><a href="#UIBezeiPath的常用绘图函数" class="headerlink" title="UIBezeiPath的常用绘图函数"></a>UIBezeiPath的常用绘图函数</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘直线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addLineToPoint:</span>(CGPoint)point</div><div class="line"><span class="comment">//绘弧线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addArcWithCenter:</span>(CGPoint)center <span class="string">radius:</span>(CGFloat)radius <span class="string">startAngle:</span>(CGFloat)startAngle <span class="string">endAngle:</span>(CGFloat)endAngle <span class="string">clockwise:</span>(BOOL)clockwise</div><div class="line"><span class="comment">//绘曲线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint1:</span>(CGPoint)controlPoint1 <span class="string">controlPoint2:</span>(CGPoint)controlPoint2</div><div class="line">- (<span class="keyword">void</span>)<span class="string">addQuadCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint:</span>(CGPoint)controlPoint</div></pre></td></tr></table></figure>
-<h4 id="UIBezierPath的有关参数配置"><a href="#UIBezierPath的有关参数配置" class="headerlink" title="UIBezierPath的有关参数配置"></a>UIBezierPath的有关参数配置</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">readonly</span>,<span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div><div class="line">- (<span class="built_in">BOOL</span>)containsPoint:(<span class="built_in">CGPoint</span>)point;</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div><div class="line"></div><div class="line"><span class="comment">//线段风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineCapButt, //默认</div><div class="line">kCGLineCapRound, //圆角</div><div class="line">kCGLineCapSquare //矩形</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">//线段交点风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineJoinMiter, //默认</div><div class="line">kCGLineJoinRound, //圆角</div><div class="line">kCGLineJoinBevel //斜角</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">//最大斜接长度</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit; <span class="comment">// Used when lineJoinStyle is kCGLineJoinMiter</span></div><div class="line"></div><div class="line"><span class="comment">//平滑度 会增大性能消耗</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div><div class="line"></div><div class="line"><span class="comment">//单双数圈规则是否用于绘制路径，默认是NO</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule; </div><div class="line"></div><div class="line"><span class="comment">//设置虚线</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">nullable</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="built_in">NSInteger</span>)count phase:(<span class="built_in">CGFloat</span>)phase;</div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="keyword">nullable</span> <span class="built_in">NSInteger</span> *)count phase:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)phase;</div><div class="line"></div><div class="line"><span class="comment">//填充</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div><div class="line"><span class="comment">//描边</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div><div class="line"></div><div class="line"><span class="comment">//设置混合模式</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
-
+        <h2 id="UIAlertController简介"><a href="#UIAlertController简介" class="headerlink" title="UIAlertController简介"></a>UIAlertController简介</h2><p>UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。</p>
+<p><a href="http://note.youdao.com/noteshare?id=f5b8437b11c8a1ae22d8992364c770af" target="_blank" rel="external">Demo下载</a></p>
+<h2 id="UIAlertController使用说明"><a href="#UIAlertController使用说明" class="headerlink" title="UIAlertController使用说明"></a>UIAlertController使用说明</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//类方法</div><div class="line">//title 标题  message 警告信息  preferredStyle 显示样式</div><div class="line">+ (instance<span class="keyword">type</span>)alertControllerWithTitle:(nullable <span class="type">NSString</span> *)title message:(nullable <span class="type">NSString</span> *)message preferredStyle:(<span class="type">UIAlertControllerStyle</span>)preferredStyle;</div></pre></td></tr></table></figure>
+<p>显示样式有两种，示例如下：</p>
+<p><strong>UIAlertControllerStyleActionSheet</strong></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBa705562a575dcffc5c774d4f47f38b36?method=download&amp;inline=true&amp;shareKey=59cbbb6f62824ad7001d971e5f844077" alt="UIAlertControllerStyleActionSheet"></p>
+<p><strong>UIAlertControllerStyleAlert</strong></p>
+<p>当按钮超过三个时，按钮的排列方向会改变为纵向排列</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB1a899d6c58750890d9479c33efc900a4?method=download&amp;inline=true&amp;shareKey=e8c66bfc02c0249f582219bce0001c4a" alt="UIAlertControllerStyleAlert"></p>
+<h3 id="向UIAlertController中添加UIAlertAction"><a href="#向UIAlertController中添加UIAlertAction" class="headerlink" title="向UIAlertController中添加UIAlertAction"></a>向UIAlertController中添加UIAlertAction</h3><p>UIAlertAction其实就是在警告框中看到的按钮，</p>
+<h4 id="UIAlertAction初始化"><a href="#UIAlertAction初始化" class="headerlink" title="UIAlertAction初始化"></a>UIAlertAction初始化</h4><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//title 按钮名称 style 按钮样式 handler 点击按钮要处理的事情</div><div class="line">+ (instance<span class="keyword">type</span>)actionWithTitle:(nullable <span class="type">NSString</span> *)title style:(<span class="type">UIAlertActionStyle</span>)style handler:(void (^ __nullable)(<span class="type">UIAlertAction</span> *action))handler;</div></pre></td></tr></table></figure>
+<p>UIAlertAction的样式有三种：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB4fac04263f6484a940d9ba6383a12c5e?method=download&amp;inline=true&amp;shareKey=0eeae452d6492a13b3814190447340a8" alt="image"></p>
+<p><strong>UIAlertActionStyleDefault 默认</strong></p>
+<p>默认样式总会在最顶部显示</p>
+<p><strong>UIAlertActionStyleCancel 放弃</strong></p>
+<p>放弃样式总会选择总会选择最低部或左边显示</p>
+<p><strong>UIAlertActionStyleDestructive 删除</strong></p>
+<p>删除样式总会以红色来提醒用户</p>
+<h4 id="添加UIAlertAction"><a href="#添加UIAlertAction" class="headerlink" title="添加UIAlertAction"></a>添加UIAlertAction</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">addAction:</span>(UIAlertAction *)action</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert <span class="string">addAction:</span>action1];</div></pre></td></tr></table></figure>
+<h3 id="向UIAlertController中添加TextField-编辑栏"><a href="#向UIAlertController中添加TextField-编辑栏" class="headerlink" title="向UIAlertController中添加TextField(编辑栏)"></a>向UIAlertController中添加TextField(编辑栏)</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&amp;inline=true&amp;shareKey=924981244c600ae6dde387445646bb7f" alt="添加TextField"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//configurationHandler 配置函数块，在这里设置编辑框和自定义设置</span></div><div class="line">- (<span class="keyword">void</span>)addTextFieldWithConfigurationHandler:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">UITextField</span> *textField))configurationHandler;</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert addTextFieldWithConfigurationHandler:^(<span class="built_in">UITextField</span> * _Nonnull textField) &#123;</div><div class="line">textField.placeholder = <span class="string">@"简洁的任务描述"</span>;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h2 id="UIAlertController的坑点"><a href="#UIAlertController的坑点" class="headerlink" title="UIAlertController的坑点"></a>UIAlertController的坑点</h2>
       
     </div>
 
@@ -384,16 +408,12 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/08/Linux/CentOS 7.2 安装Apache HTTP Server/" rel="next" title="Apache HTTP服务器">
-                <i class="fa fa-chevron-left"></i> Apache HTTP服务器
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/11/Mac各种配置/Mac配置Apache和PHP/" rel="prev" title="Mac配置Apache和PHP">
-                Mac配置Apache和PHP <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/08/iOS开发/UIKit/TableView和TableViewCell学习笔记/" rel="prev" title="UITableView">
+                UITableView <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -409,10 +429,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/08/iOS编程/UIBezierPath/"
-     data-title="UIBezierPath"
+        <div class="ds-share flat" data-thread-key="2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/"
+     data-title="UIAlertController"
      data-content=""
-     data-url="https://liujingh.github.io/2016/10/08/iOS编程/UIBezierPath/">
+     data-url="https://liujingh.github.io/2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -442,8 +462,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/08/iOS编程/UIBezierPath/"
-           data-title="UIBezierPath" data-url="https://liujingh.github.io/2016/10/08/iOS编程/UIBezierPath/">
+      <div class="ds-thread" data-thread-key="2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/"
+           data-title="UIAlertController" data-url="https://liujingh.github.io/2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/">
       </div>
     
   </div>
@@ -534,7 +554,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIBezierPath的简单实例"><span class="nav-number">1.</span> <span class="nav-text">UIBezierPath的简单实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIBezeiPath的常用绘图函数"><span class="nav-number">2.</span> <span class="nav-text">UIBezeiPath的常用绘图函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UIBezierPath的有关参数配置"><span class="nav-number">3.</span> <span class="nav-text">UIBezierPath的有关参数配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController简介"><span class="nav-number">1.</span> <span class="nav-text">UIAlertController简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController使用说明"><span class="nav-number">2.</span> <span class="nav-text">UIAlertController使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">2.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向UIAlertController中添加UIAlertAction"><span class="nav-number">2.2.</span> <span class="nav-text">向UIAlertController中添加UIAlertAction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIAlertAction初始化"><span class="nav-number">2.2.1.</span> <span class="nav-text">UIAlertAction初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加UIAlertAction"><span class="nav-number">2.2.2.</span> <span class="nav-text">添加UIAlertAction</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向UIAlertController中添加TextField-编辑栏"><span class="nav-number">2.3.</span> <span class="nav-text">向UIAlertController中添加TextField(编辑栏)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UIAlertController的坑点"><span class="nav-number">3.</span> <span class="nav-text">UIAlertController的坑点</span></a></li></ol></div>
             
           </div>
         </section>
