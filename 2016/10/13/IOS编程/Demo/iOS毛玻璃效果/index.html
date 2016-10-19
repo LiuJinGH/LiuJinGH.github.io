@@ -99,7 +99,7 @@ UIVisualEffectView
 
 UIBlurEffect
 
-123456789101112131415//代码示例    UIImageView">
+123456789101112131415//代码示例UIImageView *iv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS毛玻璃效果">
 <meta property="og:url" content="https://liujingh.github.io/2016/10/13/iOS编程/Demo/iOS毛玻璃效果/index.html">
@@ -119,9 +119,9 @@ UIVisualEffectView
 
 UIBlurEffect
 
-123456789101112131415//代码示例    UIImageView">
+123456789101112131415//代码示例UIImageView *iv">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB0103d8a0f2e902c4183967cb2e2c07b5?method=download&inline=true&shareKey=dc69bc34e7952405f78963fbc61a3617">
-<meta property="og:updated_time" content="2016-10-13T03:32:03.000Z">
+<meta property="og:updated_time" content="2016-10-19T03:51:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS毛玻璃效果">
 <meta name="twitter:description" content="iOS毛玻璃效果这个Demo实现了iOS编程中的毛玻璃效果。
@@ -139,7 +139,7 @@ UIVisualEffectView
 
 UIBlurEffect
 
-123456789101112131415//代码示例    UIImageView">
+123456789101112131415//代码示例UIImageView *iv">
 <meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEB0103d8a0f2e902c4183967cb2e2c07b5?method=download&inline=true&shareKey=dc69bc34e7952405f78963fbc61a3617">
 
 
@@ -352,8 +352,8 @@ UIBlurEffect
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS编程/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS编程</span>
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
                   </a>
                 </span>
 
@@ -412,12 +412,12 @@ UIBlurEffect
 <blockquote>
 <p>UIBlurEffect</p>
 </blockquote>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line">    <span class="built_in">UIImageView</span> *iv = [<span class="built_in">UIImageView</span> new];</div><div class="line">    [<span class="keyword">self</span>.view addSubview:iv];</div><div class="line">    [iv mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.edges.equalTo(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">64</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    iv.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"pic2.jpg"</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">UIBlurEffect</span> *blur = [<span class="built_in">UIBlurEffect</span> effectWithStyle:<span class="built_in">UIBlurEffectStyleDark</span>];</div><div class="line">    <span class="built_in">UIVisualEffectView</span> *effectView = [[<span class="built_in">UIVisualEffectView</span> alloc] initWithEffect:blur];</div><div class="line">    [iv addSubview:effectView];</div><div class="line">    [effectView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.edges.equalTo(<span class="number">0</span>);</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line"><span class="built_in">UIImageView</span> *iv = [<span class="built_in">UIImageView</span> new];</div><div class="line">[<span class="keyword">self</span>.view addSubview:iv];</div><div class="line">[iv mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">make.edges.equalTo(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">64</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</div><div class="line">&#125;];</div><div class="line"></div><div class="line">iv.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"pic2.jpg"</span>];</div><div class="line"></div><div class="line"><span class="built_in">UIBlurEffect</span> *blur = [<span class="built_in">UIBlurEffect</span> effectWithStyle:<span class="built_in">UIBlurEffectStyleDark</span>];</div><div class="line"><span class="built_in">UIVisualEffectView</span> *effectView = [[<span class="built_in">UIVisualEffectView</span> alloc] initWithEffect:blur];</div><div class="line">[iv addSubview:effectView];</div><div class="line">[effectView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">make.edges.equalTo(<span class="number">0</span>);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <h2 id="iOS7-及之前版本"><a href="#iOS7-及之前版本" class="headerlink" title="iOS7 及之前版本"></a>iOS7 及之前版本</h2><p>在iOS7及之前的版本是没有上面用到的这两个API的。但在系统内部实际上已经有类似的API实现了，比如在导航栏和工具栏就已经实现了毛玻璃效果。这时，为了实现毛玻璃的效果，可以用到一个取巧的方法：将一个UIToolbar当成一个UIVisualEffectView贴上去</p>
 <blockquote>
 <p>UIToolbar</p>
 </blockquote>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line">    UIToolbar *<span class="built_in">bar</span> = [[UIToolbar alloc] init];</div><div class="line">    [iv addSubview:<span class="built_in">bar</span>];</div><div class="line">    [<span class="built_in">bar</span> mas_makeConstraints:^(MASConstraintMaker *<span class="built_in">make</span>) &#123;</div><div class="line">        <span class="built_in">make</span>.edges.equalTo(<span class="number">0</span>);</div><div class="line">    &#125;];</div><div class="line">    [<span class="built_in">bar</span> setBarStyle:UIBarStyleBlack];</div><div class="line">    <span class="built_in">bar</span>.translatesAutoresizingMaskIntoConstraints = NO;</div></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line">UIToolbar *<span class="built_in">bar</span> = [[UIToolbar alloc] init];</div><div class="line">[iv addSubview:<span class="built_in">bar</span>];</div><div class="line">[<span class="built_in">bar</span> mas_makeConstraints:^(MASConstraintMaker *<span class="built_in">make</span>) &#123;</div><div class="line"><span class="built_in">make</span>.edges.equalTo(<span class="number">0</span>);</div><div class="line">&#125;];</div><div class="line">[<span class="built_in">bar</span> setBarStyle:UIBarStyleBlack];</div><div class="line"><span class="built_in">bar</span>.translatesAutoresizingMaskIntoConstraints = NO;</div></pre></td></tr></table></figure>
 
       
     </div>
