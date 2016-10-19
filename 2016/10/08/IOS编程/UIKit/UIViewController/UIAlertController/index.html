@@ -98,7 +98,7 @@ UIAlertController使用说明初始化123//类">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB1a899d6c58750890d9479c33efc900a4?method=download&inline=true&shareKey=e8c66bfc02c0249f582219bce0001c4a">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB4fac04263f6484a940d9ba6383a12c5e?method=download&inline=true&shareKey=0eeae452d6492a13b3814190447340a8">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&inline=true&shareKey=924981244c600ae6dde387445646bb7f">
-<meta property="og:updated_time" content="2016-10-16T09:59:20.000Z">
+<meta property="og:updated_time" content="2016-10-19T03:12:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIAlertController">
 <meta name="twitter:description" content="UIAlertController简介UIAlertController是IOS8推出的警示框，UIAlerView已经被苹果官方弃用了（虽然弃用，但还是可以使用，只是更推荐你使用UIAlertController）。UIAlertController相比UIAlertView，使用方法更加简洁明了，但使用局限也更大一些。
@@ -382,7 +382,7 @@ UIAlertController使用说明初始化123//类">
 <p>删除样式总会以红色来提醒用户</p>
 <h4 id="添加UIAlertAction"><a href="#添加UIAlertAction" class="headerlink" title="添加UIAlertAction"></a>添加UIAlertAction</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)<span class="string">addAction:</span>(UIAlertAction *)action</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert <span class="string">addAction:</span>action1];</div></pre></td></tr></table></figure>
 <h3 id="向UIAlertController中添加TextField-编辑栏"><a href="#向UIAlertController中添加TextField-编辑栏" class="headerlink" title="向UIAlertController中添加TextField(编辑栏)"></a>向UIAlertController中添加TextField(编辑栏)</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB567f88dbbb22a416c09d7315f72214ee?method=download&amp;inline=true&amp;shareKey=924981244c600ae6dde387445646bb7f" alt="添加TextField"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//configurationHandler 配置函数块，在这里设置编辑框和自定义设置</span></div><div class="line">- (<span class="keyword">void</span>)addTextFieldWithConfigurationHandler:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">UITextField</span> *textField))configurationHandler;</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert addTextFieldWithConfigurationHandler:^(<span class="built_in">UITextField</span> * _Nonnull textField) &#123;</div><div class="line">        textField.placeholder = <span class="string">@"简洁的任务描述"</span>;</div><div class="line">    &#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//configurationHandler 配置函数块，在这里设置编辑框和自定义设置</span></div><div class="line">- (<span class="keyword">void</span>)addTextFieldWithConfigurationHandler:(<span class="keyword">void</span> (^ __<span class="keyword">nullable</span>)(<span class="built_in">UITextField</span> *textField))configurationHandler;</div><div class="line"><span class="comment">//示例</span></div><div class="line">[alert addTextFieldWithConfigurationHandler:^(<span class="built_in">UITextField</span> * _Nonnull textField) &#123;</div><div class="line">textField.placeholder = <span class="string">@"简洁的任务描述"</span>;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <h2 id="UIAlertController的坑点"><a href="#UIAlertController的坑点" class="headerlink" title="UIAlertController的坑点"></a>UIAlertController的坑点</h2>
       
     </div>
@@ -412,8 +412,8 @@ UIAlertController使用说明初始化123//类">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/08/IOS编程/UIKit/TableView和TableViewCell学习笔记/" rel="prev" title="UITableView">
-                UITableView <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/08/IOS编程/IOS 多线程/" rel="prev" title="IOS多线程">
+                IOS多线程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
