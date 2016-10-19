@@ -364,6 +364,24 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Webmin]]></title>
+      <url>https://liujingh.github.io/2016/10/08/Linux/Webmin%E5%B7%A5%E5%85%B7/</url>
+      <content type="html"><![CDATA[<h2 id="Webmin简介"><a href="#Webmin简介" class="headerlink" title="Webmin简介"></a>Webmin简介</h2><h2 id="Webmin安装"><a href="#Webmin安装" class="headerlink" title="Webmin安装"></a>Webmin安装</h2><p>方式一：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget <span class="string">http:</span><span class="comment">//download.webmin.com/download/yum/webmin-1.810-1.noarch.rpm</span></div><div class="line">rpm -ivh webmin<span class="number">-1.810</span><span class="number">-1.</span>noarch.rpm</div><div class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>webmin start</div></pre></td></tr></table></figure></p>
+<p>方式二：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/webmin<span class="selector-class">.repo</span></div><div class="line">[Webmin]</div><div class="line"></div><div class="line">name=Webmin Distribution Neutral</div><div class="line">#baseurl=http:<span class="comment">//download.webmin.com/download/yum</span></div><div class="line">mirrorlist=http:<span class="comment">//download.webmin.com/download/yum/mirrorlist</span></div><div class="line"></div><div class="line"></div><div class="line">wget http:<span class="comment">//www.webmin.com/jcameron-key.asc</span></div><div class="line">rpm --import jcameron-key<span class="selector-class">.asc</span></div><div class="line">yum install webmin</div></pre></td></tr></table></figure></p>
+<p>安装成功提示：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Webmin <span class="keyword">install</span> complete. You can <span class="keyword">now</span> login <span class="keyword">to</span> https://localhost.localdomain:<span class="number">10000</span>/</div></pre></td></tr></table></figure></p>
+<p>安装成功之后，还要处理一下防火墙问题，要么打开防火墙的10000端口，要么直接关闭掉防火墙。这里是直接关掉防火墙。</p>
+<p>CentOS 7.2默认使用的是firewall作为防火墙。<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#停止firewall</span></div><div class="line">systemctl <span class="keyword">stop</span> firewalld.service </div><div class="line"><span class="meta">#禁止firewall开机启动</span></div><div class="line">systemctl <span class="keyword">disable</span> firewalld.service</div></pre></td></tr></table></figure></p>
+<h2 id="登录Webmin"><a href="#登录Webmin" class="headerlink" title="登录Webmin"></a>登录Webmin</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#172.16.204.135是我的虚拟机的IP地址，请自行替换</span></div><div class="line">https:<span class="comment">//172.16.204.135:10000</span></div><div class="line"><span class="meta">#如果浏览器提示安全连接问题(由于https造成的)登录不上，可以换一个浏览器试试，我用火狐连接不了</span></div></pre></td></tr></table></figure>
+<p>登录界面</p>
+<blockquote>
+<p>登录密码为Linux的root账户的密码</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&amp;inline=true&amp;shareKey=4300f4463ec5cc3cbbebfbedc03000a7" alt="image"></p>
+<h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB9d04a24e16b1ef37d132ec0e74e35c36?method=download&amp;inline=true&amp;shareKey=4d90c6f205253b6915025e4390bef955" alt="image"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[UITableView]]></title>
       <url>https://liujingh.github.io/2016/10/08/iOS%E7%BC%96%E7%A8%8B/UIKit/TableView%E5%92%8CTableViewCell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
       <content type="html"><![CDATA[<h2 id="UITableView的原理"><a href="#UITableView的原理" class="headerlink" title="UITableView的原理"></a>UITableView的原理</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB49c6696c7b4c3512d95338e968d07af5?method=download&amp;inline=true&amp;shareKey=4ae12deaaa0b3037b868a1472bf08949" alt="image"></p>
@@ -415,24 +433,6 @@
 <p>automaticallyAdjustsScrollViewInsets用于设置ViewController是否自动调整他的scroll View insets。默认为YES,表示允许ViewController自动调整由于适用scroll View 而生成的各种navigation bar,status bar,tool bar和tab bar.也就是说在默认情况下ViewController会为用户自动调整ScrollView及其子类，已适用ViewController上面的各种Bar</p>
 <p>解决方法：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeBottom</span>;</div><div class="line"><span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</div></pre></td></tr></table></figure>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Webmin]]></title>
-      <url>https://liujingh.github.io/2016/10/08/Linux/Webmin%E5%B7%A5%E5%85%B7/</url>
-      <content type="html"><![CDATA[<h2 id="Webmin简介"><a href="#Webmin简介" class="headerlink" title="Webmin简介"></a>Webmin简介</h2><h2 id="Webmin安装"><a href="#Webmin安装" class="headerlink" title="Webmin安装"></a>Webmin安装</h2><p>方式一：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget <span class="string">http:</span><span class="comment">//download.webmin.com/download/yum/webmin-1.810-1.noarch.rpm</span></div><div class="line">rpm -ivh webmin<span class="number">-1.810</span><span class="number">-1.</span>noarch.rpm</div><div class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>webmin start</div></pre></td></tr></table></figure></p>
-<p>方式二：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/webmin<span class="selector-class">.repo</span></div><div class="line">[Webmin]</div><div class="line"></div><div class="line">name=Webmin Distribution Neutral</div><div class="line">#baseurl=http:<span class="comment">//download.webmin.com/download/yum</span></div><div class="line">mirrorlist=http:<span class="comment">//download.webmin.com/download/yum/mirrorlist</span></div><div class="line"></div><div class="line"></div><div class="line">wget http:<span class="comment">//www.webmin.com/jcameron-key.asc</span></div><div class="line">rpm --import jcameron-key<span class="selector-class">.asc</span></div><div class="line">yum install webmin</div></pre></td></tr></table></figure></p>
-<p>安装成功提示：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Webmin <span class="keyword">install</span> complete. You can <span class="keyword">now</span> login <span class="keyword">to</span> https://localhost.localdomain:<span class="number">10000</span>/</div></pre></td></tr></table></figure></p>
-<p>安装成功之后，还要处理一下防火墙问题，要么打开防火墙的10000端口，要么直接关闭掉防火墙。这里是直接关掉防火墙。</p>
-<p>CentOS 7.2默认使用的是firewall作为防火墙。<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#停止firewall</span></div><div class="line">systemctl <span class="keyword">stop</span> firewalld.service </div><div class="line"><span class="meta">#禁止firewall开机启动</span></div><div class="line">systemctl <span class="keyword">disable</span> firewalld.service</div></pre></td></tr></table></figure></p>
-<h2 id="登录Webmin"><a href="#登录Webmin" class="headerlink" title="登录Webmin"></a>登录Webmin</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#172.16.204.135是我的虚拟机的IP地址，请自行替换</span></div><div class="line">https:<span class="comment">//172.16.204.135:10000</span></div><div class="line"><span class="meta">#如果浏览器提示安全连接问题(由于https造成的)登录不上，可以换一个浏览器试试，我用火狐连接不了</span></div></pre></td></tr></table></figure>
-<p>登录界面</p>
-<blockquote>
-<p>登录密码为Linux的root账户的密码</p>
-</blockquote>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&amp;inline=true&amp;shareKey=4300f4463ec5cc3cbbebfbedc03000a7" alt="image"></p>
-<h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB9d04a24e16b1ef37d132ec0e74e35c36?method=download&amp;inline=true&amp;shareKey=4d90c6f205253b6915025e4390bef955" alt="image"></p>
 ]]></content>
     </entry>
     
