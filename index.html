@@ -1084,182 +1084,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/IOS编程/Context/" itemprop="url">
-                  CGContext
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS编程/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS编程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/08/IOS编程/Context/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/IOS编程/Context/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
-<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
-<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
-<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
-<li>获取图形上下文：</li>
-</ol>
-<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
-<ol>
-<li>绘制图形：</li>
-</ol>
-<p>先设置绘制起点</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>然后根据需要绘制图形</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>绘制参数配置：</li>
-</ol>
-<p>宽度：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>颜色：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>将图形上下文绘制出来：</li>
-</ol>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
-<ol>
-<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
-<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
-</ol>
-<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
-<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
-<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
-<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p>CGContextFillPath是填充</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
-<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
-<p>画矩形</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
-<p>画曲线</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
-<p>画椭圆</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
-<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p>设置线之间的交点为圆角</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>设置透明度</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/10/08/IOS编程/CoreAnimation/" itemprop="url">
                   CoreAnimation
                 </a>
@@ -1474,6 +1298,182 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/08/IOS编程/Context/" itemprop="url">
+                  CGContext
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS编程/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/IOS编程/Context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/IOS编程/Context/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
+<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
+<li>获取图形上下文：</li>
+</ol>
+<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
+<ol>
+<li>绘制图形：</li>
+</ol>
+<p>先设置绘制起点</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>然后根据需要绘制图形</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>绘制参数配置：</li>
+</ol>
+<p>宽度：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>颜色：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>将图形上下文绘制出来：</li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
+<ol>
+<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
+<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
+</ol>
+<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
+<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
+<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
+<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>CGContextFillPath是填充</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
+<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
+<p>画矩形</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
+<p>画曲线</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
+<p>画椭圆</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
+<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>设置线之间的交点为圆角</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>设置透明度</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/IOS编程/Demo/LoginVC/" itemprop="url">
                   登录界面
                 </a>
@@ -1596,8 +1596,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/IOS编程/IOS 多线程/" itemprop="url">
-                  IOS多线程
+                <a class="post-title-link" href="/2016/10/08/IOS编程/Demo/WorkBasketVC/" itemprop="url">
+                  输入界面
                 </a>
               
             
@@ -1640,8 +1640,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/08/IOS编程/IOS 多线程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/IOS编程/IOS 多线程/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/IOS编程/Demo/WorkBasketVC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/IOS编程/Demo/WorkBasketVC/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1666,66 +1666,11 @@
       
         
           
-            <h2 id="IOS提供的处理多线程的方式一共分为4种，分别是："><a href="#IOS提供的处理多线程的方式一共分为4种，分别是：" class="headerlink" title="IOS提供的处理多线程的方式一共分为4种，分别是："></a>IOS提供的处理多线程的方式一共分为4种，分别是：</h2><ul>
-<li>pThread：最早期，纯C的，兼容所有C语言基础的代码</li>
-<li>NSThread：本质上是使用OC对pThread的一个封装，是早期IOS使用的多线程</li>
-<li>GCD（Grand Central Dispatch）：使用C语言+block语法，目前为止苹果主推的多线程技术，功能强大，效率高</li>
-<li>NSOperationQueue: 使用OC对于GCD的一个封装, 在GCD基础上额外增加了几个特性, 不过效率没有GCD高.</li>
-</ul>
-<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>当应用程序从硬盘上被拷贝到内存中, 运行起来以后, 就称为一个进程, 即进行中的程序.</p>
-<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的. </p>
-<p>多线程可以在单核 CPU 上同时（或者至少看作同时）运行。操作系统将小的时间片分配给每一个线程，这样就能够让用户感觉到有多个任务在同时进行。如果 CPU 是多核的，那么线程就可以真正的以并发方式被执行，从而减少了完成某项操作所需要的总时间. </p>
-<p>一个线程同一时间只能做一件事.<br> 如果一件事没做完, 又给线程安排其他的任务. 则排队</p>
-<p> 线程的生命:<br> 线程开启以后, 如果线程上的任务结束以后, 线程就会自动关闭掉.</p>
-<p> 比喻: 线程是一条跑道, 任务是跑道上的赛车, 赛车跑到路的尽头就会撞毁. 那么跑道就没有存在的必要了.</p>
-<h2 id="主线程与子线程"><a href="#主线程与子线程" class="headerlink" title="主线程与子线程"></a>主线程与子线程</h2><p>主线程:优先级最高的, 当CPU资源有限时,会优先进行主线程上的任务. </p>
-<p> 主线程: 是一个圆形的跑道, 车是在上面绕圈跑的.<br> 这个设计被称为 runloop  运行环</p>
-<p> 主要思路是在 线程中写了一行代码<br> while(YES){</p>
-<p> }</p>
+            <h1 id="WorkBasketVC简介"><a href="#WorkBasketVC简介" class="headerlink" title="WorkBasketVC简介"></a>WorkBasketVC简介</h1><p>这个Demo使用UITableView做了一个富有动画效果的列表，好玩也好看</p>
 <blockquote>
-<p>苹果规定所有能被用户察觉的操作, 都应该放到主线程上, 所有UI视图都应该在主线程中执行</p>
+<p><a href="http://note.youdao.com/noteshare?id=28936fe391edbea8450e9cdb0bca63f8" target="_blank" rel="external">有道云笔记下载Demo</a></p>
 </blockquote>
-<p>子线程:优先级次于主线程, 无法被用户察觉的的操作都可以放到子线程中执行</p>
-<h2 id="异步、同步和并发、串行"><a href="#异步、同步和并发、串行" class="headerlink" title="异步、同步和并发、串行"></a>异步、同步和并发、串行</h2><blockquote>
-<p>异步：异于当前方法所在线程  async</p>
-<p>同步：同于当前方法所在线程 sync</p>
-<p>串行：任务按顺序执行 seral</p>
-<p>并行：任务没有顺序，同时执行 concurrent</p>
-</blockquote>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB22df0e96cc04716c6753bf96b18c2a32?method=download&amp;inline=true&amp;shareKey=1a0ba493e5b70f060c5e6d425f9ce570" alt="image"></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB847fbf598e11a8faff81a64bd6c71231?method=download&amp;inline=true&amp;shareKey=a101fd01c9caa97005e5f288f5906b87" alt="image"></p>
-<h2 id="NSThraed"><a href="#NSThraed" class="headerlink" title="NSThraed"></a>NSThraed</h2><p>开始线程</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方式1 在后台线程执行方法</span></div><div class="line">[<span class="keyword">self</span> performSelectorInBackground:<span class="keyword">@selector</span>(wasteTime) withObject:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line"><span class="comment">//方式2: 和方式1 木有任何区别</span></div><div class="line">[<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(wasteTime) toTarget:<span class="keyword">self</span> withObject:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line"><span class="comment">//方式3: 方式2和方式1不能给线程命名，但方式3可以</span></div><div class="line"><span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(wasteTime) object:<span class="literal">nil</span>];</div><div class="line">thread.name = <span class="string">@"1606"</span>;</div><div class="line">[thread start];<span class="comment">//必须手动开启</span></div></pre></td></tr></table></figure>
-<p>获取当前线程</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[NSThread currentThread]: 获取当前方法所在的线程</span></div><div class="line">    <span class="comment">//number=1 代表主线程, 其他都是子线程</span></div><div class="line"><span class="selector-attr">[NSThread currentThread]</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><nsthread: 0x7fd132f010e0="">{number = 1, name = main}</nsthread:></p>
-<p><nsthread: 0x7fd132f09780="">{number = 2, name = 1606}</nsthread:></p>
-</blockquote>
-<p>返回主线程</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//从子线程回归主线程,规避掉线程不安全的操作</span></div><div class="line">[<span class="keyword">self</span> performSelectorOnMainThread:<span class="keyword">@selector</span>(changeUI) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</div><div class="line"><span class="comment">//waitUntilDone:表示是否要等待changeUI这个方法执行结束以后, 才继续执行下方代码</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"--------------------"</span>);</div></pre></td></tr></table></figure>
-<p>结束线程</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NSThread <span class="keyword">exit</span>]; <span class="regexp">//</span>结束当前线程</div></pre></td></tr></table></figure>
-<h2 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h2><p>获取线程</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//主线程</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> mainDispatchQueue = dispatch_get_main_queue();</div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取子线程</span></div><div class="line">dispatch_get_global_queue(<span class="keyword">long</span> identifier, <span class="keyword">unsigned</span> <span class="keyword">long</span> flags);</div></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//最高</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> globalDispatchQueueHigh =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, <span class="number">0</span>);</div><div class="line"><span class="comment">//默认</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> golbalDispatchQueueDefault = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line"><span class="comment">//低</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> golbalDispatchQueueLow = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, <span class="number">0</span>);</div><div class="line"><span class="comment">//后台</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> golbalDispatchQueueBackground = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, <span class="number">0</span>);</div></pre></td></tr></table></figure>
-<p>GCD的使用</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//dispatch_get_global_queue获取全局队列, 参数1代表优先级, 0是默认优先级. 参数2 无用</span></div><div class="line"><span class="selector-tag">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line"><span class="comment">//子线程执行区域</span></div><div class="line"></div><div class="line">    <span class="comment">//dispatch_get_main_queue() 主队列</span></div><div class="line">    <span class="selector-tag">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line">    <span class="comment">//主线程执行区域，负责刷新子线程中的数据</span></div><div class="line">    </div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>组线程使用<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">YES</span>];</div><div class="line"></div><div class="line"><span class="comment">//方法1    </span></div><div class="line"><span class="comment">//我们可以把多个子线程放到一个分组中，通过监听此分组的情况来决定一些操作</span></div><div class="line">dispatch_group_t group = dispatch_group_create();</div><div class="line">[imagePaths enumerateObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:obj];</div><div class="line">    </div><div class="line">    dispatch_group_async(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</div><div class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data];</div><div class="line">        </div><div class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line">            <span class="keyword">self</span>.imageViews[idx].image = image;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">        </div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="comment">//监听分组中的线程都执行结束的时机</span></div><div class="line">dispatch_group_notify(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">NO</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方法2</span></div><div class="line"><span class="comment">//barrier （墙）:必须加到自建队列中。</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="literal">NULL</span>,   DISPATCH_QUEUE_CONCURRENT);</div><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">YES</span>];</div><div class="line">[imagePaths enumerateObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:obj];</div><div class="line">    </div><div class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</div><div class="line">        <span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageWithData:data];</div><div class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line">            <span class="keyword">self</span>.imageViews[idx].image = img;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;];</div><div class="line"><span class="comment">//在自建的并行队列中添加墙，墙只有在并行队列中的所有任务都执行结束后，才会被推倒</span></div><div class="line">dispatch_barrier_async(queue, ^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">NO</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>多线程单例</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//线程安全方法  只会执行一次</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line">    </div><div class="line">    sleep(<span class="number">1</span>);</div><div class="line">    s = [MySingle new];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@ 正在初始化"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">        </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="NSOperation"><a href="#NSOperation" class="headerlink" title="NSOperation"></a>NSOperation</h2><p> NSOperation 就是 使用OC语法 对GCD做的封装， 效率上略低（可以忽略不计），继续如何选择 看个人喜好</p>
-<p> NSOperationQueue ：队列</p>
-<p> NSOperation : 任务</p>
-<p> ‘任务’ 存放在 ‘队列’ 中，‘队列’ 存放在 ‘线程’ 中</p>
-<p>创建线程</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//主线程</span></div><div class="line">[<span class="built_in">NSOperationQueue</span> mainQueue]</div><div class="line"><span class="comment">//子线程 默认</span></div><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [<span class="built_in">NSOperationQueue</span> new];</div></pre></td></tr></table></figure>
-<p>NSOperation 的使用</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [<span class="built_in">NSOperationQueue</span> new];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op0 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op0 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op0 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op1 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op1 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op2 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op2 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op3 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op3 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op3 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op4 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op4 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op4 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op5 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op5 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op5 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op6 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op6 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op6 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op7 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op7 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op7 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op8 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op8 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op8 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">    </div><div class="line"><span class="built_in">NSOperation</span> *op9 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op9 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    sleep(<span class="number">2</span>);</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"op9 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">//以为单线程cpu（硬件 ），开始多线程是伪多线程，就是把cpu的线程分很多时间片，每个时间片做一件事，因为速度太快了，所以显得跟多线程一样</span></div><div class="line"><span class="comment">//最佳的线程数量是3—5个</span></div><div class="line">    </div><div class="line"><span class="comment">//NSOperation 就是提供了最大并发数量的属性，此属性必须在任务添加到队列'之前'写才有用！</span></div><div class="line">queue.maxConcurrentOperationCount = <span class="number">3</span>;</div><div class="line">    </div><div class="line"><span class="comment">//规定线程依赖，比如a必须等b线程做完才能进行</span></div><div class="line"><span class="comment">//op0 必须等 op7 和 op9 执行完毕，才能执行</span></div><div class="line">[op0 addDependency:op7];</div><div class="line">[op0 addDependency:op9];</div><div class="line">    </div><div class="line"><span class="comment">//任务添加到队列中之后，任务就会自动执行</span></div><div class="line"><span class="comment">//    [queue addOperation:op0];</span></div><div class="line">    </div><div class="line"><span class="comment">//waitUntilFinished: 参数表示，下方的打印方法是否要等待队列中的任务执行结束之后，在运行</span></div><div class="line">[queue addOperations:@[op0,op1,op2,op3,op4,op5,op6,op7,op8,op9] waitUntilFinished:<span class="literal">NO</span>];</div><div class="line">    </div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&gt;&gt;&gt;&gt;&gt;&gt;&gt;"</span>);</div><div class="line">    </div><div class="line">    </div><div class="line"><span class="comment">//取消线程中所有任务：已经执行的任务无法取消</span></div><div class="line"><span class="comment">//    [queue cancelAllOperations];</span></div><div class="line">    </div><div class="line"><span class="comment">//取消个别任务，已经执行的任务无法取消</span></div><div class="line">[op2 cancel];  <span class="comment">//</span></div><div class="line">[op9 cancel];  <span class="comment">//0依赖9 9 被取消 0不再依赖9</span></div><div class="line">    </div><div class="line"><span class="comment">//暂停，已经运行的任务 无法暂停</span></div><div class="line">[queue setSuspended:<span class="literal">YES</span>];</div><div class="line">sleep(<span class="number">10</span>);</div><div class="line">[queue setSuspended:<span class="literal">NO</span>];</div></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[NSOperationQueue new] 自动开启子线程</span></div><div class="line">[[<span class="built_in">NSOperationQueue</span> new] addOperationWithBlock:^&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[[NSOperationQueue new], %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    <span class="comment">//回归主线程</span></div><div class="line">    [[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"[[NSOperationQueue mainQueue], %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">    &#125;];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<h2 id="线程锁"><a href="#线程锁" class="headerlink" title="线程锁"></a>线程锁</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">property</span> (nonatomic) NSLock *<span class="keyword">lock</span><span class="comment">;</span></div><div class="line"></div><div class="line">[self.<span class="keyword">lock</span> <span class="keyword">lock</span>]<span class="comment">;</span></div><div class="line"><span class="comment">//线程所安全执行区域</span></div><div class="line"></div><div class="line">[self.<span class="keyword">lock</span> unlock]<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9b026b53a69238aa05bcd0a932ce9924?method=download&amp;inline=true&amp;shareKey=3d30638ce7d804edde40f53d574f8694" alt="WorkBasketVC"></p>
 
           
         
