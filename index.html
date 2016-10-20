@@ -278,6 +278,196 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/19/iOS开发/其他/iOS地图/" itemprop="url">
+                  iOS地图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T09:09:27+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/19/iOS开发/其他/iOS地图/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/19/iOS开发/其他/iOS地图/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="iOS地图简介"><a href="#iOS地图简介" class="headerlink" title="iOS地图简介"></a>iOS地图简介</h1><p>苹果一般使用的谷歌、高德地图。但在大天朝谷歌地图用不了，所以一般使用高德地图。</p>
+<p>有关iOS 高德地图的一些API介绍</p>
+<blockquote>
+<p>MapKit.framework 使用高德地图时，需要导入MapKit框架。</p>
+<p>MKMapView 地图视图，在iOS中其父类继承的是UIView，在MacOS中其父类继承的是NSView。其主要功能是将地图以视图形式显示出来</p>
+<p>CLGeocoder 地理编码器，其主要功能是将地理位置转化为经纬度，或将经纬度转化为地理位置。</p>
+<p>CLPlacemark 地标，存储了指定经纬度的地标信息，诸如国家，城市，街道等。</p>
+<p>CLLocationManager 定位管理器，用于设置地图中的定位服务。</p>
+<p>CLLocation 位置，封装了以经纬度为基点的地理信息，与地标不同的是，它没有包含具体位置信息。</p>
+<p>MKAnnotationView 位置注释视图，其主要功能为标记一个位置信息</p>
+</blockquote>
+<h1 id="iOS地图的使用"><a href="#iOS地图的使用" class="headerlink" title="iOS地图的使用"></a>iOS地图的使用</h1><h2 id="向工程中导入MapKit框架"><a href="#向工程中导入MapKit框架" class="headerlink" title="向工程中导入MapKit框架"></a>向工程中导入MapKit框架</h2><h3 id="进入工程配置文件"><a href="#进入工程配置文件" class="headerlink" title="进入工程配置文件"></a>进入工程配置文件</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEBd7fd48be47c6cfe1e7131e70f05f36b2?method=download&amp;inline=true&amp;shareKey=b534bbad14aa37dcc2e85a3de5c6d2e8" alt="image"></p>
+<h3 id="选择添加工程框架"><a href="#选择添加工程框架" class="headerlink" title="选择添加工程框架"></a>选择添加工程框架</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEBca73cda57994c8ee2daeee4e141721f4?method=download&amp;inline=true&amp;shareKey=42c38260f8e71c26dee817e663c43899" alt="image"></p>
+<h3 id="添加MapKit框架"><a href="#添加MapKit框架" class="headerlink" title="添加MapKit框架"></a>添加MapKit框架</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEBd59a4ec036264234f5d9ce5ee9d7db67?method=download&amp;inline=true&amp;shareKey=086694a2881d3af13d255deb3bfbf28e" alt="image"></p>
+<h3 id="添加成功显示"><a href="#添加成功显示" class="headerlink" title="添加成功显示"></a>添加成功显示</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB296d384b6f083443a0b67b42265cec49?method=download&amp;inline=true&amp;shareKey=339772dccc66f99d2c81977393c8adcf" alt="image"></p>
+<h2 id="使用MKMapView显示地图"><a href="#使用MKMapView显示地图" class="headerlink" title="使用MKMapView显示地图"></a>使用MKMapView显示地图</h2><h3 id="导入相关包"><a href="#导入相关包" class="headerlink" title="导入相关包"></a>导入相关包</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@<span class="meta"><span class="meta-keyword">import</span> MapKit;</span>  <span class="comment">//显示地图</span></div><div class="line">@<span class="meta"><span class="meta-keyword">import</span> CoreLocation;</span>  <span class="comment">// 地位服务</span></div></pre></td></tr></table></figure>
+<h3 id="使用MKMapView显示地图-1"><a href="#使用MKMapView显示地图-1" class="headerlink" title="使用MKMapView显示地图"></a>使用MKMapView显示地图</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> ViewController ()</div><div class="line"><span class="comment">//定义一个MKMapView属性</span></div><div class="line"><span class="variable">@property</span> (nonatomic) MKMapView *mapView;</div><div class="line"><span class="variable">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    _mapView = [[<span class="built_in">MKMapView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</div><div class="line">    _mapView.mapType = <span class="built_in">MKMapTypeStandard</span>;</div><div class="line">    [<span class="keyword">self</span>.view addSubview:_mapView];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="mapType的选择"><a href="#mapType的选择" class="headerlink" title="mapType的选择"></a>mapType的选择</h3><p>在MKMapView中，mapType属性决定了地图显示的样式。在苹果官方定义中有如下</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">typedef <span class="type">NS_ENUM</span>(<span class="type">NSUInteger</span>, <span class="type">MKMapType</span>) &#123;</div><div class="line">    <span class="type">MKMapTypeStandard</span> = 0,</div><div class="line">    <span class="type">MKMapTypeSatellite</span>,</div><div class="line">    <span class="type">MKMapTypeHybrid</span>,</div><div class="line">    <span class="type">MKMapTypeSatelliteFlyover</span>,</div><div class="line">    <span class="type">MKMapTypeHybridFlyover</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="MKMapTypeStandard样式"><a href="#MKMapTypeStandard样式" class="headerlink" title="MKMapTypeStandard样式"></a>MKMapTypeStandard样式</h4><p>标准地图</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB2aa39d24b6777b3f2167784a406162f8?method=download&amp;inline=true&amp;shareKey=bffe54bbcd3310f7daa8c5802ba7ce1f" alt="image"></p>
+<h4 id="MKMapTypeSatellite样式"><a href="#MKMapTypeSatellite样式" class="headerlink" title="MKMapTypeSatellite样式"></a>MKMapTypeSatellite样式</h4><p>卫星地图（这个没有位置标识，几乎看不懂）</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7d3db7b13c6f2b36156d474663f6306a?method=download&amp;inline=true&amp;shareKey=9b278e8ca811e5b6f18d856bdd5111c0" alt="image"></p>
+<h4 id="MKMapTypeHybrid样式"><a href="#MKMapTypeHybrid样式" class="headerlink" title="MKMapTypeHybrid样式"></a>MKMapTypeHybrid样式</h4><p>混合地图 （在卫星地图上添加了位置标识）</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ef1676cefcbab9b0abfb4abdb6b99cc?method=download&amp;inline=true&amp;shareKey=4a5e582d5f8cbbfafb8641c931329ed6" alt="image"></p>
+<h2 id="使用CLLocationManager定位服务"><a href="#使用CLLocationManager定位服务" class="headerlink" title="使用CLLocationManager定位服务"></a>使用CLLocationManager定位服务</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义一个属性</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CLLocationManager</span> *mgr;</div><div class="line"></div><div class="line"><span class="comment">//在viewDidLoad中实现</span></div><div class="line"></div><div class="line">_mapView.showsUserLocation = <span class="literal">YES</span>;</div><div class="line"></div><div class="line">_mgr = [<span class="built_in">CLLocationManager</span> new];</div><div class="line"><span class="comment">//任何时候都定位  前台+后台</span></div><div class="line">[_mgr requestAlwaysAuthorization];</div><div class="line"><span class="comment">//只有在前台的时候才定位</span></div><div class="line">[_mgr requestWhenInUseAuthorization];</div><div class="line"><span class="comment">//以上两个定位方式依需选择，定位服务是非常耗电的！</span></div></pre></td></tr></table></figure>
+<p>在info.plist中添加信息</p>
+<blockquote>
+<p>NSLocationAlwaysUsageDescription 值：申请使用定位服务</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBa9c537e91a16d01ef2f5c82533fb623a?method=download&amp;inline=true&amp;shareKey=bb28e86a98d4257eedd75ce586563ed6" alt="image"></p>
+<p>打开模拟器，会提示授权定位服务</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd189bfb18df62b8f3642ccd6b1a2ff4e?method=download&amp;inline=true&amp;shareKey=0a1f6e15a505f3ec169fba52b967a2bf" alt="image"></p>
+<p>点击允许之后，要使用模拟器给定一个模拟位置。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3b2d20bbcba871c0d2b8524edcbcdbef?method=download&amp;inline=true&amp;shareKey=3f9908818e9c5b7e5c13f7f3b5d27730" alt="image"></p>
+<p>输入模拟位置的经纬度</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBfa9bd6e089d22125e980ce1c98fe1068?method=download&amp;inline=true&amp;shareKey=6f98e49b411e0ab693482af85c9fd6e2" alt="image"></p>
+<p>至此，地图在模拟器上出现定位的标识点</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB30ab53e8f7bb9c8dcfc454b0f316a6f5?method=download&amp;inline=true&amp;shareKey=8df6541b23385445e340ebdf633e24fd" alt="image"></p>
+<h2 id="使用代理方法以拉近定位点的显示"><a href="#使用代理方法以拉近定位点的显示" class="headerlink" title="使用代理方法以拉近定位点的显示"></a>使用代理方法以拉近定位点的显示</h2><p>代理方法</p>
+<blockquote>
+<p>MKMapViewDelegate</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7a4728c0e01c807794503b3741aa579b?method=download&amp;inline=true&amp;shareKey=495546f4f28173df93984fa9a1018c8d" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找到.m文件顶部，添加MKMapViewDelegate</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">MKMapViewDelegate</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">//在viewDidLoad中实现</span></div><div class="line"><span class="comment">//设置代理</span></div><div class="line">_mapView.delegate = <span class="keyword">self</span>;</div><div class="line"></div><div class="line"><span class="comment">//实现代理方法</span></div><div class="line">-(<span class="keyword">void</span>)mapView:(<span class="built_in">MKMapView</span> *)mapView didUpdateUserLocation:(<span class="built_in">MKUserLocation</span> *)userLocation&#123;</div><div class="line">    </div><div class="line">    <span class="comment">//控制地图显示的区域</span></div><div class="line">    <span class="built_in">MKCoordinateSpan</span> span = <span class="built_in">MKCoordinateSpanMake</span>(<span class="number">.01</span>, <span class="number">.01</span>);</div><div class="line">    <span class="built_in">MKCoordinateRegion</span> region = <span class="built_in">MKCoordinateRegionMake</span>(userLocation.location.coordinate, span);</div><div class="line">    [_mapView setRegion:region animated:<span class="literal">YES</span>];</div><div class="line">    </div><div class="line">    <span class="comment">//关闭定位服务</span></div><div class="line">    [_mgr stopUpdatingLocation];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>MKCoordinateRegion 表示地图上的一块区域，center表示以经纬度表示的区域中心点，span表示这块区域的大小</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="built_in">CLLocationCoordinate2D</span> center;</div><div class="line">	<span class="built_in">MKCoordinateSpan</span> span;</div><div class="line">&#125; <span class="built_in">MKCoordinateRegion</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>MKCoordinateSpan 它有两个字段一个是latitudeDelta，表示纬度范围，南纬和北纬加一起应该有180度，所以它的范围应该是大于0度，小于等于180度；另一个是longitudeDelta，表示经度范围，东经和西经加一起应该有360度，所以它的范围应该是大于0度，小于360度。</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">    <span class="built_in">CLLocationDegrees</span> latitudeDelta;</div><div class="line">    <span class="built_in">CLLocationDegrees</span> longitudeDelta;</div><div class="line">&#125; <span class="built_in">MKCoordinateSpan</span>;</div></pre></td></tr></table></figure>
+<h2 id="扩展1：拾取坐标器"><a href="#扩展1：拾取坐标器" class="headerlink" title="扩展1：拾取坐标器"></a>扩展1：拾取坐标器</h2><ul>
+<li><p>每个地图系统经纬度对应的实际地理位置是不同的，有一定的差距。这据说是每个地图系统的算法不同导致的。</p>
+</li>
+<li><p><a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank" rel="external">百度坐标拾取器</a></p>
+</li>
+<li><p><a href="http://lbs.amap.com/console/show/picker" target="_blank" rel="external">高德坐标拾取器</a></p>
+</li>
+</ul>
+<h2 id="扩展2：地理编码器"><a href="#扩展2：地理编码器" class="headerlink" title="扩展2：地理编码器"></a>扩展2：地理编码器</h2><h3 id="地理编码"><a href="#地理编码" class="headerlink" title="地理编码"></a>地理编码</h3><p>地理编码是指将地理位置转化为经纬度</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CLGeocoder</span> *geo = [<span class="built_in">CLGeocoder</span> new];</div><div class="line">[geo geocodeAddressString:<span class="string">@"中国北京市朝阳区松榆北路建业"</span> completionHandler:^(<span class="built_in">NSArray</span>&lt;<span class="built_in">CLPlacemark</span> *&gt; * _Nullable placemarks, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">        </div><div class="line">    <span class="built_in">CLPlacemark</span> *place = placemarks.firstObject;</div><div class="line">    <span class="built_in">CLLocation</span> *location = place.location;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, location);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>&lt;+39.87614400,+116.47236900&gt; +/- 100.00m (speed -1.00 mps / course -1.00)</p>
+</blockquote>
+<h3 id="地理反编码"><a href="#地理反编码" class="headerlink" title="地理反编码"></a>地理反编码</h3><p>地理反编码是指将经纬度转化为地理位置</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CLLocation</span> *location = [[<span class="built_in">CLLocation</span> alloc] initWithLatitude:<span class="number">39.9368</span> longitude:<span class="number">116.453119</span>];</div><div class="line">[[<span class="built_in">CLGeocoder</span> new] reverseGeocodeLocation:location completionHandler:^(<span class="built_in">NSArray</span>&lt;<span class="built_in">CLPlacemark</span> *&gt; * _Nullable placemarks, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">CLPlacemark</span> *place = placemarks.firstObject;</div><div class="line">    <span class="built_in">NSDictionary</span> *dic = place.addressDictionary;</div><div class="line">    <span class="built_in">CLLocation</span> *location = place.location;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, location);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>由于控制台输出会乱码，这里用断点来查看</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB4ce1e04aa35e0a009ccf64bf08aef0dd?method=download&amp;inline=true&amp;shareKey=b8b42493bdaa4132e216b86fac8e736d" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/13/iOS开发/Demo/iOS毛玻璃效果/" itemprop="url">
                   iOS毛玻璃效果
                 </a>
@@ -559,220 +749,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/iOS开发/CoreAnimation/" itemprop="url">
-                  CoreAnimation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/CoreAnimation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/CoreAnimation/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="CoreAnimation简介"><a href="#CoreAnimation简介" class="headerlink" title="CoreAnimation简介"></a>CoreAnimation简介</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8521ccc00946f1c896f0409a634d8f51?method=download&amp;inline=true&amp;shareKey=aff35856ab2b65a189b12590ed8988ba" alt="image"></p>
-<ol>
-<li>能用的动画类只有4个子类：CABasicAnimation、CAKeyframeAnimation、CATransition、CAAnimationGroup</li>
-<li>CAPropertyAnimation是CAAnimation的子类，但是不能直接使用，要想创建动画对象，应该使用它的两个子类：CABasicAnimation和CAKeyframeAnimation</li>
-<li>CAMediaTiming是一个协议(protocol)</li>
-</ol>
-<p>它有个NSString类型的keyPath属性，你可以指定CALayer的某个属性名为keyPath，并且对CALayer的这个属性的值进行修改，达到相应的动画效果。比如，指定@”position”为keyPath，就会修改CALayer的position属性的值，以达到平移的动画效果</p>
-<p><a href="http://note.youdao.com/yws/api/personal/file/WEB44832f6965de18b816f5755ac4f69e97?method=download&amp;inline=true&amp;shareKey=cd64b2da612ec487ed1b19372c79b1b1" target="_blank" rel="external">Demo下载</a></p>
-<h3 id="属性解析：-标识代表来自CAMediaTiming协议的属性"><a href="#属性解析：-标识代表来自CAMediaTiming协议的属性" class="headerlink" title="属性解析：(标识代表来自CAMediaTiming协议的属性)"></a>属性解析：(标识代表来自CAMediaTiming协议的属性)</h3><blockquote>
-<p>duration：动画的持续时间</p>
-<p>repeatCount：动画的重复次数</p>
-<p>repeatDuration：动画的重复时间</p>
-<p>removedOnCompletion：默认为YES，代表动画执行完毕后就从图层上移除，图形会恢复到动画执行前的状态。如果想让图层保持显示动画执行后的状态，那就设置为NO，不过还要设置fillMode为kCAFillModeForwards</p>
-<p>fillMode：决定当前对象在非active时间段的行为.比如动画开始之前,动画结束之后</p>
-<p>beginTime：可以用来设置动画延迟执行时间，若想延迟2s，就设置为CACurrentMediaTime()+2，CACurrentMediaTime()为图层的当前时间</p>
-<p>timingFunction：速度控制函数，控制动画运行的节奏</p>
-<p>delegate：动画代理</p>
-</blockquote>
-<h3 id="Core-Animation的使用步骤"><a href="#Core-Animation的使用步骤" class="headerlink" title="Core Animation的使用步骤"></a>Core Animation的使用步骤</h3><ol>
-<li>初始化一个CAAnimation对象，并设置一些动画相关属性</li>
-<li>通过调用CALayer的addAnimation:forKey:方法增加CAAnimation对象到CALayer中，这样就能开始执行动画了</li>
-<li>通过调用CALayer的removeAnimationForKey:方法可以停止CALayer中的动画</li>
-</ol>
-<h2 id="CABasicAnimation"><a href="#CABasicAnimation" class="headerlink" title="CABasicAnimation"></a>CABasicAnimation</h2><blockquote>
-<p>fromValue：keyPath相应属性的初始值</p>
-<p>toValue：keyPath相应属性的结束值</p>
-<p>随着动画的进行，在长度为duration的持续时间内，keyPath相应属性的值从fromValue渐渐地变为toValue</p>
-</blockquote>
-<p>CABasicAnimation创建<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个基本动画类型</span></div><div class="line"><span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:Key];</div><div class="line"><span class="comment">//动画持续时间</span></div><div class="line">animation.duration = <span class="number">2.0</span>;</div><div class="line"><span class="comment">//动画重复次数</span></div><div class="line">animation.repeatCount = MAXFLOAT;</div><div class="line"><span class="comment">//设置动画执行完毕之后不删除动画</span></div><div class="line"><span class="comment">//    animation.removedOnCompletion=NO;</span></div><div class="line"><span class="comment">//设置保存动画的最新状态</span></div><div class="line"><span class="comment">//    animation.fillMode=kCAFillModeForwards;</span></div><div class="line"><span class="comment">//在动画执行完毕后，图层会保持显示动画执行后的状态。但在实质上，图层的属性值还是动画执行前的初始值，并没有真正被改变。</span></div></pre></td></tr></table></figure></p>
-<p>CABasicAnimation使用</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//transform 形变属性，基于<span class="keyword">x</span>/<span class="regexp">y/z轴</span></div><div class="line">CABasicAnimation *animation = [self animationInstanceWithKeyPath:@"transform"];</div><div class="line">//还有一个fromValue属性，表示起始值，这里由于使用默认起始值，所以不设置fromValue</div><div class="line">animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)];</div><div class="line"><span class="regexp">//</span>将动画添加到layer层即可    </div><div class="line">[self.rLayer addAnimation:animation forKey:nil];</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBc9a6a7262bc3b2cfc34b44608dc39624?method=download&amp;inline=true&amp;shareKey=30b50c815efe0cb7bedd6e3cde2dd7d0" alt="image"></p>
-<h2 id="CAKeyframeAnimation"><a href="#CAKeyframeAnimation" class="headerlink" title="CAKeyframeAnimation"></a>CAKeyframeAnimation</h2><blockquote>
-<ol>
-<li><p>跟CABasicAnimation的区别是：CABasicAnimation只能从一个数值(fromValue)变到另一个数值(toValue)，而CAKeyframeAnimation会使用一个NSArray保存这些数值</p>
-</li>
-<li><p>values：就是上述的NSArray对象。里面的元素称为”关键帧”(keyframe)。动画对象会在指定的时间(duration)内，依次显示values数组中的每一个关键帧</p>
-</li>
-<li><p>path：可以设置一个CGPathRef\CGMutablePathRef,让层跟着路径移动。path只对CALayer的anchorPoint和position起作用。如果你设置了path，那么values将被忽略</p>
-</li>
-<li><p>keyTimes：可以为对应的关键帧指定对应的时间点,其取值范围为0到1.0,keyTimes中的每一个时间值都对应values中的每一帧.当keyTimes没有设置的时候,各个关键帧的时间是平分的</p>
-</li>
-<li><p>CABasicAnimation可看做是最多只有2个关键帧的CAKeyframeAnimation</p>
-</li>
-</ol>
-</blockquote>
-<p>CAKeyframeAnimation创建</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CAKeyframeAnimation *<span class="built_in">animation</span> = [CAKeyframeAnimation animationWithKeyPath:Key];</div><div class="line"><span class="built_in">animation</span>.duration = <span class="number">2.0</span>;</div><div class="line"><span class="built_in">animation</span>.repeatCount = MAXFLOAT;</div><div class="line">//效果</div><div class="line"><span class="built_in">animation</span>.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div></pre></td></tr></table></figure>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">kCAMediaTimingFunctionLinear</span> 线性（匀速）</div><div class="line">kCAMediaTimingFunctionEaseIn 先慢</div><div class="line">kCAMediaTimingFunctionEaseOut 后慢</div><div class="line">kCAMediaTimingFunctionEaseInEaseOut 先慢 后慢 中间快</div><div class="line">kCAMediaTimingFunctionDefault 默认</div></pre></td></tr></table></figure>
-<p>CAKeyframeAnimation使用<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对bounds属性进行动画</span></div><div class="line"><span class="built_in">CAKeyframeAnimation</span> *animation = [<span class="keyword">self</span> animationInstanceWithKeyPath:<span class="string">@"bounds"</span>];</div><div class="line"></div><div class="line"><span class="built_in">NSValue</span> *v1 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v2 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">125</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v3 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">125</span>, <span class="number">125</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v4 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">125</span>, <span class="number">50</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v5 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">animation.values = @[v1, v2, v3, v4, v5];</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.sLayer addAnimation:animation forKey:<span class="literal">nil</span>];</div></pre></td></tr></table></figure></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBe9d00dafdac4048a504c8bba0fb3ff8e?method=download&amp;inline=true&amp;shareKey=fa6b191a2e5b53d82861ff0862b75f42" alt="image"></p>
-<h2 id="CATransition"><a href="#CATransition" class="headerlink" title="CATransition"></a>CATransition</h2><p>CAAnimation的子类，用于做转场动画，能够为层提供移出屏幕和移入屏幕的动画效果。iOS比Mac OS X的转场动画效果少一点</p>
-<p>UINavigationController就是通过CATransition实现了将控制器的视图推入屏幕的动画效果</p>
-<blockquote>
-<p>type 进场的效果</p>
-<p>subtype 进场的方向</p>
-</blockquote>
-<p>CATransition 创建<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CATransition *<span class="built_in">animation</span> = [CATransition <span class="built_in">animation</span>];</div><div class="line"><span class="built_in">animation</span>.duration = <span class="number">2.0</span>;</div><div class="line"><span class="built_in">animation</span>.type = Key;</div><div class="line"><span class="built_in">animation</span>.subtype = subtype;</div><div class="line">//    <span class="built_in">animation</span>.repeatCount = MAXFLOAT;</div><div class="line"><span class="built_in">animation</span>.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div></pre></td></tr></table></figure></p>
-<p>key<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"><span class="number">1</span>.<span class="meta">#define定义的常量 </span></div><div class="line">kCATransitionFade   交叉淡化过渡</div><div class="line">kCATransitionMoveIn 新视图移到旧视图上面</div><div class="line">kCATransitionPush   新视图把旧视图推出去</div><div class="line">kCATransitionReveal 将旧视图移开,显示下面的新视图</div><div class="line"></div><div class="line"><span class="number">2</span>.用字符串表示</div><div class="line">pageCurl            向上翻一页</div><div class="line">pageUnCurl          向下翻一页</div><div class="line">rippleEffect        滴水效果</div><div class="line">suckEffect          收缩效果，如一块布被抽走</div><div class="line">cube                立方体效果</div><div class="line">oglFlip             上下翻转效果</div><div class="line">*/</div></pre></td></tr></table></figure></p>
-<p>subtype</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">kCATransitionFromRight</div><div class="line">kCATransitionFromLeft</div><div class="line">kCATransitionFromTop</div><div class="line">kCATransitionFromBottom</div><div class="line">*/</div></pre></td></tr></table></figure>
-<p>CATransition 使用</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.animation1 = [<span class="keyword">self</span> <span class="symbol">animationInstanceWithKeyPath:</span>@<span class="string">"cube"</span> <span class="symbol">WithSubtype:</span>subtype];</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.imageView1.layer <span class="symbol">addAnimation:</span><span class="keyword">self</span>.animation1 <span class="symbol">forKey:</span><span class="keyword">nil</span>];</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBfde529ccfe75edb165aefa87dc26a356?method=download&amp;inline=true&amp;shareKey=0948d5e7bdcdb0e96458c4ae83c69fa5" alt="image"></p>
-<h2 id="CAAnimationGroup"><a href="#CAAnimationGroup" class="headerlink" title="CAAnimationGroup"></a>CAAnimationGroup</h2><p>CAAnimation的子类，可以保存一组动画对象，将CAAnimationGroup对象加入层后，组中所有动画对象可以同时并发运行</p>
-<blockquote>
-<p>animations：用来保存一组动画对象的NSArray</p>
-</blockquote>
-<p>默认情况下，一组动画对象是同时运行的，也可以通过设置动画对象的beginTime属性来更改动画的开始时间</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@<span class="string">"position"</span>]<span class="comment">;</span></div><div class="line">animation1.toValue = [NSValue valueWithCGPoint:CGPointMake(<span class="number">220</span>, <span class="number">320</span>)]<span class="comment">;</span></div><div class="line"></div><div class="line">CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@<span class="string">"transform.scale"</span>]<span class="comment">;</span></div><div class="line">animation2.toValue = @(<span class="number">0</span>.<span class="number">0</span>)<span class="comment">;</span></div><div class="line"></div><div class="line">CABasicAnimation *animation3 = [CABasicAnimation animationWithKeyPath:@<span class="string">"transform.rotation"</span>]<span class="comment">;</span></div><div class="line">animation3.toValue= @(M_PI)<span class="comment">;</span></div><div class="line"></div><div class="line">CAAnimationGroup *groupAnimation = [CAAnimationGroup animation]<span class="comment">;</span></div><div class="line">groupAnimation.animations = @[animation1, animation2, animation3]<span class="comment">;</span></div><div class="line">groupAnimation.duration = <span class="number">3</span>.<span class="number">0</span><span class="comment">;</span></div><div class="line">groupAnimation.repeatCount = MAXFLOAT<span class="comment">;</span></div><div class="line"></div><div class="line">[self.layer <span class="keyword">addAnimation:groupAnimation </span>forKey:nil]<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB07f98d892ed2024a6997cf632b066d09?method=download&amp;inline=true&amp;shareKey=f1b534f80fa8e0d94ac5927db06ab4fb" alt="image"></p>
-<h2 id="UIView封装动画"><a href="#UIView封装动画" class="headerlink" title="UIView封装动画"></a>UIView封装动画</h2><h3 id="首尾方式"><a href="#首尾方式" class="headerlink" title="首尾方式"></a>首尾方式</h3><p>UIKit直接将动画集成到UIView类中，当内部的一些属性发生改变时，UIView将为这些改变提供动画支持</p>
-<p>执行动画所需要的工作由UIView类自动完成，但仍要在希望执行动画时通知视图，为此需要将改变属性的代码放在[UIView beginAnimations:nil context:nil]和[UIView commitAnimations]之间</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置动画代理对象，当动画开始或者结束时会发消息给代理对象</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDelegate:</span>(id)delegate  </div><div class="line"></div><div class="line"><span class="comment">//当动画即将开始时，执行delegate对象的selector，并且把beginAnimations:context:中传入的参数传进selector</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationWillStartSelector:</span>(SEL)selector   </div><div class="line"></div><div class="line"><span class="comment">//当动画结束时，执行delegate对象的selector，并且把beginAnimations:context:中传入的参数传进selector</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDidStopSelector:</span>(SEL)selector  </div><div class="line"></div><div class="line"><span class="comment">//动画的持续时间，秒为单位</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDuration:</span>(NSTimeInterval)duration   </div><div class="line"></div><div class="line"><span class="comment">//动画延迟delay秒后再开始</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDelay:</span>(NSTimeInterval)delay </div><div class="line"></div><div class="line"><span class="comment">//动画的开始时间，默认为now</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationStartDate:</span>(NSDate *)startDate   </div><div class="line"></div><div class="line"><span class="comment">//动画的节奏控制</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationCurve:</span>(UIViewAnimationCurve)curve</div><div class="line"></div><div class="line"><span class="comment">//动画的重复次数</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationRepeatCount:</span>(<span class="keyword">float</span>)repeatCount  </div><div class="line"></div><div class="line"><span class="comment">//如果设置为YES,代表动画每次重复执行的效果会跟上一次相反</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationRepeatAutoreverses:</span>(BOOL)repeatAutoreverses  </div><div class="line"></div><div class="line"><span class="comment">//设置视图view的过渡效果, transition指定过渡类型, cache设置YES代表使用视图缓存，性能较好</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationTransition:</span>(UIViewAnimationTransition)transition <span class="string">forView:</span>(UIView *)view <span class="string">cache:</span>(BOOL)cache</div></pre></td></tr></table></figure>
-<p>示例</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首尾式动画</span></div><div class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</div><div class="line"><span class="comment">//执行动画</span></div><div class="line"><span class="comment">//设置动画执行时间</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">2.0</span>];</div><div class="line"><span class="comment">//设置代理</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDelegate:<span class="keyword">self</span>];</div><div class="line"><span class="comment">//设置动画执行完毕调用的事件</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDidStopSelector:<span class="keyword">@selector</span>(didStopAnimation)];</div><div class="line"><span class="keyword">self</span>.v1.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">[<span class="built_in">UIView</span> commitAnimations];</div></pre></td></tr></table></figure>
-<h3 id="Block方式"><a href="#Block方式" class="headerlink" title="Block方式"></a>Block方式</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)<span class="string">animateWithDuration:</span>(NSTimeInterval)duration <span class="string">delay:</span>(NSTimeInterval)delay <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">delay：动画延迟delay秒后开始</div><div class="line"></div><div class="line">options：动画的节奏控制</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">转场动画</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">transitionWithView:</span>(UIView *)view <span class="string">duration:</span>(NSTimeInterval)duration <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">view：需要进行转场动画的视图</div><div class="line"></div><div class="line">options：转场动画的类型</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">transitionFromView:</span>(UIView *)fromView <span class="string">toView:</span>(UIView *)toView <span class="string">duration:</span>(NSTimeInterval)duration <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line">方法调用完毕后，相当于执行了下面两句代码：</div><div class="line"></div><div class="line"><span class="comment">// 添加toView到父视图</span></div><div class="line"></div><div class="line">[fromView.superview <span class="string">addSubview:</span>toView]; </div><div class="line"></div><div class="line"><span class="comment">// 把fromView从父视图中移除</span></div><div class="line"></div><div class="line">[fromView.superview removeFromSuperview];</div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">options：转场动画的类型</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">2.0</span> delay:<span class="number">0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</div><div class="line"><span class="keyword">self</span>.v2.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line"><span class="keyword">self</span>.v2.center=<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[<span class="built_in">UIView</span> transitionWithView:<span class="keyword">self</span>.v3 duration:<span class="number">2.0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</div><div class="line"><span class="keyword">self</span>.v3.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line"><span class="keyword">self</span>.v3.center=<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB6986fe51522e1e0bee85b9ec3236dc12?method=download&amp;inline=true&amp;shareKey=4f7d6a288a0df1a889d9dd3c224ac009" alt="image"></p>
-<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><h3 id="移除动画"><a href="#移除动画" class="headerlink" title="移除动画"></a>移除动画</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.v1.layer <span class="string">addAnimation:</span>keyAnima <span class="string">forKey:</span>@<span class="string">"test"</span>];</div><div class="line">[self.v1.layer <span class="string">removeAnimationForKey:</span>@<span class="string">"test"</span>];</div></pre></td></tr></table></figure>
-<h3 id="UIActivityIndicatorView"><a href="#UIActivityIndicatorView" class="headerlink" title="UIActivityIndicatorView"></a>UIActivityIndicatorView</h3><p>是一个旋转进度轮，可以用来告知用户有一个操作正在进行中，一般用initWithActivityIndicatorStyle初始化</p>
-<p>方法解析:</p>
-<ul>
-<li><p>(void)startAnimating; 开始动画</p>
-</li>
-<li><p>(void)stopAnimating;  停止动画</p>
-</li>
-<li><p>(BOOL)isAnimating;  是否正在运行动画</p>
-</li>
-</ul>
-<p>UIActivityIndicatorViewStyle有3个值可供选择：</p>
-<p>UIActivityIndicatorViewStyleWhiteLarge   //大型白色指示器    </p>
-<p>UIActivityIndicatorViewStyleWhite      //标准尺寸白色指示器    </p>
-<p>UIActivityIndicatorViewStyleGray    //灰色指示器，用于白色背景</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/10/08/Linux/CentOS 7.2 安装Apache HTTP Server/" itemprop="url">
                   Apache HTTP服务器
                 </a>
@@ -904,8 +880,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/iOS开发/Context/" itemprop="url">
-                  CGContext
+                <a class="post-title-link" href="/2016/10/08/Linux/Webmin工具/" itemprop="url">
+                  Webmin
                 </a>
               
             
@@ -932,8 +908,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
+                  <a href="/categories/Linux服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux服务器</span>
                   </a>
                 </span>
 
@@ -948,8 +924,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/Context/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/Context/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/Linux/Webmin工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/Linux/Webmin工具/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -974,186 +950,18 @@
       
         
           
-            <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
-<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
-<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
-<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
-<li>获取图形上下文：</li>
-</ol>
-<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
-<ol>
-<li>绘制图形：</li>
-</ol>
-<p>先设置绘制起点</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>然后根据需要绘制图形</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>绘制参数配置：</li>
-</ol>
-<p>宽度：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>颜色：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>将图形上下文绘制出来：</li>
-</ol>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
-<ol>
-<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
-<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
-</ol>
-<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
-<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
-<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
-<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p>CGContextFillPath是填充</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
-<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
-<p>画矩形</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
-<p>画曲线</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
-<p>画椭圆</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
-<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p>设置线之间的交点为圆角</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>设置透明度</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/08/iOS开发/UIBezierPath/" itemprop="url">
-                  UIBezierPath
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/UIBezierPath/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/UIBezierPath/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="UIBezierPath的简单实例"><a href="#UIBezierPath的简单实例" class="headerlink" title="UIBezierPath的简单实例"></a>UIBezierPath的简单实例</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&amp;shareKey=000c09a6286d8f52d0ab5d028a9c56d5" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图示代码 在UIView的drawRect:方法中实现</span></div><div class="line"><span class="comment">//创建曲线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line"><span class="comment">//设置起点</span></div><div class="line">[path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">100</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">300</span>)];</div><div class="line"></div><div class="line"><span class="comment">//设置线宽</span></div><div class="line">[path setLineWidth:<span class="number">3</span>];</div><div class="line"><span class="comment">//设置颜色</span></div><div class="line">[[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line"><span class="comment">//将路径绘制出来</span></div><div class="line">[path stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path2 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path2 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建椭圆Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path3 = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">400</span>, <span class="number">80</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path3 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[[<span class="built_in">UIColor</span> greenColor] setFill];</div><div class="line">[path3 stroke];</div><div class="line">[path3 fill];</div><div class="line"></div><div class="line"><span class="comment">//创建圆角矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path4 = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>, <span class="number">80</span>) cornerRadius:<span class="number">15</span>];</div><div class="line"></div><div class="line">[path4 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path4 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建一个弧线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path5 = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">400</span>) radius:<span class="number">50</span> startAngle:<span class="number">0</span> endAngle:M_PI_4 clockwise:<span class="literal">NO</span>];</div><div class="line"></div><div class="line">[path5 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path5 stroke];</div></pre></td></tr></table></figure>
-<h4 id="UIBezeiPath的常用绘图函数"><a href="#UIBezeiPath的常用绘图函数" class="headerlink" title="UIBezeiPath的常用绘图函数"></a>UIBezeiPath的常用绘图函数</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘直线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addLineToPoint:</span>(CGPoint)point</div><div class="line"><span class="comment">//绘弧线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addArcWithCenter:</span>(CGPoint)center <span class="string">radius:</span>(CGFloat)radius <span class="string">startAngle:</span>(CGFloat)startAngle <span class="string">endAngle:</span>(CGFloat)endAngle <span class="string">clockwise:</span>(BOOL)clockwise</div><div class="line"><span class="comment">//绘曲线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint1:</span>(CGPoint)controlPoint1 <span class="string">controlPoint2:</span>(CGPoint)controlPoint2</div><div class="line">- (<span class="keyword">void</span>)<span class="string">addQuadCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint:</span>(CGPoint)controlPoint</div></pre></td></tr></table></figure>
-<h4 id="UIBezierPath的有关参数配置"><a href="#UIBezierPath的有关参数配置" class="headerlink" title="UIBezierPath的有关参数配置"></a>UIBezierPath的有关参数配置</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">readonly</span>,<span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div><div class="line">- (<span class="built_in">BOOL</span>)containsPoint:(<span class="built_in">CGPoint</span>)point;</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div><div class="line"></div><div class="line"><span class="comment">//线段风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineCapButt, //默认</div><div class="line">kCGLineCapRound, //圆角</div><div class="line">kCGLineCapSquare //矩形</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">//线段交点风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineJoinMiter, //默认</div><div class="line">kCGLineJoinRound, //圆角</div><div class="line">kCGLineJoinBevel //斜角</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">//最大斜接长度</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit; <span class="comment">// Used when lineJoinStyle is kCGLineJoinMiter</span></div><div class="line"></div><div class="line"><span class="comment">//平滑度 会增大性能消耗</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div><div class="line"></div><div class="line"><span class="comment">//单双数圈规则是否用于绘制路径，默认是NO</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule; </div><div class="line"></div><div class="line"><span class="comment">//设置虚线</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">nullable</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="built_in">NSInteger</span>)count phase:(<span class="built_in">CGFloat</span>)phase;</div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="keyword">nullable</span> <span class="built_in">NSInteger</span> *)count phase:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)phase;</div><div class="line"></div><div class="line"><span class="comment">//填充</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div><div class="line"><span class="comment">//描边</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div><div class="line"></div><div class="line"><span class="comment">//设置混合模式</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
+            <h2 id="Webmin简介"><a href="#Webmin简介" class="headerlink" title="Webmin简介"></a>Webmin简介</h2><h2 id="Webmin安装"><a href="#Webmin安装" class="headerlink" title="Webmin安装"></a>Webmin安装</h2><p>方式一：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget <span class="string">http:</span><span class="comment">//download.webmin.com/download/yum/webmin-1.810-1.noarch.rpm</span></div><div class="line">rpm -ivh webmin<span class="number">-1.810</span><span class="number">-1.</span>noarch.rpm</div><div class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>webmin start</div></pre></td></tr></table></figure></p>
+<p>方式二：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/webmin<span class="selector-class">.repo</span></div><div class="line">[Webmin]</div><div class="line"></div><div class="line">name=Webmin Distribution Neutral</div><div class="line">#baseurl=http:<span class="comment">//download.webmin.com/download/yum</span></div><div class="line">mirrorlist=http:<span class="comment">//download.webmin.com/download/yum/mirrorlist</span></div><div class="line"></div><div class="line"></div><div class="line">wget http:<span class="comment">//www.webmin.com/jcameron-key.asc</span></div><div class="line">rpm --import jcameron-key<span class="selector-class">.asc</span></div><div class="line">yum install webmin</div></pre></td></tr></table></figure></p>
+<p>安装成功提示：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Webmin <span class="keyword">install</span> complete. You can <span class="keyword">now</span> login <span class="keyword">to</span> https://localhost.localdomain:<span class="number">10000</span>/</div></pre></td></tr></table></figure></p>
+<p>安装成功之后，还要处理一下防火墙问题，要么打开防火墙的10000端口，要么直接关闭掉防火墙。这里是直接关掉防火墙。</p>
+<p>CentOS 7.2默认使用的是firewall作为防火墙。<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#停止firewall</span></div><div class="line">systemctl <span class="keyword">stop</span> firewalld.service </div><div class="line"><span class="meta">#禁止firewall开机启动</span></div><div class="line">systemctl <span class="keyword">disable</span> firewalld.service</div></pre></td></tr></table></figure></p>
+<h2 id="登录Webmin"><a href="#登录Webmin" class="headerlink" title="登录Webmin"></a>登录Webmin</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#172.16.204.135是我的虚拟机的IP地址，请自行替换</span></div><div class="line">https:<span class="comment">//172.16.204.135:10000</span></div><div class="line"><span class="meta">#如果浏览器提示安全连接问题(由于https造成的)登录不上，可以换一个浏览器试试，我用火狐连接不了</span></div></pre></td></tr></table></figure>
+<p>登录界面</p>
+<blockquote>
+<p>登录密码为Linux的root账户的密码</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&amp;inline=true&amp;shareKey=4300f4463ec5cc3cbbebfbedc03000a7" alt="image"></p>
+<h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB9d04a24e16b1ef37d132ec0e74e35c36?method=download&amp;inline=true&amp;shareKey=4d90c6f205253b6915025e4390bef955" alt="image"></p>
 
           
         
@@ -1522,8 +1330,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/iOS开发/UIKit/TableView和TableViewCell学习笔记/" itemprop="url">
-                  UITableView
+                <a class="post-title-link" href="/2016/10/08/iOS开发/Context/" itemprop="url">
+                  CGContext
                 </a>
               
             
@@ -1566,8 +1374,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/UIKit/TableView和TableViewCell学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/UIKit/TableView和TableViewCell学习笔记/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/iOS开发/Context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/Context/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1592,55 +1400,63 @@
       
         
           
-            <h2 id="UITableView的原理"><a href="#UITableView的原理" class="headerlink" title="UITableView的原理"></a>UITableView的原理</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB49c6696c7b4c3512d95338e968d07af5?method=download&amp;inline=true&amp;shareKey=4ae12deaaa0b3037b868a1472bf08949" alt="image"></p>
-<h2 id="UITableView的相关方法和属性"><a href="#UITableView的相关方法和属性" class="headerlink" title="UITableView的相关方法和属性"></a>UITableView的相关方法和属性</h2><h3 id="UITableViewDelegate方法"><a href="#UITableViewDelegate方法" class="headerlink" title="UITableViewDelegate方法"></a>UITableViewDelegate方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置列表项高度</span></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">//设置段头视图高度</span></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForHeaderInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"><span class="comment">//设置段尾视图高度</span></div><div class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForFooterInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"><span class="comment">//设置段头视图</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForHeaderInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"><span class="comment">//设置段尾视图</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIView</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView viewForFooterInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"><span class="comment">//选中列表项时执行</span></div><div class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">//失去选中列表项时执行</span></div><div class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didDeselectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div></pre></td></tr></table></figure>
-<h3 id="UITableViewDataSource方法"><a href="#UITableViewDataSource方法" class="headerlink" title="UITableViewDataSource方法"></a>UITableViewDataSource方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置每个段有多少行</span></div><div class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section;</div><div class="line"><span class="comment">//设置每个列表项的内容</span></div><div class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath;</div><div class="line"><span class="comment">//设置有多少段</span></div><div class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView;</div><div class="line"><span class="comment">//以字符串的形式设置段头视图</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section; </div><div class="line"><span class="comment">//以字符串的形式设置段头视图</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForFooterInSection:(<span class="built_in">NSInteger</span>)section;</div></pre></td></tr></table></figure>
-<h3 id="UITableView方法"><a href="#UITableView方法" class="headerlink" title="UITableView方法"></a>UITableView方法</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//跳转到个列表项</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">scrollToRowAtIndexPath:</span>(NSIndexPath *)indexPath <span class="string">atScrollPosition:</span>(UITableViewScrollPosition)scrollPosition <span class="string">animated:</span>(BOOL)animated;</div></pre></td></tr></table></figure>
-<h3 id="UITableView常用属性"><a href="#UITableView常用属性" class="headerlink" title="UITableView常用属性"></a>UITableView常用属性</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置分割线样式</span></div><div class="line">tableView.separatorStyle = <span class="built_in">UITableViewCellSeparatorStyleNone</span>;</div></pre></td></tr></table></figure>
-<h2 id="UITableViewCell"><a href="#UITableViewCell" class="headerlink" title="UITableViewCell"></a>UITableViewCell</h2><h3 id="UITableViewCell的创建"><a href="#UITableViewCell的创建" class="headerlink" title="UITableViewCell的创建"></a>UITableViewCell的创建</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB10a13d46697da4d76677b20ac155f86f?method=download&amp;inline=true&amp;shareKey=4d8a1161350dc2c901e9fa1021aaaff7" alt="UITableViewCell复用"></p>
-<p>先从tableView的复用队列获取，如果获取不到Cell,再进行创建。这时分两种情况</p>
+            <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
+<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
+<li>获取图形上下文：</li>
+</ol>
+<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
 <ol>
-<li>系统注册</li>
+<li>绘制图形：</li>
 </ol>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取</span></div><div class="line">- (__kindof <span class="built_in">UITableViewCell</span> *)dequeueReusableCellWithIdentifier:(<span class="built_in">NSString</span> *)identifier forIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0);</div><div class="line"><span class="comment">//注册</span></div><div class="line"><span class="comment">//NIB方式注册 要配合UINib使用，目前使用NSBundle 的 loadNibNamed 方法注册不了</span></div><div class="line">+ (<span class="built_in">UINib</span> *)nibWithNibName:(<span class="built_in">NSString</span> *)name bundle:(<span class="keyword">nullable</span> <span class="built_in">NSBundle</span> *)bundleOrNil;</div><div class="line">- (<span class="keyword">void</span>)registerNib:(<span class="keyword">nullable</span> <span class="built_in">UINib</span> *)nib forCellReuseIdentifier:(<span class="built_in">NSString</span> *)identifier <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">5</span>_0);</div><div class="line"><span class="comment">//代码方式注册</span></div><div class="line">- (<span class="keyword">void</span>)registerClass:(<span class="keyword">nullable</span> Class)cellClass forCellReuseIdentifier:(<span class="built_in">NSString</span> *)identifier <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">6</span>_0);</div></pre></td></tr></table></figure>
+<p>先设置绘制起点</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>然后根据需要绘制图形</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
 <ol>
-<li>自己创建</li>
+<li>绘制参数配置：</li>
 </ol>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取</span></div><div class="line">- (<span class="keyword">nullable</span> __kindof <span class="built_in">UITableViewCell</span> *)dequeueReusableCellWithIdentifier:(<span class="built_in">NSString</span> *)identifier;</div><div class="line"><span class="comment">//创建</span></div><div class="line"><span class="keyword">if</span>(!cell)&#123;</div><div class="line">cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:<span class="string">@"Cell"</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="系统提供的四种UITableViewCell的样式"><a href="#系统提供的四种UITableViewCell的样式" class="headerlink" title="系统提供的四种UITableViewCell的样式"></a>系统提供的四种UITableViewCell的样式</h3><ol>
-<li>UITableViewCellStyleDefault</li>
-</ol>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB33079ef4c1570958d6785a1e93b89ced?method=download&amp;inline=true&amp;shareKey=e34f7927ef4e889f1721117b3312f29c" alt="image"></p>
+<p>宽度：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>颜色：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
 <ol>
-<li>UITableViewCellStyleValue1</li>
+<li>将图形上下文绘制出来：</li>
 </ol>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBcdf8ae4e865e23756c16e78c9961fa26?method=download&amp;inline=true&amp;shareKey=69994d0a2f46dcb381e05fc9e2cd9a14" alt="image"></p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
 <ol>
-<li>UITableViewCellStyleValue2</li>
+<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
+<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
 </ol>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB4e201fa1ad20108c49acba6f98bcb0d7?method=download&amp;inline=true&amp;shareKey=9c75f6b51a783dff6f381ae2bfdef40b" alt="image"></p>
-<ol>
-<li>UITableViewCellStyleSubtitle</li>
-</ol>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBdac6c6ffe58828853e427b69c75b5730?method=download&amp;inline=true&amp;shareKey=ad5ff565794f0decbd9469dde03f8911" alt="image"></p>
-<h3 id="cell自动高度"><a href="#cell自动高度" class="headerlink" title="cell自动高度"></a>cell自动高度</h3><p>方法1<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//根据内容设置 cell 的高度</span></div><div class="line"><span class="comment">//设定一个cell高度的预估值，这个随意，执行为了让系统能先预定tableview的整体高度</span></div><div class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = <span class="number">70</span>;</div><div class="line"><span class="comment">//设置tableView的行高实际高度要根据自动布局产生的高度决定 （注意动态行高，必须配合自动布局使用）</span></div><div class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="built_in">UITableViewAutomaticDimension</span>;</div></pre></td></tr></table></figure></p>
-<p>方法2</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//下方代码表示: 让TableView根据cell的内容自动猜测cell的高度.</span></div><div class="line"><span class="comment">//这个猜测依赖于AutoLayout机制, cell内容必须能够关联cell的高度才可以!!!</span></div><div class="line"><span class="comment">//estimate:猜测</span></div><div class="line">-(<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView estimatedHeightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</div><div class="line"><span class="comment">//Dimension 尺寸</span></div><div class="line"><span class="keyword">return</span> <span class="built_in">UITableViewAutomaticDimension</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="cell的常用属性记录"><a href="#cell的常用属性记录" class="headerlink" title="cell的常用属性记录"></a>cell的常用属性记录</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置cell的选中样式</span></div><div class="line">cell.selectionStyle = <span class="built_in">UITableViewCellSelectionStyleNone</span>;</div><div class="line"></div><div class="line"><span class="comment">//去掉分割线左侧的空间 在cell的初始化方法中设置为好，不能在使用cell的contentView之后设置</span></div><div class="line"><span class="keyword">self</span>.separatorInset = <span class="built_in">UIEdgeInsetsZero</span>;</div><div class="line"><span class="keyword">self</span>.layoutMargins = <span class="built_in">UIEdgeInsetsZero</span>;</div><div class="line"><span class="comment">//苹果程序员的.h注释写错了, 默认是YES, 根据打印得到</span></div><div class="line"><span class="keyword">self</span>.preservesSuperviewLayoutMargins = <span class="literal">NO</span>;</div></pre></td></tr></table></figure>
-<h2 id="UITableView的使用技巧"><a href="#UITableView的使用技巧" class="headerlink" title="UITableView的使用技巧"></a>UITableView的使用技巧</h2><h3 id="Cell取消选中样式"><a href="#Cell取消选中样式" class="headerlink" title="Cell取消选中样式"></a>Cell取消选中样式</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//选中马上取消，可以看到选中效果</span></div><div class="line">-(<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</div><div class="line">[tableView deselectRowAtIndexPath:indexPath animated:<span class="literal">YES</span>];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//直接取消，完全没有选中效果</span></div><div class="line"><span class="keyword">self</span>.selectionStyle = <span class="built_in">UITableViewCellSelectionStyleNone</span>;</div></pre></td></tr></table></figure>
-<h2 id="UITableView的坑点"><a href="#UITableView的坑点" class="headerlink" title="UITableView的坑点"></a>UITableView的坑点</h2><h3 id="ForHeaderInSection-方法不调用？"><a href="#ForHeaderInSection-方法不调用？" class="headerlink" title="ForHeaderInSection 方法不调用？"></a>ForHeaderInSection 方法不调用？</h3><p>原因是没有设置HeaderInSection的高度。如果使用NIB创建的UITableView，NIB会自动设置这个高度。如果使用春代码方式，则需要使用heightForHeaderInSection方法设置高度之后，就可以调用viewForHeaderInSection方法</p>
-<h3 id="获取在可视区域的Cell"><a href="#获取在可视区域的Cell" class="headerlink" title="获取在可视区域的Cell"></a>获取在可视区域的Cell</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//UITableview的方法，这个最直接，返回一个UITableviewcell的数组。</span></div><div class="line">对于自定制的cell，之后的处理可能稍微繁琐些。</div><div class="line">- <span class="comment">(NSArray*)</span>visibleCells;</div></pre></td></tr></table></figure>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//UITableview的一个方法，这个比较好用了，返回一个NSIndexPath的数组。</span></div><div class="line"><span class="comment">//可以直接用indexpath.row去调你的table_related_Array里的数据了。比较方便用于自定制的cell。</span></div><div class="line"><span class="selector-tag">-</span> (NSArray*)<span class="selector-tag">indexPathsForVisibleRows</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(CGRect)</span>rectForRowAtIndexPath:<span class="params">(NSIndexPath*)</span>indexPath;</div></pre></td></tr></table></figure>
-<h3 id="TableView顶部和底部有空白条"><a href="#TableView顶部和底部有空白条" class="headerlink" title="TableView顶部和底部有空白条"></a>TableView顶部和底部有空白条</h3><p>像这样</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5fad1decebcba2c6d817b0311f6a1956?method=download&amp;inline=true&amp;shareKey=b29f31222e9fb70118339dc9352495a6" alt="TableView顶部空白"></p>
-<p>或这样</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd58c705384f9b2479fc811fa55830e89?method=download&amp;inline=true&amp;shareKey=fbfcf3ebd7ccc8f9a77fc82f704c5e64" alt="TableView底部空白"></p>
-<p>出现这个问题的原因是：</p>
-<p>这个属性背的锅<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Defaults to YES</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) <span class="built_in">BOOL</span> automaticallyAdjustsScrollViewInsets <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div></pre></td></tr></table></figure></p>
-<p>automaticallyAdjustsScrollViewInsets用于设置ViewController是否自动调整他的scroll View insets。默认为YES,表示允许ViewController自动调整由于适用scroll View 而生成的各种navigation bar,status bar,tool bar和tab bar.也就是说在默认情况下ViewController会为用户自动调整ScrollView及其子类，已适用ViewController上面的各种Bar</p>
-<p>解决方法：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeBottom</span>;</div><div class="line"><span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</div></pre></td></tr></table></figure>
+<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
+<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
+<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
+<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>CGContextFillPath是填充</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
+<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
+<p>画矩形</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
+<p>画曲线</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
+<p>画椭圆</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
+<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>设置线之间的交点为圆角</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>设置透明度</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
 
           
         
@@ -1791,6 +1607,129 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/08/iOS开发/UIBezierPath/" itemprop="url">
+                  UIBezierPath
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/iOS开发/UIBezierPath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/UIBezierPath/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="UIBezierPath的简单实例"><a href="#UIBezierPath的简单实例" class="headerlink" title="UIBezierPath的简单实例"></a>UIBezierPath的简单实例</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&amp;shareKey=000c09a6286d8f52d0ab5d028a9c56d5" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图示代码 在UIView的drawRect:方法中实现</span></div><div class="line"><span class="comment">//创建曲线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line"><span class="comment">//设置起点</span></div><div class="line">[path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">100</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">300</span>)];</div><div class="line"></div><div class="line"><span class="comment">//设置线宽</span></div><div class="line">[path setLineWidth:<span class="number">3</span>];</div><div class="line"><span class="comment">//设置颜色</span></div><div class="line">[[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line"><span class="comment">//将路径绘制出来</span></div><div class="line">[path stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path2 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path2 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建椭圆Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path3 = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">400</span>, <span class="number">80</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path3 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[[<span class="built_in">UIColor</span> greenColor] setFill];</div><div class="line">[path3 stroke];</div><div class="line">[path3 fill];</div><div class="line"></div><div class="line"><span class="comment">//创建圆角矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path4 = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>, <span class="number">80</span>) cornerRadius:<span class="number">15</span>];</div><div class="line"></div><div class="line">[path4 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path4 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建一个弧线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path5 = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">400</span>) radius:<span class="number">50</span> startAngle:<span class="number">0</span> endAngle:M_PI_4 clockwise:<span class="literal">NO</span>];</div><div class="line"></div><div class="line">[path5 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path5 stroke];</div></pre></td></tr></table></figure>
+<h4 id="UIBezeiPath的常用绘图函数"><a href="#UIBezeiPath的常用绘图函数" class="headerlink" title="UIBezeiPath的常用绘图函数"></a>UIBezeiPath的常用绘图函数</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘直线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addLineToPoint:</span>(CGPoint)point</div><div class="line"><span class="comment">//绘弧线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addArcWithCenter:</span>(CGPoint)center <span class="string">radius:</span>(CGFloat)radius <span class="string">startAngle:</span>(CGFloat)startAngle <span class="string">endAngle:</span>(CGFloat)endAngle <span class="string">clockwise:</span>(BOOL)clockwise</div><div class="line"><span class="comment">//绘曲线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint1:</span>(CGPoint)controlPoint1 <span class="string">controlPoint2:</span>(CGPoint)controlPoint2</div><div class="line">- (<span class="keyword">void</span>)<span class="string">addQuadCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint:</span>(CGPoint)controlPoint</div></pre></td></tr></table></figure>
+<h4 id="UIBezierPath的有关参数配置"><a href="#UIBezierPath的有关参数配置" class="headerlink" title="UIBezierPath的有关参数配置"></a>UIBezierPath的有关参数配置</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">readonly</span>,<span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div><div class="line">- (<span class="built_in">BOOL</span>)containsPoint:(<span class="built_in">CGPoint</span>)point;</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div><div class="line"></div><div class="line"><span class="comment">//线段风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineCapButt, //默认</div><div class="line">kCGLineCapRound, //圆角</div><div class="line">kCGLineCapSquare //矩形</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">//线段交点风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineJoinMiter, //默认</div><div class="line">kCGLineJoinRound, //圆角</div><div class="line">kCGLineJoinBevel //斜角</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">//最大斜接长度</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit; <span class="comment">// Used when lineJoinStyle is kCGLineJoinMiter</span></div><div class="line"></div><div class="line"><span class="comment">//平滑度 会增大性能消耗</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div><div class="line"></div><div class="line"><span class="comment">//单双数圈规则是否用于绘制路径，默认是NO</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule; </div><div class="line"></div><div class="line"><span class="comment">//设置虚线</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">nullable</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="built_in">NSInteger</span>)count phase:(<span class="built_in">CGFloat</span>)phase;</div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="keyword">nullable</span> <span class="built_in">NSInteger</span> *)count phase:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)phase;</div><div class="line"></div><div class="line"><span class="comment">//填充</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div><div class="line"><span class="comment">//描边</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div><div class="line"></div><div class="line"><span class="comment">//设置混合模式</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1836,7 +1775,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1853,7 +1792,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -1,0 +1,935 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="地图," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="iOS地图简介苹果一般使用的谷歌、高德地图。但在大天朝谷歌地图用不了，所以一般使用高德地图。
+有关iOS 高德地图的一些API介绍
+
+MapKit.framework 使用高德地图时，需要导入MapKit框架。
+MKMapView 地图视图，在iOS中其父类继承的是UIView，在MacOS中其父类继承的是NSView。其主要功能是将地图以视图形式显示出来
+CLGeocoder 地理编码器，其主要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS地图">
+<meta property="og:url" content="https://liujingh.github.io/2016/10/19/iOS开发/其他/iOS地图/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="iOS地图简介苹果一般使用的谷歌、高德地图。但在大天朝谷歌地图用不了，所以一般使用高德地图。
+有关iOS 高德地图的一些API介绍
+
+MapKit.framework 使用高德地图时，需要导入MapKit框架。
+MKMapView 地图视图，在iOS中其父类继承的是UIView，在MacOS中其父类继承的是NSView。其主要功能是将地图以视图形式显示出来
+CLGeocoder 地理编码器，其主要">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBd7fd48be47c6cfe1e7131e70f05f36b2?method=download&inline=true&shareKey=b534bbad14aa37dcc2e85a3de5c6d2e8">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBca73cda57994c8ee2daeee4e141721f4?method=download&inline=true&shareKey=42c38260f8e71c26dee817e663c43899">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBd59a4ec036264234f5d9ce5ee9d7db67?method=download&inline=true&shareKey=086694a2881d3af13d255deb3bfbf28e">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB296d384b6f083443a0b67b42265cec49?method=download&inline=true&shareKey=339772dccc66f99d2c81977393c8adcf">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB2aa39d24b6777b3f2167784a406162f8?method=download&inline=true&shareKey=bffe54bbcd3310f7daa8c5802ba7ce1f">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB7d3db7b13c6f2b36156d474663f6306a?method=download&inline=true&shareKey=9b278e8ca811e5b6f18d856bdd5111c0">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB9ef1676cefcbab9b0abfb4abdb6b99cc?method=download&inline=true&shareKey=4a5e582d5f8cbbfafb8641c931329ed6">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBa9c537e91a16d01ef2f5c82533fb623a?method=download&inline=true&shareKey=bb28e86a98d4257eedd75ce586563ed6">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBd189bfb18df62b8f3642ccd6b1a2ff4e?method=download&inline=true&shareKey=0a1f6e15a505f3ec169fba52b967a2bf">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB3b2d20bbcba871c0d2b8524edcbcdbef?method=download&inline=true&shareKey=3f9908818e9c5b7e5c13f7f3b5d27730">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBfa9bd6e089d22125e980ce1c98fe1068?method=download&inline=true&shareKey=6f98e49b411e0ab693482af85c9fd6e2">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB30ab53e8f7bb9c8dcfc454b0f316a6f5?method=download&inline=true&shareKey=8df6541b23385445e340ebdf633e24fd">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB7a4728c0e01c807794503b3741aa579b?method=download&inline=true&shareKey=495546f4f28173df93984fa9a1018c8d">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB4ce1e04aa35e0a009ccf64bf08aef0dd?method=download&inline=true&shareKey=b8b42493bdaa4132e216b86fac8e736d">
+<meta property="og:updated_time" content="2016-10-20T02:55:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS地图">
+<meta name="twitter:description" content="iOS地图简介苹果一般使用的谷歌、高德地图。但在大天朝谷歌地图用不了，所以一般使用高德地图。
+有关iOS 高德地图的一些API介绍
+
+MapKit.framework 使用高德地图时，需要导入MapKit框架。
+MKMapView 地图视图，在iOS中其父类继承的是UIView，在MacOS中其父类继承的是NSView。其主要功能是将地图以视图形式显示出来
+CLGeocoder 地理编码器，其主要">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEBd7fd48be47c6cfe1e7131e70f05f36b2?method=download&inline=true&shareKey=b534bbad14aa37dcc2e85a3de5c6d2e8">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://liujingh.github.io/2016/10/19/iOS开发/其他/iOS地图/"/>
+
+  <title> iOS地图 | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a9bf73cc00296d16c37b1bb493b0e1c8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS地图
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T09:09:27+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/19/iOS开发/其他/iOS地图/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/19/iOS开发/其他/iOS地图/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"> 阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="iOS地图简介"><a href="#iOS地图简介" class="headerlink" title="iOS地图简介"></a>iOS地图简介</h1><p>苹果一般使用的谷歌、高德地图。但在大天朝谷歌地图用不了，所以一般使用高德地图。</p>
+<p>有关iOS 高德地图的一些API介绍</p>
+<blockquote>
+<p>MapKit.framework 使用高德地图时，需要导入MapKit框架。</p>
+<p>MKMapView 地图视图，在iOS中其父类继承的是UIView，在MacOS中其父类继承的是NSView。其主要功能是将地图以视图形式显示出来</p>
+<p>CLGeocoder 地理编码器，其主要功能是将地理位置转化为经纬度，或将经纬度转化为地理位置。</p>
+<p>CLPlacemark 地标，存储了指定经纬度的地标信息，诸如国家，城市，街道等。</p>
+<p>CLLocationManager 定位管理器，用于设置地图中的定位服务。</p>
+<p>CLLocation 位置，封装了以经纬度为基点的地理信息，与地标不同的是，它没有包含具体位置信息。</p>
+<p>MKAnnotationView 位置注释视图，其主要功能为标记一个位置信息</p>
+</blockquote>
+<h1 id="iOS地图的使用"><a href="#iOS地图的使用" class="headerlink" title="iOS地图的使用"></a>iOS地图的使用</h1><h2 id="向工程中导入MapKit框架"><a href="#向工程中导入MapKit框架" class="headerlink" title="向工程中导入MapKit框架"></a>向工程中导入MapKit框架</h2><h3 id="进入工程配置文件"><a href="#进入工程配置文件" class="headerlink" title="进入工程配置文件"></a>进入工程配置文件</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEBd7fd48be47c6cfe1e7131e70f05f36b2?method=download&amp;inline=true&amp;shareKey=b534bbad14aa37dcc2e85a3de5c6d2e8" alt="image"></p>
+<h3 id="选择添加工程框架"><a href="#选择添加工程框架" class="headerlink" title="选择添加工程框架"></a>选择添加工程框架</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEBca73cda57994c8ee2daeee4e141721f4?method=download&amp;inline=true&amp;shareKey=42c38260f8e71c26dee817e663c43899" alt="image"></p>
+<h3 id="添加MapKit框架"><a href="#添加MapKit框架" class="headerlink" title="添加MapKit框架"></a>添加MapKit框架</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEBd59a4ec036264234f5d9ce5ee9d7db67?method=download&amp;inline=true&amp;shareKey=086694a2881d3af13d255deb3bfbf28e" alt="image"></p>
+<h3 id="添加成功显示"><a href="#添加成功显示" class="headerlink" title="添加成功显示"></a>添加成功显示</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB296d384b6f083443a0b67b42265cec49?method=download&amp;inline=true&amp;shareKey=339772dccc66f99d2c81977393c8adcf" alt="image"></p>
+<h2 id="使用MKMapView显示地图"><a href="#使用MKMapView显示地图" class="headerlink" title="使用MKMapView显示地图"></a>使用MKMapView显示地图</h2><h3 id="导入相关包"><a href="#导入相关包" class="headerlink" title="导入相关包"></a>导入相关包</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@<span class="meta"><span class="meta-keyword">import</span> MapKit;</span>  <span class="comment">//显示地图</span></div><div class="line">@<span class="meta"><span class="meta-keyword">import</span> CoreLocation;</span>  <span class="comment">// 地位服务</span></div></pre></td></tr></table></figure>
+<h3 id="使用MKMapView显示地图-1"><a href="#使用MKMapView显示地图-1" class="headerlink" title="使用MKMapView显示地图"></a>使用MKMapView显示地图</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@interface</span> ViewController ()</div><div class="line"><span class="comment">//定义一个MKMapView属性</span></div><div class="line"><span class="variable">@property</span> (nonatomic) MKMapView *mapView;</div><div class="line"><span class="variable">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">    _mapView = [[<span class="built_in">MKMapView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</div><div class="line">    _mapView.mapType = <span class="built_in">MKMapTypeStandard</span>;</div><div class="line">    [<span class="keyword">self</span>.view addSubview:_mapView];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="mapType的选择"><a href="#mapType的选择" class="headerlink" title="mapType的选择"></a>mapType的选择</h3><p>在MKMapView中，mapType属性决定了地图显示的样式。在苹果官方定义中有如下</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">typedef <span class="type">NS_ENUM</span>(<span class="type">NSUInteger</span>, <span class="type">MKMapType</span>) &#123;</div><div class="line">    <span class="type">MKMapTypeStandard</span> = 0,</div><div class="line">    <span class="type">MKMapTypeSatellite</span>,</div><div class="line">    <span class="type">MKMapTypeHybrid</span>,</div><div class="line">    <span class="type">MKMapTypeSatelliteFlyover</span>,</div><div class="line">    <span class="type">MKMapTypeHybridFlyover</span>,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="MKMapTypeStandard样式"><a href="#MKMapTypeStandard样式" class="headerlink" title="MKMapTypeStandard样式"></a>MKMapTypeStandard样式</h4><p>标准地图</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB2aa39d24b6777b3f2167784a406162f8?method=download&amp;inline=true&amp;shareKey=bffe54bbcd3310f7daa8c5802ba7ce1f" alt="image"></p>
+<h4 id="MKMapTypeSatellite样式"><a href="#MKMapTypeSatellite样式" class="headerlink" title="MKMapTypeSatellite样式"></a>MKMapTypeSatellite样式</h4><p>卫星地图（这个没有位置标识，几乎看不懂）</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7d3db7b13c6f2b36156d474663f6306a?method=download&amp;inline=true&amp;shareKey=9b278e8ca811e5b6f18d856bdd5111c0" alt="image"></p>
+<h4 id="MKMapTypeHybrid样式"><a href="#MKMapTypeHybrid样式" class="headerlink" title="MKMapTypeHybrid样式"></a>MKMapTypeHybrid样式</h4><p>混合地图 （在卫星地图上添加了位置标识）</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ef1676cefcbab9b0abfb4abdb6b99cc?method=download&amp;inline=true&amp;shareKey=4a5e582d5f8cbbfafb8641c931329ed6" alt="image"></p>
+<h2 id="使用CLLocationManager定位服务"><a href="#使用CLLocationManager定位服务" class="headerlink" title="使用CLLocationManager定位服务"></a>使用CLLocationManager定位服务</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义一个属性</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">CLLocationManager</span> *mgr;</div><div class="line"></div><div class="line"><span class="comment">//在viewDidLoad中实现</span></div><div class="line"></div><div class="line">_mapView.showsUserLocation = <span class="literal">YES</span>;</div><div class="line"></div><div class="line">_mgr = [<span class="built_in">CLLocationManager</span> new];</div><div class="line"><span class="comment">//任何时候都定位  前台+后台</span></div><div class="line">[_mgr requestAlwaysAuthorization];</div><div class="line"><span class="comment">//只有在前台的时候才定位</span></div><div class="line">[_mgr requestWhenInUseAuthorization];</div><div class="line"><span class="comment">//以上两个定位方式依需选择，定位服务是非常耗电的！</span></div></pre></td></tr></table></figure>
+<p>在info.plist中添加信息</p>
+<blockquote>
+<p>NSLocationAlwaysUsageDescription 值：申请使用定位服务</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBa9c537e91a16d01ef2f5c82533fb623a?method=download&amp;inline=true&amp;shareKey=bb28e86a98d4257eedd75ce586563ed6" alt="image"></p>
+<p>打开模拟器，会提示授权定位服务</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd189bfb18df62b8f3642ccd6b1a2ff4e?method=download&amp;inline=true&amp;shareKey=0a1f6e15a505f3ec169fba52b967a2bf" alt="image"></p>
+<p>点击允许之后，要使用模拟器给定一个模拟位置。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3b2d20bbcba871c0d2b8524edcbcdbef?method=download&amp;inline=true&amp;shareKey=3f9908818e9c5b7e5c13f7f3b5d27730" alt="image"></p>
+<p>输入模拟位置的经纬度</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBfa9bd6e089d22125e980ce1c98fe1068?method=download&amp;inline=true&amp;shareKey=6f98e49b411e0ab693482af85c9fd6e2" alt="image"></p>
+<p>至此，地图在模拟器上出现定位的标识点</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB30ab53e8f7bb9c8dcfc454b0f316a6f5?method=download&amp;inline=true&amp;shareKey=8df6541b23385445e340ebdf633e24fd" alt="image"></p>
+<h2 id="使用代理方法以拉近定位点的显示"><a href="#使用代理方法以拉近定位点的显示" class="headerlink" title="使用代理方法以拉近定位点的显示"></a>使用代理方法以拉近定位点的显示</h2><p>代理方法</p>
+<blockquote>
+<p>MKMapViewDelegate</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7a4728c0e01c807794503b3741aa579b?method=download&amp;inline=true&amp;shareKey=495546f4f28173df93984fa9a1018c8d" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找到.m文件顶部，添加MKMapViewDelegate</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">MKMapViewDelegate</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">//在viewDidLoad中实现</span></div><div class="line"><span class="comment">//设置代理</span></div><div class="line">_mapView.delegate = <span class="keyword">self</span>;</div><div class="line"></div><div class="line"><span class="comment">//实现代理方法</span></div><div class="line">-(<span class="keyword">void</span>)mapView:(<span class="built_in">MKMapView</span> *)mapView didUpdateUserLocation:(<span class="built_in">MKUserLocation</span> *)userLocation&#123;</div><div class="line">    </div><div class="line">    <span class="comment">//控制地图显示的区域</span></div><div class="line">    <span class="built_in">MKCoordinateSpan</span> span = <span class="built_in">MKCoordinateSpanMake</span>(<span class="number">.01</span>, <span class="number">.01</span>);</div><div class="line">    <span class="built_in">MKCoordinateRegion</span> region = <span class="built_in">MKCoordinateRegionMake</span>(userLocation.location.coordinate, span);</div><div class="line">    [_mapView setRegion:region animated:<span class="literal">YES</span>];</div><div class="line">    </div><div class="line">    <span class="comment">//关闭定位服务</span></div><div class="line">    [_mgr stopUpdatingLocation];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>MKCoordinateRegion 表示地图上的一块区域，center表示以经纬度表示的区域中心点，span表示这块区域的大小</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">	<span class="built_in">CLLocationCoordinate2D</span> center;</div><div class="line">	<span class="built_in">MKCoordinateSpan</span> span;</div><div class="line">&#125; <span class="built_in">MKCoordinateRegion</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>MKCoordinateSpan 它有两个字段一个是latitudeDelta，表示纬度范围，南纬和北纬加一起应该有180度，所以它的范围应该是大于0度，小于等于180度；另一个是longitudeDelta，表示经度范围，东经和西经加一起应该有360度，所以它的范围应该是大于0度，小于360度。</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">    <span class="built_in">CLLocationDegrees</span> latitudeDelta;</div><div class="line">    <span class="built_in">CLLocationDegrees</span> longitudeDelta;</div><div class="line">&#125; <span class="built_in">MKCoordinateSpan</span>;</div></pre></td></tr></table></figure>
+<h2 id="扩展1：拾取坐标器"><a href="#扩展1：拾取坐标器" class="headerlink" title="扩展1：拾取坐标器"></a>扩展1：拾取坐标器</h2><ul>
+<li><p>每个地图系统经纬度对应的实际地理位置是不同的，有一定的差距。这据说是每个地图系统的算法不同导致的。</p>
+</li>
+<li><p><a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank" rel="external">百度坐标拾取器</a></p>
+</li>
+<li><p><a href="http://lbs.amap.com/console/show/picker" target="_blank" rel="external">高德坐标拾取器</a></p>
+</li>
+</ul>
+<h2 id="扩展2：地理编码器"><a href="#扩展2：地理编码器" class="headerlink" title="扩展2：地理编码器"></a>扩展2：地理编码器</h2><h3 id="地理编码"><a href="#地理编码" class="headerlink" title="地理编码"></a>地理编码</h3><p>地理编码是指将地理位置转化为经纬度</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CLGeocoder</span> *geo = [<span class="built_in">CLGeocoder</span> new];</div><div class="line">[geo geocodeAddressString:<span class="string">@"中国北京市朝阳区松榆北路建业"</span> completionHandler:^(<span class="built_in">NSArray</span>&lt;<span class="built_in">CLPlacemark</span> *&gt; * _Nullable placemarks, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">        </div><div class="line">    <span class="built_in">CLPlacemark</span> *place = placemarks.firstObject;</div><div class="line">    <span class="built_in">CLLocation</span> *location = place.location;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, location);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>&lt;+39.87614400,+116.47236900&gt; +/- 100.00m (speed -1.00 mps / course -1.00)</p>
+</blockquote>
+<h3 id="地理反编码"><a href="#地理反编码" class="headerlink" title="地理反编码"></a>地理反编码</h3><p>地理反编码是指将经纬度转化为地理位置</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CLLocation</span> *location = [[<span class="built_in">CLLocation</span> alloc] initWithLatitude:<span class="number">39.9368</span> longitude:<span class="number">116.453119</span>];</div><div class="line">[[<span class="built_in">CLGeocoder</span> new] reverseGeocodeLocation:location completionHandler:^(<span class="built_in">NSArray</span>&lt;<span class="built_in">CLPlacemark</span> *&gt; * _Nullable placemarks, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">CLPlacemark</span> *place = placemarks.firstObject;</div><div class="line">    <span class="built_in">NSDictionary</span> *dic = place.addressDictionary;</div><div class="line">    <span class="built_in">CLLocation</span> *location = place.location;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, location);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>由于控制台输出会乱码，这里用断点来查看</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB4ce1e04aa35e0a009ccf64bf08aef0dd?method=download&amp;inline=true&amp;shareKey=b8b42493bdaa4132e216b86fac8e736d" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/地图/" rel="tag">#地图</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/13/iOS开发/Demo/iOS毛玻璃效果/" rel="next" title="iOS毛玻璃效果">
+                <i class="fa fa-chevron-left"></i> iOS毛玻璃效果
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/19/iOS开发/其他/iOS地图/"
+     data-title="iOS地图"
+     data-content=""
+     data-url="https://liujingh.github.io/2016/10/19/iOS开发/其他/iOS地图/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/19/iOS开发/其他/iOS地图/"
+           data-title="iOS地图" data-url="https://liujingh.github.io/2016/10/19/iOS开发/其他/iOS地图/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB4b94daf00c4060c6efc2b3bf12646d46?method=download&inline=true&shareKey=541c48a7c51931198062a6ecd777028c"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS地图简介"><span class="nav-number">1.</span> <span class="nav-text">iOS地图简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS地图的使用"><span class="nav-number">2.</span> <span class="nav-text">iOS地图的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#向工程中导入MapKit框架"><span class="nav-number">2.1.</span> <span class="nav-text">向工程中导入MapKit框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入工程配置文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">进入工程配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择添加工程框架"><span class="nav-number">2.1.2.</span> <span class="nav-text">选择添加工程框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加MapKit框架"><span class="nav-number">2.1.3.</span> <span class="nav-text">添加MapKit框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加成功显示"><span class="nav-number">2.1.4.</span> <span class="nav-text">添加成功显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用MKMapView显示地图"><span class="nav-number">2.2.</span> <span class="nav-text">使用MKMapView显示地图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入相关包"><span class="nav-number">2.2.1.</span> <span class="nav-text">导入相关包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用MKMapView显示地图-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用MKMapView显示地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapType的选择"><span class="nav-number">2.2.3.</span> <span class="nav-text">mapType的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MKMapTypeStandard样式"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">MKMapTypeStandard样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MKMapTypeSatellite样式"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">MKMapTypeSatellite样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MKMapTypeHybrid样式"><span class="nav-number">2.2.3.3.</span> <span class="nav-text">MKMapTypeHybrid样式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CLLocationManager定位服务"><span class="nav-number">2.3.</span> <span class="nav-text">使用CLLocationManager定位服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用代理方法以拉近定位点的显示"><span class="nav-number">2.4.</span> <span class="nav-text">使用代理方法以拉近定位点的显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展1：拾取坐标器"><span class="nav-number">2.5.</span> <span class="nav-text">扩展1：拾取坐标器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展2：地理编码器"><span class="nav-number">2.6.</span> <span class="nav-text">扩展2：地理编码器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#地理编码"><span class="nav-number">2.6.1.</span> <span class="nav-text">地理编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#地理反编码"><span class="nav-number">2.6.2.</span> <span class="nav-text">地理反编码</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
