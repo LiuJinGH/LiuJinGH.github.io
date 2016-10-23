@@ -1,0 +1,904 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UML学习笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="关联关系
+关联关系是一种静态关系，通常与运行状态无关，而是有“常识”、“规则”、“法律”等因素决定的，所以关联关系是一种“强关联”的关系。
+关联关系一般不强调关联的方向，在默认情况下，表示关联双方相互“知道”。如果特别强调了关联方向，如上图，在用例模型中，表示参与者A“知道”用例“B”，但用例“B”不知道参与者“A” 。
+依赖关系
+依赖关系描述一个对象在运行期会使用到另一个对象的关系。与关联关系不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UML·关系">
+<meta property="og:url" content="https://liujingh.github.io/2016/08/08/UML/UML·关系/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="关联关系
+关联关系是一种静态关系，通常与运行状态无关，而是有“常识”、“规则”、“法律”等因素决定的，所以关联关系是一种“强关联”的关系。
+关联关系一般不强调关联的方向，在默认情况下，表示关联双方相互“知道”。如果特别强调了关联方向，如上图，在用例模型中，表示参与者A“知道”用例“B”，但用例“B”不知道参与者“A” 。
+依赖关系
+依赖关系描述一个对象在运行期会使用到另一个对象的关系。与关联关系不">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB8f5e2d39186628e68f53bf0514b62007?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB6448b9b637f701214d787c493e6deb0b?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB8b1b98bdcf60858a01a86ffc7f472f61?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBc302e93b10c73ea7b8d5ef0e252e948a?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBeda5757d3bd8ca4078237f993d54507e?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB70ef110d350e92a8fa4ad820815e1b2c?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBdb5c8205fb0cd06d27e2ba2fcb477f36?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBf9c0340c85476c58b331b13b57ef51ff?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB054a4667f1b44a48cc7eb621d02acf92?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+<meta property="og:updated_time" content="2016-10-23T07:58:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UML·关系">
+<meta name="twitter:description" content="关联关系
+关联关系是一种静态关系，通常与运行状态无关，而是有“常识”、“规则”、“法律”等因素决定的，所以关联关系是一种“强关联”的关系。
+关联关系一般不强调关联的方向，在默认情况下，表示关联双方相互“知道”。如果特别强调了关联方向，如上图，在用例模型中，表示参与者A“知道”用例“B”，但用例“B”不知道参与者“A” 。
+依赖关系
+依赖关系描述一个对象在运行期会使用到另一个对象的关系。与关联关系不">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEB8f5e2d39186628e68f53bf0514b62007?method=download&inline=true&shareKey=9c17c0c8d0f700dbce25a66581d9ee65">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://liujingh.github.io/2016/08/08/UML/UML·关系/"/>
+
+  <title> UML·关系 | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a9bf73cc00296d16c37b1bb493b0e1c8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UML·关系
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-08T18:23:37+08:00" content="2016-08-08">
+              2016-08-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/08/UML/UML·关系/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/UML/UML·关系/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"> 阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8f5e2d39186628e68f53bf0514b62007?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>关联关系是一种静态关系，通常与运行状态无关，而是有“常识”、“规则”、“法律”等因素决定的，所以关联关系是一种“强关联”的关系。</p>
+<p>关联关系一般不强调关联的方向，在默认情况下，表示关联双方相互“知道”。如果特别强调了关联方向，如上图，在用例模型中，表示参与者A“知道”用例“B”，但用例“B”不知道参与者“A” 。</p>
+<h1 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB6448b9b637f701214d787c493e6deb0b?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>依赖关系描述一个对象在运行期会使用到另一个对象的关系。与关联关系不同的是，依赖关系一种临时性的“弱”关系，它不是天然存在的，并且随着运行场景的不同，依赖关系也可能发生变化。</p>
+<p>依赖关系和关联关系的区别：在关联关系中，B修改了之后，A不会发生变化。在依赖关系中，A不仅“知道”B的存在，还会使用到B的属性和方法，所以B修改了之后，可能会导致A发生修改。</p>
+<p>依赖关系也有单向和双向依赖，但我们应当杜绝双向依赖关系的产生。</p>
+<h1 id="扩展关系"><a href="#扩展关系" class="headerlink" title="扩展关系"></a>扩展关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8b1b98bdcf60858a01a86ffc7f472f61?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>扩展关系特别用于在用例模型中说明向基本用例中的某个扩展点插入扩展用例。扩展用例是带有抽象性质的，它表示了用例场景中的某个“支流”，有特定的扩展点触发而被启动。</p>
+<p>使用扩展关系可能基于以下理由：</p>
+<ul>
+<li>表明用例的某一部分是可选（或可能可选）的系统行为。这样就可以将模型中的可选行为和必选行为分开。</li>
+<li>表明只在特定条件（有时是例外条件）下猜执行分支流，如触发警报</li>
+<li>表明可能有一组行为段，其中的一个或多个段可以在基本用例的扩展点处插入。所插入的行为段（以及插入的顺序）将取决于在执行基本用例时与主角的交互。</li>
+<li>表明多个基本用例中都有可能触发一个可选的分支流。这个意义上说，扩展用例也代表了多个用例的可复用部分。</li>
+</ul>
+<h1 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBc302e93b10c73ea7b8d5ef0e252e948a?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>包含关系特别用于用例模型，说明在执行基本用例的用例实例过程中插入的行为段。包含用例总是带有抽象性质的，基本用例可控制与包含用例的关系，并可依赖于执行包含用例的结果，但基本用例和包含用例都不能访问对方的属性。</p>
+<p>在建模过程中使用包含关系可以基于以下理由：</p>
+<ul>
+<li>从基本用例中分解出这样的行为：它对于了解基本用例的主要目的并不是必需的，只要它的结果才比较重要。</li>
+<li>分解出两个或更多个用例所共有的行为。</li>
+</ul>
+<p>包含关系和扩展关系的区别：包含关系表示是“必需”的，如果没有包含用例，基本用例是不完整的，同时如果没有基本用例，包含用例是不能单独存在的；扩展关系表示是“可选”的，如果没有扩展用例，基本用例也是完整的；如果没有基本用例，扩展用例是不能单独存在的；如果有多个扩展用例，同一时间用例实例也只会使用其中的一个。</p>
+<h1 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBeda5757d3bd8ca4078237f993d54507e?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>实现关系特别用于在用例模型中连接用例和用例的实现，说明基本用例的一个实现方式。基本用例描述了一个业务目标，但是该业务目标有多种可能的实现途径，每一种实现途径可以用用例实现（或称用例实例）来表示，而用例实现与基本用例之间就构成了实现关系。即每个实现实例都能实现业务目标。</p>
+<h1 id="精化关系"><a href="#精化关系" class="headerlink" title="精化关系"></a>精化关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB70ef110d350e92a8fa4ad820815e1b2c?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>精化关系特别用于用例模型，一个基本用例可以分解出许多更小的关键精化用例，这些更小的精化用例更细致地展示了基本用例的核心业务。精化关系也可以用于模型与模型之间，表示某个模型是通过另一个模型而得来的。</p>
+<h1 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBdb5c8205fb0cd06d27e2ba2fcb477f36?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>泛化关系表示一个类对另一个类的继承，即两个对象之间的继承关系。虽然在UML认识用例之间使用泛化关系是合法的，但并不赞同这样使用，因为很难描述子用例继承了基本用例的什么，过程还是业务实体，其次用例之间的可复用部分和可扩展部分可以使用包含关系和扩展关系描述。</p>
+<p>泛化关系和精化关系的区别：</p>
+<ul>
+<li>精化关系表示有基本对象可以分解为更明确、更精细的子对象，这些子对象并没有增加、减少、改变基本对象那个的行为和属性，仅仅是更加细致和明确化了。在泛化关系中，基本对象被泛化称为子对象后，子对象继承了基本对象的所有特征，并且子对象可以增加、改变基本对象的行为和属性。</li>
+<li>精化关系仅仅用于建模阶段，在实现语言中是没有精化这一语义的。泛化则等同于实现语言中的继承语义。</li>
+</ul>
+<h1 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBf9c0340c85476c58b331b13b57ef51ff?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>聚合关系用于类图，特别用于表示实体对象之间的关系，表达整体由部分构成的语义。</p>
+<h1 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB054a4667f1b44a48cc7eb621d02acf92?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>组合关系用于类图，特别用于表示实体对象关系，表达整体部分的语义。</p>
+<p>组合关系和聚合关系的区别：</p>
+<ul>
+<li>组合是一个种强依赖的特殊聚合关系，如果整体不存在了，则部分也将消亡。</li>
+<li>在聚合关系中，整体和部分不是强依赖，即使整体不存在了，部分仍然存在。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UML学习笔记/" rel="tag">#UML学习笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/06/UML/统一过程（RUP）/" rel="next" title="统一过程（RUP）">
+                <i class="fa fa-chevron-left"></i> 统一过程（RUP）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/14/UML/UML核心元素——用例/" rel="prev" title="UML核心元素——用例">
+                UML核心元素——用例 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/08/UML/UML·关系/"
+     data-title="UML·关系"
+     data-content=""
+     data-url="https://liujingh.github.io/2016/08/08/UML/UML·关系/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/08/UML/UML·关系/"
+           data-title="UML·关系" data-url="https://liujingh.github.io/2016/08/08/UML/UML·关系/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB4b94daf00c4060c6efc2b3bf12646d46?method=download&inline=true&shareKey=541c48a7c51931198062a6ecd777028c"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关联关系"><span class="nav-number">1.</span> <span class="nav-text">关联关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖关系"><span class="nav-number">2.</span> <span class="nav-text">依赖关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展关系"><span class="nav-number">3.</span> <span class="nav-text">扩展关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包含关系"><span class="nav-number">4.</span> <span class="nav-text">包含关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现关系"><span class="nav-number">5.</span> <span class="nav-text">实现关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#精化关系"><span class="nav-number">6.</span> <span class="nav-text">精化关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛化关系"><span class="nav-number">7.</span> <span class="nav-text">泛化关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聚合关系"><span class="nav-number">8.</span> <span class="nav-text">聚合关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组合关系"><span class="nav-number">9.</span> <span class="nav-text">组合关系</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

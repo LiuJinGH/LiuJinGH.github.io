@@ -1,0 +1,906 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="UML学习笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="建模建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。
+怎么建：快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点
+
+站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的
+站在使用的角度：都需要用手拿，不同的是手的动作不同
+站在字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="建模基础">
+<meta property="og:url" content="https://liujingh.github.io/2016/08/06/UML/建模基础/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="建模建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。
+怎么建：快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点
+
+站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的
+站在使用的角度：都需要用手拿，不同的是手的动作不同
+站在字">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBb6c08d7293abb332ada4031430ab115a?method=download&inline=true&shareKey=b752ea537c0cfc990b24a3fc8e916e13">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBdc23d269743d16f1365e7e959d93a4c3?method=download&inline=true&shareKey=b752ea537c0cfc990b24a3fc8e916e13">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEBe6c0cf7ff58bf56f3cddf79132595e63?method=download&inline=true&shareKey=b752ea537c0cfc990b24a3fc8e916e13">
+<meta property="og:updated_time" content="2016-10-23T07:58:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="建模基础">
+<meta name="twitter:description" content="建模建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。
+怎么建：快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点
+
+站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的
+站在使用的角度：都需要用手拿，不同的是手的动作不同
+站在字">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEBb6c08d7293abb332ada4031430ab115a?method=download&inline=true&shareKey=b752ea537c0cfc990b24a3fc8e916e13">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://liujingh.github.io/2016/08/06/UML/建模基础/"/>
+
+  <title> 建模基础 | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a9bf73cc00296d16c37b1bb493b0e1c8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                建模基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T09:43:37+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/UML/建模基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/UML/建模基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"> 阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><p>建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。</p>
+<h2 id="怎么建："><a href="#怎么建：" class="headerlink" title="怎么建："></a>怎么建：</h2><p>快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点</p>
+<ul>
+<li>站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的</li>
+<li>站在使用的角度：都需要用手拿，不同的是手的动作不同</li>
+<li>站在字面的角度：都有一个子字…</li>
+</ul>
+<p>当为现实世界建模时，首先要决定的是抽象的角度，即建立这个模型的目的是什么。</p>
+<p>面对问题领域的时候首先不要决定去通盘考虑，而是找出问题领域里面包含的抽象角度。如果把抽象角度都找全了，并且这些角度都分析清楚了，问题领域也就解决了。这就是用例。</p>
+<h2 id="模是什么："><a href="#模是什么：" class="headerlink" title="模是什么："></a>模是什么：</h2><p>决定了抽象角度，就决定了一个目标。模就是能够满足这一目标的事物。换个概念便是：人、事、物和规则。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBb6c08d7293abb332ada4031430ab115a?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<h1 id="用例驱动"><a href="#用例驱动" class="headerlink" title="用例驱动"></a>用例驱动</h1><p>用例驱动的原理：要解决问题领域就要归纳出所有必要的抽象角度（用例），为这些用例描述出可能的特定场景，并找到实现这些场景的事物、规则和行为。如果我们找到的那些事物、规则和行为实现了所有必要的用例，那么问题领域就解决了。</p>
+<p>在实际的软件项目中，一个软件要实现的功能通过用例来捕获，接下来的所有分析、设计、实现、测试都由用例来驱动，即以实现用例为目标</p>
+<p>在统一过程中，用例可以驱动的内容：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBdc23d269743d16f1365e7e959d93a4c3?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<p>逻辑视图：说明关键的用例实现、子系统、包和类，包含在构架方面具有重要意义的行为。“人”、“事”、“物”、“规则”是如何分类组织的。</p>
+<p>进程视图：说明系统中进程的详细组织结构，其中包括类和子系统到进程和线程的映射。“人”、“事”、“物”、“规则”是如何交互的，他们的关系如何。</p>
+<p>部署视图：说明处理活动在系统中各节点的分布，包括进程和线程的物理分布。“人”、“事”、“物”、“规则”是如何部署在物理节点（主机、网络环境）上的。</p>
+<p>实施视图：获取为实施制定的架构决策。<br>内容：</p>
+<ul>
+<li>列举实施模型中的所有子系统</li>
+<li>描述子系统如何组织为层次和分层结构的构件图</li>
+<li>描述子系统间的导入依赖关系的图解<br>作用：</li>
+<li>为个人、团队或分包商分配实施工作</li>
+<li>估算要开发、修改或删除的代码数量</li>
+<li>阐明大规模复用的理由</li>
+<li>考虑发布策略</li>
+</ul>
+<p>“人”、“事”、“物”、“规则”如何构成系统的“零部件”，以及我们如何组织人力生产和组装这些“零部件”以建成最终系统</p>
+<h1 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h1><p>误解：越抽象的东西越难理解，越具体的东西越容易认识！<br>人们认识的事物概念都是抽象的，具象只是一个相对的概念。例如，石头是硬的这个普遍认识也是一种抽象的，之所以人们觉得硬度这个抽象概念容易理解，是因为经过了多年的积累，这个抽象的概念已经被消化了。<br>所谓的具体也是一种抽象，一种已经被你接受和理解的抽象。<br>抽象层次越高，被屏蔽的信息也就越多，信息量越少，也就越容易理解和处理。如果抽象层次太高，信息量太少，又会因为信息量不足而实施不了。用例粒度选择的困难本质上是由于没有找到抽象层次而产生的。</p>
+<p>抽象的方法：</p>
+<ul>
+<li>自顶向下：适用于让人们从头开始认识一个事物</li>
+<li>自底向上：适用于在实践中改进和提高认识</li>
+</ul>
+<p>在软件开发过程中，主体上应当选择自顶向下的方法，用少量的概念覆盖系统需求，在逐渐降低抽象层次，直到代码编写。辅以自底向上的方法，通过总结在较低抽象层次的实践经验来改进较高层次的概念以提升软件质量。</p>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>建立模型的目的是想相关的人（干系人）展示将要生产的软件产品，软件产品有着很多不同的方面。只有把这些方面都描述清楚，用很多不同的视图去展示软件这些不同的方面——静态的、动态的、结构性的、逻辑性的等——才能够说明建立了一个完整的模型。</p>
+<p>建模最主要的工作就是为软件绘制那些表达软件含义的视图来完整地表达软件的含义。</p>
+<ul>
+<li>问题一：应该为哪些软件信息绘制哪些视图？</li>
+<li>问题二：应该给哪些干系人展示哪些视角？</li>
+</ul>
+<h1 id="对象分析方法"><a href="#对象分析方法" class="headerlink" title="对象分析方法"></a>对象分析方法</h1><p>一切都是对象：一切有名字的东西都是对象，都应当使用对象的观点看待它，分析它。哪怕是一个业务流程。</p>
+<h2 id="对象都是独立的"><a href="#对象都是独立的" class="headerlink" title="对象都是独立的"></a>对象都是独立的</h2><p>对象与对象之间是天然独立，只是在某个特定的场景下，它们的某一个特定的实例才相互联系在一起。</p>
+<p>对象是离散的，它不是因为特定场景而存在。场景中的对象只是对象“映射”到该场景中的一个侧面，称之为对象实例。通过一个场景，仅能得到对象的一个侧面的信息。</p>
+<p>对象的分析方法：分析很多个该对象的实例所参与的场景，以获得独享的多个侧面，再通过归纳整理这些对象的多个实例，抽象出对象的一般特性。<br>对象的独立性带来的正是对象的可抽象能力和可扩展能力。</p>
+<h2 id="对象都具有原子性"><a href="#对象都具有原子性" class="headerlink" title="对象都具有原子性"></a>对象都具有原子性</h2><p>同一个抽象层次上，在分析过程中都应当将对象视为一个不可分割的原子，它与其它对象交互时就是一个整体。原子性是抽象层次有意义的重要保证，一旦破坏了原子性，则表示在同一抽象层次上的对象不具备同样的粒度，这使得分析工作陷入混乱。</p>
+<p>面向接口编程：将分析过程中得到的所有对于对象的认识附加在对象边界上，在实现这个对象之前不理会其内部的细节。</p>
+<h2 id="对象都是可抽象的"><a href="#对象都是可抽象的" class="headerlink" title="对象都是可抽象的"></a>对象都是可抽象的</h2><p>对象参与一个场景时会展现某一个方面。总可以将对象的某一个方面抽象出来，让其作为对象的一个代表来参与场景交互。通常这种抽象总是会以接口来命名。<br>在分析过程中，应当关注那些参与了很多场景的对象，它们往往是分析设计中的重点以及成败关键。</p>
+<h2 id="对象都有层次性"><a href="#对象都有层次性" class="headerlink" title="对象都有层次性"></a>对象都有层次性</h2><p>层次越高，其描述越粗略但适应能力越广；层次越低则描述越精确但适应能力越下降。</p>
+<p>在分析过程中，应当根据问题领域的复杂程度设定多个抽象层次，在每个层次上使用适合的抽象程度的对象描述。</p>
+<h2 id="对象分析方法总结"><a href="#对象分析方法总结" class="headerlink" title="对象分析方法总结"></a>对象分析方法总结</h2><p>独立性、原子性、抽象性和层次性是面向对象分析时应当遵循的一些原则和方法。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBe6c0cf7ff58bf56f3cddf79132595e63?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UML学习笔记/" rel="tag">#UML学习笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/06/UML/统一过程（RUP）/" rel="prev" title="统一过程（RUP）">
+                统一过程（RUP） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/06/UML/建模基础/"
+     data-title="建模基础"
+     data-content=""
+     data-url="https://liujingh.github.io/2016/08/06/UML/建模基础/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/06/UML/建模基础/"
+           data-title="建模基础" data-url="https://liujingh.github.io/2016/08/06/UML/建模基础/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB4b94daf00c4060c6efc2b3bf12646d46?method=download&inline=true&shareKey=541c48a7c51931198062a6ecd777028c"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#建模"><span class="nav-number">1.</span> <span class="nav-text">建模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么建："><span class="nav-number">1.1.</span> <span class="nav-text">怎么建：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模是什么："><span class="nav-number">1.2.</span> <span class="nav-text">模是什么：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用例驱动"><span class="nav-number">2.</span> <span class="nav-text">用例驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象层次"><span class="nav-number">3.</span> <span class="nav-text">抽象层次</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视图"><span class="nav-number">4.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象分析方法"><span class="nav-number">5.</span> <span class="nav-text">对象分析方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象都是独立的"><span class="nav-number">5.1.</span> <span class="nav-text">对象都是独立的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象都具有原子性"><span class="nav-number">5.2.</span> <span class="nav-text">对象都具有原子性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象都是可抽象的"><span class="nav-number">5.3.</span> <span class="nav-text">对象都是可抽象的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象都有层次性"><span class="nav-number">5.4.</span> <span class="nav-text">对象都有层次性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象分析方法总结"><span class="nav-number">5.5.</span> <span class="nav-text">对象分析方法总结</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

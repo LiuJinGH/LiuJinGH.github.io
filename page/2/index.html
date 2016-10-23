@@ -278,8 +278,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/iOS开发/CoreAnimation/" itemprop="url">
-                  CoreAnimation
+                <a class="post-title-link" href="/2016/10/08/Linux/Webmin工具/" itemprop="url">
+                  Webmin
                 </a>
               
             
@@ -306,8 +306,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
+                  <a href="/categories/Linux服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux服务器</span>
                   </a>
                 </span>
 
@@ -322,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/CoreAnimation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/CoreAnimation/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/Linux/Webmin工具/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/Linux/Webmin工具/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -348,101 +348,18 @@
       
         
           
-            <h2 id="CoreAnimation简介"><a href="#CoreAnimation简介" class="headerlink" title="CoreAnimation简介"></a>CoreAnimation简介</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8521ccc00946f1c896f0409a634d8f51?method=download&amp;inline=true&amp;shareKey=aff35856ab2b65a189b12590ed8988ba" alt="image"></p>
-<ol>
-<li>能用的动画类只有4个子类：CABasicAnimation、CAKeyframeAnimation、CATransition、CAAnimationGroup</li>
-<li>CAPropertyAnimation是CAAnimation的子类，但是不能直接使用，要想创建动画对象，应该使用它的两个子类：CABasicAnimation和CAKeyframeAnimation</li>
-<li>CAMediaTiming是一个协议(protocol)</li>
-</ol>
-<p>它有个NSString类型的keyPath属性，你可以指定CALayer的某个属性名为keyPath，并且对CALayer的这个属性的值进行修改，达到相应的动画效果。比如，指定@”position”为keyPath，就会修改CALayer的position属性的值，以达到平移的动画效果</p>
-<p><a href="http://note.youdao.com/yws/api/personal/file/WEB44832f6965de18b816f5755ac4f69e97?method=download&amp;inline=true&amp;shareKey=cd64b2da612ec487ed1b19372c79b1b1" target="_blank" rel="external">Demo下载</a></p>
-<h3 id="属性解析：-标识代表来自CAMediaTiming协议的属性"><a href="#属性解析：-标识代表来自CAMediaTiming协议的属性" class="headerlink" title="属性解析：(标识代表来自CAMediaTiming协议的属性)"></a>属性解析：(标识代表来自CAMediaTiming协议的属性)</h3><blockquote>
-<p>duration：动画的持续时间</p>
-<p>repeatCount：动画的重复次数</p>
-<p>repeatDuration：动画的重复时间</p>
-<p>removedOnCompletion：默认为YES，代表动画执行完毕后就从图层上移除，图形会恢复到动画执行前的状态。如果想让图层保持显示动画执行后的状态，那就设置为NO，不过还要设置fillMode为kCAFillModeForwards</p>
-<p>fillMode：决定当前对象在非active时间段的行为.比如动画开始之前,动画结束之后</p>
-<p>beginTime：可以用来设置动画延迟执行时间，若想延迟2s，就设置为CACurrentMediaTime()+2，CACurrentMediaTime()为图层的当前时间</p>
-<p>timingFunction：速度控制函数，控制动画运行的节奏</p>
-<p>delegate：动画代理</p>
-</blockquote>
-<h3 id="Core-Animation的使用步骤"><a href="#Core-Animation的使用步骤" class="headerlink" title="Core Animation的使用步骤"></a>Core Animation的使用步骤</h3><ol>
-<li>初始化一个CAAnimation对象，并设置一些动画相关属性</li>
-<li>通过调用CALayer的addAnimation:forKey:方法增加CAAnimation对象到CALayer中，这样就能开始执行动画了</li>
-<li>通过调用CALayer的removeAnimationForKey:方法可以停止CALayer中的动画</li>
-</ol>
-<h2 id="CABasicAnimation"><a href="#CABasicAnimation" class="headerlink" title="CABasicAnimation"></a>CABasicAnimation</h2><blockquote>
-<p>fromValue：keyPath相应属性的初始值</p>
-<p>toValue：keyPath相应属性的结束值</p>
-<p>随着动画的进行，在长度为duration的持续时间内，keyPath相应属性的值从fromValue渐渐地变为toValue</p>
-</blockquote>
-<p>CABasicAnimation创建<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个基本动画类型</span></div><div class="line"><span class="built_in">CABasicAnimation</span> *animation = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:Key];</div><div class="line"><span class="comment">//动画持续时间</span></div><div class="line">animation.duration = <span class="number">2.0</span>;</div><div class="line"><span class="comment">//动画重复次数</span></div><div class="line">animation.repeatCount = MAXFLOAT;</div><div class="line"><span class="comment">//设置动画执行完毕之后不删除动画</span></div><div class="line"><span class="comment">//    animation.removedOnCompletion=NO;</span></div><div class="line"><span class="comment">//设置保存动画的最新状态</span></div><div class="line"><span class="comment">//    animation.fillMode=kCAFillModeForwards;</span></div><div class="line"><span class="comment">//在动画执行完毕后，图层会保持显示动画执行后的状态。但在实质上，图层的属性值还是动画执行前的初始值，并没有真正被改变。</span></div></pre></td></tr></table></figure></p>
-<p>CABasicAnimation使用</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//transform 形变属性，基于<span class="keyword">x</span>/<span class="regexp">y/z轴</span></div><div class="line">CABasicAnimation *animation = [self animationInstanceWithKeyPath:@"transform"];</div><div class="line">//还有一个fromValue属性，表示起始值，这里由于使用默认起始值，所以不设置fromValue</div><div class="line">animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>)];</div><div class="line"><span class="regexp">//</span>将动画添加到layer层即可    </div><div class="line">[self.rLayer addAnimation:animation forKey:nil];</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBc9a6a7262bc3b2cfc34b44608dc39624?method=download&amp;inline=true&amp;shareKey=30b50c815efe0cb7bedd6e3cde2dd7d0" alt="image"></p>
-<h2 id="CAKeyframeAnimation"><a href="#CAKeyframeAnimation" class="headerlink" title="CAKeyframeAnimation"></a>CAKeyframeAnimation</h2><blockquote>
-<ol>
-<li><p>跟CABasicAnimation的区别是：CABasicAnimation只能从一个数值(fromValue)变到另一个数值(toValue)，而CAKeyframeAnimation会使用一个NSArray保存这些数值</p>
-</li>
-<li><p>values：就是上述的NSArray对象。里面的元素称为”关键帧”(keyframe)。动画对象会在指定的时间(duration)内，依次显示values数组中的每一个关键帧</p>
-</li>
-<li><p>path：可以设置一个CGPathRef\CGMutablePathRef,让层跟着路径移动。path只对CALayer的anchorPoint和position起作用。如果你设置了path，那么values将被忽略</p>
-</li>
-<li><p>keyTimes：可以为对应的关键帧指定对应的时间点,其取值范围为0到1.0,keyTimes中的每一个时间值都对应values中的每一帧.当keyTimes没有设置的时候,各个关键帧的时间是平分的</p>
-</li>
-<li><p>CABasicAnimation可看做是最多只有2个关键帧的CAKeyframeAnimation</p>
-</li>
-</ol>
-</blockquote>
-<p>CAKeyframeAnimation创建</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CAKeyframeAnimation *<span class="built_in">animation</span> = [CAKeyframeAnimation animationWithKeyPath:Key];</div><div class="line"><span class="built_in">animation</span>.duration = <span class="number">2.0</span>;</div><div class="line"><span class="built_in">animation</span>.repeatCount = MAXFLOAT;</div><div class="line">//效果</div><div class="line"><span class="built_in">animation</span>.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div></pre></td></tr></table></figure>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">kCAMediaTimingFunctionLinear</span> 线性（匀速）</div><div class="line">kCAMediaTimingFunctionEaseIn 先慢</div><div class="line">kCAMediaTimingFunctionEaseOut 后慢</div><div class="line">kCAMediaTimingFunctionEaseInEaseOut 先慢 后慢 中间快</div><div class="line">kCAMediaTimingFunctionDefault 默认</div></pre></td></tr></table></figure>
-<p>CAKeyframeAnimation使用<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对bounds属性进行动画</span></div><div class="line"><span class="built_in">CAKeyframeAnimation</span> *animation = [<span class="keyword">self</span> animationInstanceWithKeyPath:<span class="string">@"bounds"</span>];</div><div class="line"></div><div class="line"><span class="built_in">NSValue</span> *v1 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v2 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">125</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v3 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">125</span>, <span class="number">125</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v4 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">125</span>, <span class="number">50</span>)];</div><div class="line"><span class="built_in">NSValue</span> *v5 = [<span class="built_in">NSValue</span> valueWithCGRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">animation.values = @[v1, v2, v3, v4, v5];</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.sLayer addAnimation:animation forKey:<span class="literal">nil</span>];</div></pre></td></tr></table></figure></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBe9d00dafdac4048a504c8bba0fb3ff8e?method=download&amp;inline=true&amp;shareKey=fa6b191a2e5b53d82861ff0862b75f42" alt="image"></p>
-<h2 id="CATransition"><a href="#CATransition" class="headerlink" title="CATransition"></a>CATransition</h2><p>CAAnimation的子类，用于做转场动画，能够为层提供移出屏幕和移入屏幕的动画效果。iOS比Mac OS X的转场动画效果少一点</p>
-<p>UINavigationController就是通过CATransition实现了将控制器的视图推入屏幕的动画效果</p>
+            <h2 id="Webmin简介"><a href="#Webmin简介" class="headerlink" title="Webmin简介"></a>Webmin简介</h2><h2 id="Webmin安装"><a href="#Webmin安装" class="headerlink" title="Webmin安装"></a>Webmin安装</h2><p>方式一：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget <span class="string">http:</span><span class="comment">//download.webmin.com/download/yum/webmin-1.810-1.noarch.rpm</span></div><div class="line">rpm -ivh webmin<span class="number">-1.810</span><span class="number">-1.</span>noarch.rpm</div><div class="line"><span class="regexp">/etc/</span>rc.d<span class="regexp">/init.d/</span>webmin start</div></pre></td></tr></table></figure></p>
+<p>方式二：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vim /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/webmin<span class="selector-class">.repo</span></div><div class="line">[Webmin]</div><div class="line"></div><div class="line">name=Webmin Distribution Neutral</div><div class="line">#baseurl=http:<span class="comment">//download.webmin.com/download/yum</span></div><div class="line">mirrorlist=http:<span class="comment">//download.webmin.com/download/yum/mirrorlist</span></div><div class="line"></div><div class="line"></div><div class="line">wget http:<span class="comment">//www.webmin.com/jcameron-key.asc</span></div><div class="line">rpm --import jcameron-key<span class="selector-class">.asc</span></div><div class="line">yum install webmin</div></pre></td></tr></table></figure></p>
+<p>安装成功提示：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Webmin <span class="keyword">install</span> complete. You can <span class="keyword">now</span> login <span class="keyword">to</span> https://localhost.localdomain:<span class="number">10000</span>/</div></pre></td></tr></table></figure></p>
+<p>安装成功之后，还要处理一下防火墙问题，要么打开防火墙的10000端口，要么直接关闭掉防火墙。这里是直接关掉防火墙。</p>
+<p>CentOS 7.2默认使用的是firewall作为防火墙。<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#停止firewall</span></div><div class="line">systemctl <span class="keyword">stop</span> firewalld.service </div><div class="line"><span class="meta">#禁止firewall开机启动</span></div><div class="line">systemctl <span class="keyword">disable</span> firewalld.service</div></pre></td></tr></table></figure></p>
+<h2 id="登录Webmin"><a href="#登录Webmin" class="headerlink" title="登录Webmin"></a>登录Webmin</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#172.16.204.135是我的虚拟机的IP地址，请自行替换</span></div><div class="line">https:<span class="comment">//172.16.204.135:10000</span></div><div class="line"><span class="meta">#如果浏览器提示安全连接问题(由于https造成的)登录不上，可以换一个浏览器试试，我用火狐连接不了</span></div></pre></td></tr></table></figure>
+<p>登录界面</p>
 <blockquote>
-<p>type 进场的效果</p>
-<p>subtype 进场的方向</p>
+<p>登录密码为Linux的root账户的密码</p>
 </blockquote>
-<p>CATransition 创建<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CATransition *<span class="built_in">animation</span> = [CATransition <span class="built_in">animation</span>];</div><div class="line"><span class="built_in">animation</span>.duration = <span class="number">2.0</span>;</div><div class="line"><span class="built_in">animation</span>.type = Key;</div><div class="line"><span class="built_in">animation</span>.subtype = subtype;</div><div class="line">//    <span class="built_in">animation</span>.repeatCount = MAXFLOAT;</div><div class="line"><span class="built_in">animation</span>.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div></pre></td></tr></table></figure></p>
-<p>key<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"><span class="number">1</span>.<span class="meta">#define定义的常量 </span></div><div class="line">kCATransitionFade   交叉淡化过渡</div><div class="line">kCATransitionMoveIn 新视图移到旧视图上面</div><div class="line">kCATransitionPush   新视图把旧视图推出去</div><div class="line">kCATransitionReveal 将旧视图移开,显示下面的新视图</div><div class="line"></div><div class="line"><span class="number">2</span>.用字符串表示</div><div class="line">pageCurl            向上翻一页</div><div class="line">pageUnCurl          向下翻一页</div><div class="line">rippleEffect        滴水效果</div><div class="line">suckEffect          收缩效果，如一块布被抽走</div><div class="line">cube                立方体效果</div><div class="line">oglFlip             上下翻转效果</div><div class="line">*/</div></pre></td></tr></table></figure></p>
-<p>subtype</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">kCATransitionFromRight</div><div class="line">kCATransitionFromLeft</div><div class="line">kCATransitionFromTop</div><div class="line">kCATransitionFromBottom</div><div class="line">*/</div></pre></td></tr></table></figure>
-<p>CATransition 使用</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.animation1 = [<span class="keyword">self</span> <span class="symbol">animationInstanceWithKeyPath:</span>@<span class="string">"cube"</span> <span class="symbol">WithSubtype:</span>subtype];</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.imageView1.layer <span class="symbol">addAnimation:</span><span class="keyword">self</span>.animation1 <span class="symbol">forKey:</span><span class="keyword">nil</span>];</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBfde529ccfe75edb165aefa87dc26a356?method=download&amp;inline=true&amp;shareKey=0948d5e7bdcdb0e96458c4ae83c69fa5" alt="image"></p>
-<h2 id="CAAnimationGroup"><a href="#CAAnimationGroup" class="headerlink" title="CAAnimationGroup"></a>CAAnimationGroup</h2><p>CAAnimation的子类，可以保存一组动画对象，将CAAnimationGroup对象加入层后，组中所有动画对象可以同时并发运行</p>
-<blockquote>
-<p>animations：用来保存一组动画对象的NSArray</p>
-</blockquote>
-<p>默认情况下，一组动画对象是同时运行的，也可以通过设置动画对象的beginTime属性来更改动画的开始时间</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@<span class="string">"position"</span>]<span class="comment">;</span></div><div class="line">animation1.toValue = [NSValue valueWithCGPoint:CGPointMake(<span class="number">220</span>, <span class="number">320</span>)]<span class="comment">;</span></div><div class="line"></div><div class="line">CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@<span class="string">"transform.scale"</span>]<span class="comment">;</span></div><div class="line">animation2.toValue = @(<span class="number">0</span>.<span class="number">0</span>)<span class="comment">;</span></div><div class="line"></div><div class="line">CABasicAnimation *animation3 = [CABasicAnimation animationWithKeyPath:@<span class="string">"transform.rotation"</span>]<span class="comment">;</span></div><div class="line">animation3.toValue= @(M_PI)<span class="comment">;</span></div><div class="line"></div><div class="line">CAAnimationGroup *groupAnimation = [CAAnimationGroup animation]<span class="comment">;</span></div><div class="line">groupAnimation.animations = @[animation1, animation2, animation3]<span class="comment">;</span></div><div class="line">groupAnimation.duration = <span class="number">3</span>.<span class="number">0</span><span class="comment">;</span></div><div class="line">groupAnimation.repeatCount = MAXFLOAT<span class="comment">;</span></div><div class="line"></div><div class="line">[self.layer <span class="keyword">addAnimation:groupAnimation </span>forKey:nil]<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB07f98d892ed2024a6997cf632b066d09?method=download&amp;inline=true&amp;shareKey=f1b534f80fa8e0d94ac5927db06ab4fb" alt="image"></p>
-<h2 id="UIView封装动画"><a href="#UIView封装动画" class="headerlink" title="UIView封装动画"></a>UIView封装动画</h2><h3 id="首尾方式"><a href="#首尾方式" class="headerlink" title="首尾方式"></a>首尾方式</h3><p>UIKit直接将动画集成到UIView类中，当内部的一些属性发生改变时，UIView将为这些改变提供动画支持</p>
-<p>执行动画所需要的工作由UIView类自动完成，但仍要在希望执行动画时通知视图，为此需要将改变属性的代码放在[UIView beginAnimations:nil context:nil]和[UIView commitAnimations]之间</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置动画代理对象，当动画开始或者结束时会发消息给代理对象</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDelegate:</span>(id)delegate  </div><div class="line"></div><div class="line"><span class="comment">//当动画即将开始时，执行delegate对象的selector，并且把beginAnimations:context:中传入的参数传进selector</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationWillStartSelector:</span>(SEL)selector   </div><div class="line"></div><div class="line"><span class="comment">//当动画结束时，执行delegate对象的selector，并且把beginAnimations:context:中传入的参数传进selector</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDidStopSelector:</span>(SEL)selector  </div><div class="line"></div><div class="line"><span class="comment">//动画的持续时间，秒为单位</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDuration:</span>(NSTimeInterval)duration   </div><div class="line"></div><div class="line"><span class="comment">//动画延迟delay秒后再开始</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationDelay:</span>(NSTimeInterval)delay </div><div class="line"></div><div class="line"><span class="comment">//动画的开始时间，默认为now</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationStartDate:</span>(NSDate *)startDate   </div><div class="line"></div><div class="line"><span class="comment">//动画的节奏控制</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationCurve:</span>(UIViewAnimationCurve)curve</div><div class="line"></div><div class="line"><span class="comment">//动画的重复次数</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationRepeatCount:</span>(<span class="keyword">float</span>)repeatCount  </div><div class="line"></div><div class="line"><span class="comment">//如果设置为YES,代表动画每次重复执行的效果会跟上一次相反</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationRepeatAutoreverses:</span>(BOOL)repeatAutoreverses  </div><div class="line"></div><div class="line"><span class="comment">//设置视图view的过渡效果, transition指定过渡类型, cache设置YES代表使用视图缓存，性能较好</span></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">setAnimationTransition:</span>(UIViewAnimationTransition)transition <span class="string">forView:</span>(UIView *)view <span class="string">cache:</span>(BOOL)cache</div></pre></td></tr></table></figure>
-<p>示例</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首尾式动画</span></div><div class="line">[<span class="built_in">UIView</span> beginAnimations:<span class="literal">nil</span> context:<span class="literal">nil</span>];</div><div class="line"><span class="comment">//执行动画</span></div><div class="line"><span class="comment">//设置动画执行时间</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDuration:<span class="number">2.0</span>];</div><div class="line"><span class="comment">//设置代理</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDelegate:<span class="keyword">self</span>];</div><div class="line"><span class="comment">//设置动画执行完毕调用的事件</span></div><div class="line">[<span class="built_in">UIView</span> setAnimationDidStopSelector:<span class="keyword">@selector</span>(didStopAnimation)];</div><div class="line"><span class="keyword">self</span>.v1.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">[<span class="built_in">UIView</span> commitAnimations];</div></pre></td></tr></table></figure>
-<h3 id="Block方式"><a href="#Block方式" class="headerlink" title="Block方式"></a>Block方式</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)<span class="string">animateWithDuration:</span>(NSTimeInterval)duration <span class="string">delay:</span>(NSTimeInterval)delay <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">delay：动画延迟delay秒后开始</div><div class="line"></div><div class="line">options：动画的节奏控制</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">转场动画</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">transitionWithView:</span>(UIView *)view <span class="string">duration:</span>(NSTimeInterval)duration <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">animations:</span>(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">view：需要进行转场动画的视图</div><div class="line"></div><div class="line">options：转场动画的类型</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div><div class="line"></div><div class="line">+ (<span class="keyword">void</span>)<span class="string">transitionFromView:</span>(UIView *)fromView <span class="string">toView:</span>(UIView *)toView <span class="string">duration:</span>(NSTimeInterval)duration <span class="string">options:</span>(UIViewAnimationOptions)options <span class="string">completion:</span>(<span class="keyword">void</span> (^)(BOOL finished))completion</div><div class="line"></div><div class="line">方法调用完毕后，相当于执行了下面两句代码：</div><div class="line"></div><div class="line"><span class="comment">// 添加toView到父视图</span></div><div class="line"></div><div class="line">[fromView.superview <span class="string">addSubview:</span>toView]; </div><div class="line"></div><div class="line"><span class="comment">// 把fromView从父视图中移除</span></div><div class="line"></div><div class="line">[fromView.superview removeFromSuperview];</div><div class="line"><span class="comment">/*</span></div><div class="line">参数解析:</div><div class="line"></div><div class="line">duration：动画的持续时间</div><div class="line"></div><div class="line">options：转场动画的类型</div><div class="line"></div><div class="line">animations：将改变视图属性的代码放在这个block中</div><div class="line"></div><div class="line">completion：动画结束后，会自动调用这个block</div><div class="line">*/</div></pre></td></tr></table></figure>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">2.0</span> delay:<span class="number">0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</div><div class="line"><span class="keyword">self</span>.v2.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line"><span class="keyword">self</span>.v2.center=<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[<span class="built_in">UIView</span> transitionWithView:<span class="keyword">self</span>.v3 duration:<span class="number">2.0</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseInOut</span> animations:^&#123;</div><div class="line"><span class="keyword">self</span>.v3.center=<span class="built_in">CGPointMake</span>(<span class="number">125</span>, <span class="number">125</span>);</div><div class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</div><div class="line"><span class="keyword">self</span>.v3.center=<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">10</span>);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB6986fe51522e1e0bee85b9ec3236dc12?method=download&amp;inline=true&amp;shareKey=4f7d6a288a0df1a889d9dd3c224ac009" alt="image"></p>
-<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><h3 id="移除动画"><a href="#移除动画" class="headerlink" title="移除动画"></a>移除动画</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[self.v1.layer <span class="string">addAnimation:</span>keyAnima <span class="string">forKey:</span>@<span class="string">"test"</span>];</div><div class="line">[self.v1.layer <span class="string">removeAnimationForKey:</span>@<span class="string">"test"</span>];</div></pre></td></tr></table></figure>
-<h3 id="UIActivityIndicatorView"><a href="#UIActivityIndicatorView" class="headerlink" title="UIActivityIndicatorView"></a>UIActivityIndicatorView</h3><p>是一个旋转进度轮，可以用来告知用户有一个操作正在进行中，一般用initWithActivityIndicatorStyle初始化</p>
-<p>方法解析:</p>
-<ul>
-<li><p>(void)startAnimating; 开始动画</p>
-</li>
-<li><p>(void)stopAnimating;  停止动画</p>
-</li>
-<li><p>(BOOL)isAnimating;  是否正在运行动画</p>
-</li>
-</ul>
-<p>UIActivityIndicatorViewStyle有3个值可供选择：</p>
-<p>UIActivityIndicatorViewStyleWhiteLarge   //大型白色指示器    </p>
-<p>UIActivityIndicatorViewStyleWhite      //标准尺寸白色指示器    </p>
-<p>UIActivityIndicatorViewStyleGray    //灰色指示器，用于白色背景</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB0b431ab105750b70f341ba7bfebaf065?method=download&amp;inline=true&amp;shareKey=4300f4463ec5cc3cbbebfbedc03000a7" alt="image"></p>
+<h3 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h3><p><img src="http://note.youdao.com/yws/api/personal/file/WEB9d04a24e16b1ef37d132ec0e74e35c36?method=download&amp;inline=true&amp;shareKey=4d90c6f205253b6915025e4390bef955" alt="image"></p>
 
           
         
@@ -492,8 +409,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/iOS开发/Demo/WorkBasketVC/" itemprop="url">
-                  输入界面
+                <a class="post-title-link" href="/2016/10/08/Linux/CentOS7.2 配置FTP服务器/" itemprop="url">
+                  FTP服务器
                 </a>
               
             
@@ -520,8 +437,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
+                  <a href="/categories/Linux服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux服务器</span>
                   </a>
                 </span>
 
@@ -536,8 +453,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/Demo/WorkBasketVC/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/Demo/WorkBasketVC/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/Linux/CentOS7.2 配置FTP服务器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/Linux/CentOS7.2 配置FTP服务器/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -562,11 +479,27 @@
       
         
           
-            <h1 id="WorkBasketVC简介"><a href="#WorkBasketVC简介" class="headerlink" title="WorkBasketVC简介"></a>WorkBasketVC简介</h1><p>这个Demo使用UITableView做了一个富有动画效果的列表，好玩也好看</p>
-<blockquote>
-<p><a href="http://note.youdao.com/noteshare?id=28936fe391edbea8450e9cdb0bca63f8" target="_blank" rel="external">有道云笔记下载Demo</a></p>
-</blockquote>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9b026b53a69238aa05bcd0a932ce9924?method=download&amp;inline=true&amp;shareKey=3d30638ce7d804edde40f53d574f8694" alt="WorkBasketVC"></p>
+            <h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#安装vsftpd</span></div><div class="line">yum <span class="keyword">install</span> vsftpd </div><div class="line"><span class="comment">#安装vsftpd虚拟用户配置依赖包</span></div><div class="line">yum <span class="keyword">install</span> -y psmisc net-tools systemd-devel libdb-devel perl-DBI</div></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#启动</span></div><div class="line">systemctl start vsftpd.service </div><div class="line"><span class="meta">#设置vsftpd开机启动</span></div><div class="line">systemctl enable vsftpd.service</div></pre></td></tr></table></figure>
+<h3 id="配置防火墙，开启FTP服务器需要的端口"><a href="#配置防火墙，开启FTP服务器需要的端口" class="headerlink" title="配置防火墙，开启FTP服务器需要的端口"></a>配置防火墙，开启FTP服务器需要的端口</h3><p>CentOS 7.2默认使用的是firewall作为防火墙，这里改为iptables防火墙。</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#停止firewall</span></div><div class="line">systemctl <span class="keyword">stop</span> firewalld.service </div><div class="line"><span class="meta">#禁止firewall开机启动</span></div><div class="line">systemctl <span class="keyword">disable</span> firewalld.service</div></pre></td></tr></table></figure>
+<p>安装iptables防火墙</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum <span class="keyword">install</span> iptables-services <span class="comment">#安装</span></div></pre></td></tr></table></figure>
+<p>配置tcp通信端口和FPT被动通道<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">vi /etc/sysconfig/iptables <span class="comment">#编辑防火墙配置文件</span></div><div class="line"></div><div class="line"><span class="comment"># sample configuration for iptables service</span></div><div class="line"><span class="comment"># you can edit this manually or use system-config-firewall</span></div><div class="line"><span class="comment"># please do not ask us to add additional ports/services to this default configuration</span></div><div class="line">*filter</div><div class="line">:INPUT ACCEPT [<span class="number">0</span>:<span class="number">0</span>]</div><div class="line">:FORWARD ACCEPT [<span class="number">0</span>:<span class="number">0</span>]</div><div class="line">:OUTPUT ACCEPT [<span class="number">0</span>:<span class="number">0</span>]</div><div class="line">-A INPUT -m <span class="keyword">state</span> --state RELATED,ESTABLISHED -j ACCEPT</div><div class="line">-A INPUT -p icmp -j ACCEPT</div><div class="line">-A INPUT -i lo -j ACCEPT</div><div class="line">-A INPUT -p tcp -m <span class="keyword">state</span> --state NEW -m tcp --dport <span class="number">22</span> -j ACCEPT</div><div class="line"><span class="comment">#配置21端口</span></div><div class="line">-A INPUT -m <span class="keyword">state</span> --state NEW -m tcp -p tcp --dport <span class="number">21</span> -j ACCEPT</div><div class="line"><span class="comment">#使用到10060到10090端口 这里的端口号要和第四步的pasv_min_port相对应</span></div><div class="line">-A INPUT -m <span class="keyword">state</span> --state NEW -m tcp -p tcp --dport <span class="number">10060</span>:<span class="number">10090</span> -j ACCEPT</div><div class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited</div><div class="line">-A FORWARD -j REJECT --reject-with icmp-host-prohibited</div><div class="line">COMMIT</div></pre></td></tr></table></figure></p>
+<p>（在vim中按i进入编辑模式才能进行编辑，按esc键退出编辑模式进入命令模式。:wq!保存退出）</p>
+<p>启动iptables防火墙<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl restart iptables<span class="selector-class">.service</span> #最后重启防火墙使配置生效</div><div class="line"></div><div class="line">systemctl enable iptables<span class="selector-class">.service</span> #设置防火墙开机启动</div></pre></td></tr></table></figure></p>
+<h3 id="关闭SELINUX"><a href="#关闭SELINUX" class="headerlink" title="关闭SELINUX"></a>关闭SELINUX</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">vi <span class="meta-keyword">/etc/</span>selinux/config</div><div class="line"></div><div class="line"><span class="meta">#SELINUX=enforcing #注释掉</span></div><div class="line"></div><div class="line"><span class="meta">#SELINUXTYPE=targeted #注释掉</span></div><div class="line"></div><div class="line">SELINUX=disabled <span class="meta">#增加</span></div><div class="line"></div><div class="line">:wq! <span class="meta">#保存退出</span></div><div class="line"></div><div class="line">setenforce <span class="number">0</span> <span class="meta">#使配置立即生效</span></div></pre></td></tr></table></figure>
+<h3 id="配置vsftp服务器"><a href="#配置vsftp服务器" class="headerlink" title="配置vsftp服务器"></a>配置vsftp服务器</h3><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#备份默认配置文件</span></div><div class="line">cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf-bak </div><div class="line"></div><div class="line"><span class="meta">#进入vsftpd配置文件</span></div><div class="line">vim /etc/vsftpd/vsftpd.conf </div><div class="line"><span class="meta"># 禁止匿名用户anonymous登录</span></div><div class="line">anonymous_enable=NO</div><div class="line"><span class="meta"># 允许本地用户登录</span></div><div class="line">local_enable=YES</div><div class="line"><span class="meta"># 让登录的用户有写权限(上传，删除)</span></div><div class="line">write_enable=YES</div><div class="line"><span class="meta"># 默认umask</span></div><div class="line">local_umask=<span class="number">022</span></div><div class="line"><span class="meta"># 把传输记录的日志保存到/var/log/vsftpd.log</span></div><div class="line">xferlog_enable=YES</div><div class="line"><span class="meta">#xferlog_file=/var/log/vsftpd.log</span></div><div class="line">xferlog_std_format=YES</div><div class="line"><span class="meta"># 允许ASCII模式上传</span></div><div class="line"><span class="meta">#ascii_upload_enable=YES </span></div><div class="line"><span class="meta"># 允许ASCII模式下载</span></div><div class="line"><span class="meta">#ascii_download_enable=YES</span></div><div class="line"><span class="meta"># 使用20号端口传输数据</span></div><div class="line">connect_from_port_20=YES</div><div class="line"><span class="meta"># 欢迎标语</span></div><div class="line">ftpd_banner=Welcome to use my test ftp server.</div><div class="line"><span class="meta"># 接下来的三条配置很重要</span></div><div class="line"><span class="meta"># chroot_local_user设置了YES，那么所有的用户默认将被chroot，</span></div><div class="line"><span class="meta"># 也就用户目录被限制在了自己的home下，无法向上改变目录。</span></div><div class="line"><span class="meta"># chroot_list_enable设置了YES，即让chroot用户列表有效。</span></div><div class="line"><span class="meta"># ★超重要：如果chroot_local_user设置了YES，那么chroot_list_file</span></div><div class="line"><span class="meta"># 设置的文件里，是不被chroot的用户(可以向上改变目录)</span></div><div class="line"><span class="meta"># ★超重要：如果chroot_local_user设置了NO，那么chroot_list_file</span></div><div class="line"><span class="meta"># 设置的文件里，是被chroot的用户(无法向上改变目录)</span></div><div class="line">chroot_list_enable=YES</div><div class="line"><span class="meta"># touch /etc/vsftpd/chroot_list 新建</span></div><div class="line"><span class="meta">#chroot_list_file=/etc/vsftpd/chroot_list</span></div><div class="line">use_localtime=YES</div><div class="line"><span class="meta"># 以standalone模式在ipv4上运行</span></div><div class="line">listen=YES</div><div class="line"><span class="meta"># PAM认证服务名，这里默认是vsftpd，在安装vsftpd的时候已经创建了这个pam文件，</span></div><div class="line"><span class="meta"># 在/etc/pam.d/vsftpd，根据这个pam文件里的设置，/etc/vsftpd/ftpusers</span></div><div class="line"><span class="meta"># 文件里的用户将禁止登录ftp服务器，比如root这样敏感的用户，所以你要禁止别的用户</span></div><div class="line"><span class="meta"># 登录的时候，也可以把该用户追加到/etc/vsftpd/ftpusers里。</span></div><div class="line">pam_service_name=vsftpd</div><div class="line"></div><div class="line"><span class="meta">#这个特别重要 不然不能在可读文件夹建立FTP服务器</span></div><div class="line">allow_writeable_chroot=YES</div><div class="line"></div><div class="line"><span class="meta">#</span></div><div class="line">userlist_enable=YES</div><div class="line"><span class="meta">#</span></div><div class="line">tcp_wrappers=YES</div><div class="line"></div><div class="line">listen_port=<span class="number">21</span></div><div class="line"></div><div class="line"><span class="meta">#</span></div><div class="line">guest_enable=YES</div><div class="line"><span class="meta">#</span></div><div class="line">guest_username=ftproot</div><div class="line"></div><div class="line">user_config_dir=/etc/vsftpd/vconf</div><div class="line"><span class="meta">#</span></div><div class="line">virtual_use_local_privs=YES</div><div class="line"></div><div class="line"><span class="meta">#要加上这两个，不然ls命令会报错，这里相当于开启被动通信通道</span></div><div class="line">pasv_min_port=<span class="number">10060</span></div><div class="line"><span class="meta">#</span></div><div class="line">pasv_max_port=<span class="number">10090</span></div><div class="line"></div><div class="line"><span class="meta"># 重启 vsftpd</span></div><div class="line">service vsftpd restart</div></pre></td></tr></table></figure>
+<h2 id="新建系统用户ftproot"><a href="#新建系统用户ftproot" class="headerlink" title="新建系统用户ftproot"></a>新建系统用户ftproot</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#使用命令(adduser)添加ftproot用户,不能登录系统(-s /sbin/nologin),自己的文件夹在(-d /home/ftproot))</span></div><div class="line">useradd ftproot -d /home/ftproot -s /sbin/nologin</div><div class="line"><span class="meta">#设置密码</span></div><div class="line">passwd <span class="keyword">virtual</span></div></pre></td></tr></table></figure>
+<p>==此时已经可以通过ftproot用户登录ftp服务器了==</p>
+<h3 id="为FTP服务器创建虚拟用户"><a href="#为FTP服务器创建虚拟用户" class="headerlink" title="为FTP服务器创建虚拟用户"></a>为FTP服务器创建虚拟用户</h3><h4 id="建立虚拟用户名单文件"><a href="#建立虚拟用户名单文件" class="headerlink" title="建立虚拟用户名单文件"></a>建立虚拟用户名单文件</h4><p>编辑虚拟用户名单文件：（第一行账号，第二行密码，注意：不能使用root做用户名，系统保留）<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">vim /etc/vsftpd/virtusers</div><div class="line"></div><div class="line">guest</div><div class="line"><span class="number">123456</span></div><div class="line">family</div><div class="line"><span class="number">654321</span></div></pre></td></tr></table></figure></p>
+<h4 id="生成虚拟用户数据文件"><a href="#生成虚拟用户数据文件" class="headerlink" title="生成虚拟用户数据文件"></a>生成虚拟用户数据文件</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">db_load -T -t hash -f <span class="regexp">/etc/</span>vsftpd<span class="regexp">/virtusers /</span>etc<span class="regexp">/vsftpd/</span>virtusers.db</div><div class="line"></div><div class="line">chmod <span class="number">600</span> <span class="regexp">/etc/</span>vsftpd<span class="regexp">/virtusers.db #设定PAM验证文件，并指定对虚拟用户数据库文件进行读取</span></div></pre></td></tr></table></figure>
+<h4 id="在-etc-pam-d-vsftpd的文件头部加入以下信息（在后面加入无效"><a href="#在-etc-pam-d-vsftpd的文件头部加入以下信息（在后面加入无效" class="headerlink" title="在/etc/pam.d/vsftpd的文件头部加入以下信息（在后面加入无效"></a>在/etc/pam.d/vsftpd的文件头部加入以下信息（在后面加入无效</h4><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#修改前先备份 </span></div><div class="line">cp <span class="meta-keyword">/etc/</span>pam.d/vsftpd <span class="meta-keyword">/etc/</span>pam.d/vsftpdbak</div><div class="line"></div><div class="line">vi <span class="meta-keyword">/etc/</span>pam.d/vsftpd</div><div class="line"></div><div class="line">auth sufficient <span class="meta-keyword">/lib64/</span>security/pam_userdb.so db=<span class="meta-keyword">/etc/</span>vsftpd/virtusers</div><div class="line"></div><div class="line">account sufficient <span class="meta-keyword">/lib64/</span>security/pam_userdb.so db=<span class="meta-keyword">/etc/</span>vsftpd/virtusers</div></pre></td></tr></table></figure>
+<p>注意：如果系统为32位，上面改为lib，否则配置失败</p>
+<h4 id="建立虚拟用户个人Vsftp的配置文件"><a href="#建立虚拟用户个人Vsftp的配置文件" class="headerlink" title="建立虚拟用户个人Vsftp的配置文件"></a>建立虚拟用户个人Vsftp的配置文件</h4><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">mkdir /etc/vsftpd/vconf</div><div class="line"></div><div class="line">cd /etc/vsftpd/vconf</div><div class="line"></div><div class="line">touch ljftp admin <span class="comment">#这里创建三个虚拟用户配置文件</span></div><div class="line"></div><div class="line">mkdir -p /home/ftpRoot/ljftp</div><div class="line"></div><div class="line">vi web1 <span class="comment">#编辑用户web1配置文件，其他的跟这个配置文件类似</span></div><div class="line"></div><div class="line">local_root=/home/ftpRoot/ljftp/</div><div class="line"></div><div class="line">write_enable=YES</div><div class="line"></div><div class="line">anon_world_readable_only=NO</div><div class="line"></div><div class="line">anon_upload_enable=YES</div><div class="line"></div><div class="line">anon_mkdir_write_enable=YES</div><div class="line"></div><div class="line">anon_other_write_enable=YES</div></pre></td></tr></table></figure>
+<p>打开虚拟用户的写入文件夹权限</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown <span class="string">ftproot:</span>ftproot <span class="regexp">/home/</span>ftproot<span class="regexp">/guest/</span></div><div class="line">chown <span class="string">ftproot:</span>ftproot <span class="regexp">/home/</span>ftproot<span class="regexp">/family/</span></div></pre></td></tr></table></figure>
+<p>==至此,可以使用虚拟用户guest和family登陆ftp==</p>
 
           
         
@@ -784,6 +717,185 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/08/iOS开发/iOS 多线程/" itemprop="url">
+                  iOS多线程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/iOS开发/iOS 多线程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/iOS 多线程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="IOS提供的处理多线程的方式一共分为4种，分别是："><a href="#IOS提供的处理多线程的方式一共分为4种，分别是：" class="headerlink" title="IOS提供的处理多线程的方式一共分为4种，分别是："></a>IOS提供的处理多线程的方式一共分为4种，分别是：</h2><ul>
+<li>pThread：最早期，纯C的，兼容所有C语言基础的代码</li>
+<li>NSThread：本质上是使用OC对pThread的一个封装，是早期IOS使用的多线程</li>
+<li>GCD（Grand Central Dispatch）：使用C语言+block语法，目前为止苹果主推的多线程技术，功能强大，效率高</li>
+<li>NSOperationQueue: 使用OC对于GCD的一个封装, 在GCD基础上额外增加了几个特性, 不过效率没有GCD高.</li>
+</ul>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>当应用程序从硬盘上被拷贝到内存中, 运行起来以后, 就称为一个进程, 即进行中的程序.</p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>线程（thread）是组成进程的子单元，操作系统的调度器可以对线程进行单独的调度。实际上，所有的并发编程 API 都是构建于线程之上的. </p>
+<p>多线程可以在单核 CPU 上同时（或者至少看作同时）运行。操作系统将小的时间片分配给每一个线程，这样就能够让用户感觉到有多个任务在同时进行。如果 CPU 是多核的，那么线程就可以真正的以并发方式被执行，从而减少了完成某项操作所需要的总时间. </p>
+<p>一个线程同一时间只能做一件事.<br>如果一件事没做完, 又给线程安排其他的任务. 则排队</p>
+<p>线程的生命:<br>线程开启以后, 如果线程上的任务结束以后, 线程就会自动关闭掉.</p>
+<p>比喻: 线程是一条跑道, 任务是跑道上的赛车, 赛车跑到路的尽头就会撞毁. 那么跑道就没有存在的必要了.</p>
+<h2 id="主线程与子线程"><a href="#主线程与子线程" class="headerlink" title="主线程与子线程"></a>主线程与子线程</h2><p>主线程:优先级最高的, 当CPU资源有限时,会优先进行主线程上的任务. </p>
+<p>主线程: 是一个圆形的跑道, 车是在上面绕圈跑的.<br>这个设计被称为 runloop  运行环</p>
+<p>主要思路是在 线程中写了一行代码<br>while(YES){</p>
+<p>}</p>
+<blockquote>
+<p>苹果规定所有能被用户察觉的操作, 都应该放到主线程上, 所有UI视图都应该在主线程中执行</p>
+</blockquote>
+<p>子线程:优先级次于主线程, 无法被用户察觉的的操作都可以放到子线程中执行</p>
+<h2 id="异步、同步和并发、串行"><a href="#异步、同步和并发、串行" class="headerlink" title="异步、同步和并发、串行"></a>异步、同步和并发、串行</h2><blockquote>
+<p>异步：异于当前方法所在线程  async</p>
+<p>同步：同于当前方法所在线程 sync</p>
+<p>串行：任务按顺序执行 seral</p>
+<p>并行：任务没有顺序，同时执行 concurrent</p>
+</blockquote>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB22df0e96cc04716c6753bf96b18c2a32?method=download&amp;inline=true&amp;shareKey=1a0ba493e5b70f060c5e6d425f9ce570" alt="image"></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB847fbf598e11a8faff81a64bd6c71231?method=download&amp;inline=true&amp;shareKey=a101fd01c9caa97005e5f288f5906b87" alt="image"></p>
+<h2 id="NSThraed"><a href="#NSThraed" class="headerlink" title="NSThraed"></a>NSThraed</h2><p>开始线程</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方式1 在后台线程执行方法</span></div><div class="line">[<span class="keyword">self</span> performSelectorInBackground:<span class="keyword">@selector</span>(wasteTime) withObject:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">//方式2: 和方式1 木有任何区别</span></div><div class="line">[<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(wasteTime) toTarget:<span class="keyword">self</span> withObject:<span class="literal">nil</span>];</div><div class="line"></div><div class="line"><span class="comment">//方式3: 方式2和方式1不能给线程命名，但方式3可以</span></div><div class="line"><span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(wasteTime) object:<span class="literal">nil</span>];</div><div class="line">thread.name = <span class="string">@"1606"</span>;</div><div class="line">[thread start];<span class="comment">//必须手动开启</span></div></pre></td></tr></table></figure>
+<p>获取当前线程</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[NSThread currentThread]: 获取当前方法所在的线程</span></div><div class="line"><span class="comment">//number=1 代表主线程, 其他都是子线程</span></div><div class="line"><span class="selector-attr">[NSThread currentThread]</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><nsthread: 0x7fd132f010e0="">{number = 1, name = main}</nsthread:></p>
+<p><nsthread: 0x7fd132f09780="">{number = 2, name = 1606}</nsthread:></p>
+</blockquote>
+<p>返回主线程</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//从子线程回归主线程,规避掉线程不安全的操作</span></div><div class="line">[<span class="keyword">self</span> performSelectorOnMainThread:<span class="keyword">@selector</span>(changeUI) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</div><div class="line"><span class="comment">//waitUntilDone:表示是否要等待changeUI这个方法执行结束以后, 才继续执行下方代码</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"--------------------"</span>);</div></pre></td></tr></table></figure>
+<p>结束线程</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NSThread <span class="keyword">exit</span>]; <span class="regexp">//</span>结束当前线程</div></pre></td></tr></table></figure>
+<h2 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h2><p>获取线程</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//主线程</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> mainDispatchQueue = dispatch_get_main_queue();</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取子线程</span></div><div class="line">dispatch_get_global_queue(<span class="keyword">long</span> identifier, <span class="keyword">unsigned</span> <span class="keyword">long</span> flags);</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//最高</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> globalDispatchQueueHigh =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, <span class="number">0</span>);</div><div class="line"><span class="comment">//默认</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> golbalDispatchQueueDefault = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line"><span class="comment">//低</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> golbalDispatchQueueLow = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, <span class="number">0</span>);</div><div class="line"><span class="comment">//后台</span></div><div class="line"><span class="keyword">dispatch_queue_t</span> golbalDispatchQueueBackground = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>GCD的使用</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//dispatch_get_global_queue获取全局队列, 参数1代表优先级, 0是默认优先级. 参数2 无用</span></div><div class="line"><span class="selector-tag">dispatch_async</span>(dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line"><span class="comment">//子线程执行区域</span></div><div class="line"></div><div class="line"><span class="comment">//dispatch_get_main_queue() 主队列</span></div><div class="line"><span class="selector-tag">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line"><span class="comment">//主线程执行区域，负责刷新子线程中的数据</span></div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>组线程使用<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">YES</span>];</div><div class="line"></div><div class="line"><span class="comment">//方法1    </span></div><div class="line"><span class="comment">//我们可以把多个子线程放到一个分组中，通过监听此分组的情况来决定一些操作</span></div><div class="line">dispatch_group_t group = dispatch_group_create();</div><div class="line">[imagePaths enumerateObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:obj];</div><div class="line"></div><div class="line">dispatch_group_async(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</div><div class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithData:data];</div><div class="line"></div><div class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line"><span class="keyword">self</span>.imageViews[idx].image = image;</div><div class="line">&#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">//监听分组中的线程都执行结束的时机</span></div><div class="line">dispatch_group_notify(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>), ^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">NO</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方法2</span></div><div class="line"><span class="comment">//barrier （墙）:必须加到自建队列中。</span></div><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="literal">NULL</span>,   DISPATCH_QUEUE_CONCURRENT);</div><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">YES</span>];</div><div class="line">[imagePaths enumerateObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:obj];</div><div class="line"></div><div class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfURL:url];</div><div class="line"><span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageWithData:data];</div><div class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</div><div class="line"><span class="keyword">self</span>.imageViews[idx].image = img;</div><div class="line">&#125;);</div><div class="line">&#125;);</div><div class="line">&#125;];</div><div class="line"><span class="comment">//在自建的并行队列中添加墙，墙只有在并行队列中的所有任务都执行结束后，才会被推倒</span></div><div class="line">dispatch_barrier_async(queue, ^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setNetworkActivityIndicatorVisible:<span class="literal">NO</span>];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>多线程单例</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//线程安全方法  只会执行一次</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</div><div class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</div><div class="line"></div><div class="line">sleep(<span class="number">1</span>);</div><div class="line">s = [MySingle new];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@ 正在初始化"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="NSOperation"><a href="#NSOperation" class="headerlink" title="NSOperation"></a>NSOperation</h2><p>NSOperation 就是 使用OC语法 对GCD做的封装， 效率上略低（可以忽略不计），继续如何选择 看个人喜好</p>
+<p>NSOperationQueue ：队列</p>
+<p>NSOperation : 任务</p>
+<p>‘任务’ 存放在 ‘队列’ 中，‘队列’ 存放在 ‘线程’ 中</p>
+<p>创建线程</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//主线程</span></div><div class="line">[<span class="built_in">NSOperationQueue</span> mainQueue]</div><div class="line"><span class="comment">//子线程 默认</span></div><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [<span class="built_in">NSOperationQueue</span> new];</div></pre></td></tr></table></figure>
+<p>NSOperation 的使用</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSOperationQueue</span> *queue = [<span class="built_in">NSOperationQueue</span> new];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op0 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op0 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op0 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op1 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op1 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op1 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op2 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op2 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op2 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op3 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op3 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op3 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op4 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op4 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op4 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op5 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op5 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op5 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op6 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op6 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op6 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op7 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op7 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op7 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op8 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op8 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op8 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="built_in">NSOperation</span> *op9 = [<span class="built_in">NSBlockOperation</span> blockOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op9 开始，%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">sleep(<span class="number">2</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"op9 结束, %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">//以为单线程cpu（硬件 ），开始多线程是伪多线程，就是把cpu的线程分很多时间片，每个时间片做一件事，因为速度太快了，所以显得跟多线程一样</span></div><div class="line"><span class="comment">//最佳的线程数量是3—5个</span></div><div class="line"></div><div class="line"><span class="comment">//NSOperation 就是提供了最大并发数量的属性，此属性必须在任务添加到队列'之前'写才有用！</span></div><div class="line">queue.maxConcurrentOperationCount = <span class="number">3</span>;</div><div class="line"></div><div class="line"><span class="comment">//规定线程依赖，比如a必须等b线程做完才能进行</span></div><div class="line"><span class="comment">//op0 必须等 op7 和 op9 执行完毕，才能执行</span></div><div class="line">[op0 addDependency:op7];</div><div class="line">[op0 addDependency:op9];</div><div class="line"></div><div class="line"><span class="comment">//任务添加到队列中之后，任务就会自动执行</span></div><div class="line"><span class="comment">//    [queue addOperation:op0];</span></div><div class="line"></div><div class="line"><span class="comment">//waitUntilFinished: 参数表示，下方的打印方法是否要等待队列中的任务执行结束之后，在运行</span></div><div class="line">[queue addOperations:@[op0,op1,op2,op3,op4,op5,op6,op7,op8,op9] waitUntilFinished:<span class="literal">NO</span>];</div><div class="line"></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"&gt;&gt;&gt;&gt;&gt;&gt;&gt;"</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//取消线程中所有任务：已经执行的任务无法取消</span></div><div class="line"><span class="comment">//    [queue cancelAllOperations];</span></div><div class="line"></div><div class="line"><span class="comment">//取消个别任务，已经执行的任务无法取消</span></div><div class="line">[op2 cancel];  <span class="comment">//</span></div><div class="line">[op9 cancel];  <span class="comment">//0依赖9 9 被取消 0不再依赖9</span></div><div class="line"></div><div class="line"><span class="comment">//暂停，已经运行的任务 无法暂停</span></div><div class="line">[queue setSuspended:<span class="literal">YES</span>];</div><div class="line">sleep(<span class="number">10</span>);</div><div class="line">[queue setSuspended:<span class="literal">NO</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//[NSOperationQueue new] 自动开启子线程</span></div><div class="line">[[<span class="built_in">NSOperationQueue</span> new] addOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"[[NSOperationQueue new], %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line"><span class="comment">//回归主线程</span></div><div class="line">[[<span class="built_in">NSOperationQueue</span> mainQueue] addOperationWithBlock:^&#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"[[NSOperationQueue mainQueue], %@"</span>, [<span class="built_in">NSThread</span> currentThread]);</div><div class="line">&#125;];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h2 id="线程锁"><a href="#线程锁" class="headerlink" title="线程锁"></a>线程锁</h2><figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">property</span> (nonatomic) NSLock *<span class="keyword">lock</span><span class="comment">;</span></div><div class="line"></div><div class="line">[self.<span class="keyword">lock</span> <span class="keyword">lock</span>]<span class="comment">;</span></div><div class="line"><span class="comment">//线程所安全执行区域</span></div><div class="line"></div><div class="line">[self.<span class="keyword">lock</span> unlock]<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/iOS开发/UIKit/UIViewController/UIAlertController/" itemprop="url">
                   UIAlertController
                 </a>
@@ -904,6 +1016,664 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/14/UML/UML核心元素——用例/" itemprop="url">
+                  UML核心元素——用例
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-14T20:24:08+08:00" content="2016-09-14">
+              2016-09-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/14/UML/UML核心元素——用例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/14/UML/UML核心元素——用例/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>用例定义了一组用例实例，其中每个实例都是系统所执行的系列操作，这些操作生成特定主角可以观测的值。</p>
+<p>做一件事情可以有很多不同的办法和步骤，也可能会遇到各种各样的意外情况，因此这件事情是由很多不同情况的集合构成的。在UML中称为用例场景。一个场景就是一个用例的实例。</p>
+<p>一个完整的用例定义有参与者、前置条件、场景、后置场景。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9824b86267784cc123fa9318ae66051e?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<p>一个系统的功能性是由一些对系统有愿望的参与者要做的一些事情构成的，事情完成后就达成了参与者的一个愿望，当全部参与者的所有愿望都能够通过用例来达到，那么这个系统就被确定下来了。</p>
+<h1 id="用例的特征"><a href="#用例的特征" class="headerlink" title="用例的特征"></a>用例的特征</h1><ul>
+<li><p>用例是相对独立的</p>
+<p>  用例不需要与其他用例交互而独自完成参与者的目的。用例从“功能”上说是完备的。用例本质体现了系统参与者的愿望，不能完整达到参与者愿望的不能称为用例。</p>
+</li>
+<li><p>用例的执行结果对参与者来说是可观测的和有意义的。</p>
+</li>
+<li><p>这件必须有一个参与者发起。不存在没有参与者的用例，用例不应该自动启动，也不应该主动启动另一个用例。</p>
+</li>
+<li><p>用例必然是以动宾短语形式出现的</p>
+</li>
+<li><p>一个用例就是一个需求单元，分析单元，设计单元</p>
+</li>
+</ul>
+<h1 id="用例的粒度"><a href="#用例的粒度" class="headerlink" title="用例的粒度"></a>用例的粒度</h1><p>在业务建模阶段，用例的粒度以每个用例能够说明一件完整的事情为宜，即一个用例可以描述一项完整的业务流程。这将有助于明确需求范围。</p>
+<p>在用例分析阶段，即概念建模阶段，用例的粒度以每个用例能描述一个完整的事件流为宜。</p>
+<p>在系统建模阶段，用例视角是针对计算机的，因此用例的粒度以一个用例能够描述操作者与计算机的一次完整交互为宜。</p>
+<p>在RUP中，项目计划要依据系统模型编写，因此另一个可参考的粒度是一个用例的开发工作量在一周左右为宜。</p>
+<p>用例粒度的划分依据（尤其是业务用例）最标准的方法是以该用例是否完成了参与者的某个完整目的为依据的。</p>
+<p>用例的粒度大小不是从用例包含的步骤的多少来判断。</p>
+<p>一般来说，一个系统的业务用例定义在多于10个，少于50个之间，否则就应考虑一下粒度选择是否适合了。</p>
+<p>粒度选择的问题本质上是因为边界认定不同而产生的。</p>
+<h1 id="用例的获得"><a href="#用例的获得" class="headerlink" title="用例的获得"></a>用例的获得</h1><p>不要指望客户和你一样对什么是用例了如指掌，也不要期望客户能有条有理分层次地把他对系统的期望表达出来</p>
+<p>通过以下问题引导客户</p>
+<ul>
+<li>您对系统有什么期望</li>
+<li>您打算在这个系统里做些什么事情</li>
+<li>您做这件事情的目的是什么</li>
+<li>您做完这件事希望有一个什么样的结果</li>
+</ul>
+<p>不同主角的目标可能会相互重叠，呈现一种交集的状态。是否这些主角所谈的都只是某个完整目标的一个部分？如果这样，应当合并成一个用例，并假定这两个主角在这个用例中只是担任业务工人的角色而不知真正的主角。或者这些主角所谈的是有交叉的部分，但的确是两个不同的目标。如果这样，应当就是两个用例。</p>
+<p>提取公共的业务单元</p>
+<ul>
+<li>一个明确的有效的目标才是一个用例的来源</li>
+<li>一个真实的目标应当完备地表达主角的期望</li>
+<li>一个有效的目标应当在系统边界内，有主角发动，并具有明确的后果</li>
+</ul>
+<p>建立业务模型遇到困难和矛盾</p>
+<ul>
+<li>调整系统边界和主角</li>
+<li>扩大或缩小系统边界</li>
+<li>变更主角</li>
+<li>重新开始</li>
+</ul>
+<h1 id="用例和功能的误区"><a href="#用例和功能的误区" class="headerlink" title="用例和功能的误区"></a>用例和功能的误区</h1><p>错误：认为用例就是功能的划分和描述</p>
+<p>功能是计算机术语，它是用来描述计算机的，而非定义需求的术语。功能实际的描述是：输入 -&gt; 计算 -&gt; 输出 是典型的面向过程分析模型。用例是面向对象的。</p>
+<p>描述一个事物：</p>
+<ul>
+<li>这个事物是什么？</li>
+<li>这个事物能做什么？</li>
+<li>人们能够用这个事物做什么？</li>
+</ul>
+<p>结构性观点：即事物的客观存在。但是这个观点不能够说明事物的作用，也就是功能性方面的信息。</p>
+<p>功能性观点：说明事物可利用的价值。但是这个观点不能够说明事物在某种情形下的真正价值。</p>
+<p>使用者观点：说明事物对于使用者的意义，以及使用者可以怎么使用它，得到什么样的利益。这种观点不能够说明事物的结构。</p>
+<p>对于创造一种还不存在的事物，最好的方式就是从使用者的观点出发，描述希望这个事物使用者能用它做什么，能获得什么。</p>
+<p>从使用者观点出发来描述软件，至于功能性观点和结构性观点，则可以通过使用者观点推导出来。</p>
+<p>使用者观点实际上就是用例的观点。一个用例是一个参与者如何使用系统，获得设么结果的一个集合，通过分析用例，得出结构性的和功能性的内容，最终实现用例，也就实现了使用者的观点。</p>
+<p>总结：</p>
+<ul>
+<li>功能是脱离使用者的愿望而存在的。</li>
+<li>功能是孤立的。给一个输入，通过计算就有一个固定的输出。用例是系统的，它 需要描述谁在什么情况下通过什么方式得到什么结果。</li>
+<li>如果非要从功能的角度解释用例，那么用例可以解释为一系列完成一个特定目标的“功能”组合，针对不同的场景，这些“功能”体现不同的组合方式。（UML是没有功能这一术语）</li>
+</ul>
+<h1 id="目标和步骤的误区"><a href="#目标和步骤的误区" class="headerlink" title="目标和步骤的误区"></a>目标和步骤的误区</h1><p>误区：混淆目标和完成目标的步骤。</p>
+<p>一个用例是参与者对目标系统的一个愿望，一个完整的实践。为了完成这个事件需要经由很多步骤，但这些步骤不能够完整地反映参与者的目标，不能够作为用例。</p>
+<p>在概念模型阶段，在对需求进行分析的时候，用例的边界已经被打破，有了用例的上下文环境，这时步骤也可以作为用例。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/08/UML/UML·关系/" itemprop="url">
+                  UML·关系
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-08T18:23:37+08:00" content="2016-08-08">
+              2016-08-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/08/UML/UML·关系/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/UML/UML·关系/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8f5e2d39186628e68f53bf0514b62007?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>关联关系是一种静态关系，通常与运行状态无关，而是有“常识”、“规则”、“法律”等因素决定的，所以关联关系是一种“强关联”的关系。</p>
+<p>关联关系一般不强调关联的方向，在默认情况下，表示关联双方相互“知道”。如果特别强调了关联方向，如上图，在用例模型中，表示参与者A“知道”用例“B”，但用例“B”不知道参与者“A” 。</p>
+<h1 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB6448b9b637f701214d787c493e6deb0b?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>依赖关系描述一个对象在运行期会使用到另一个对象的关系。与关联关系不同的是，依赖关系一种临时性的“弱”关系，它不是天然存在的，并且随着运行场景的不同，依赖关系也可能发生变化。</p>
+<p>依赖关系和关联关系的区别：在关联关系中，B修改了之后，A不会发生变化。在依赖关系中，A不仅“知道”B的存在，还会使用到B的属性和方法，所以B修改了之后，可能会导致A发生修改。</p>
+<p>依赖关系也有单向和双向依赖，但我们应当杜绝双向依赖关系的产生。</p>
+<h1 id="扩展关系"><a href="#扩展关系" class="headerlink" title="扩展关系"></a>扩展关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8b1b98bdcf60858a01a86ffc7f472f61?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>扩展关系特别用于在用例模型中说明向基本用例中的某个扩展点插入扩展用例。扩展用例是带有抽象性质的，它表示了用例场景中的某个“支流”，有特定的扩展点触发而被启动。</p>
+<p>使用扩展关系可能基于以下理由：</p>
+<ul>
+<li>表明用例的某一部分是可选（或可能可选）的系统行为。这样就可以将模型中的可选行为和必选行为分开。</li>
+<li>表明只在特定条件（有时是例外条件）下猜执行分支流，如触发警报</li>
+<li>表明可能有一组行为段，其中的一个或多个段可以在基本用例的扩展点处插入。所插入的行为段（以及插入的顺序）将取决于在执行基本用例时与主角的交互。</li>
+<li>表明多个基本用例中都有可能触发一个可选的分支流。这个意义上说，扩展用例也代表了多个用例的可复用部分。</li>
+</ul>
+<h1 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBc302e93b10c73ea7b8d5ef0e252e948a?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>包含关系特别用于用例模型，说明在执行基本用例的用例实例过程中插入的行为段。包含用例总是带有抽象性质的，基本用例可控制与包含用例的关系，并可依赖于执行包含用例的结果，但基本用例和包含用例都不能访问对方的属性。</p>
+<p>在建模过程中使用包含关系可以基于以下理由：</p>
+<ul>
+<li>从基本用例中分解出这样的行为：它对于了解基本用例的主要目的并不是必需的，只要它的结果才比较重要。</li>
+<li>分解出两个或更多个用例所共有的行为。</li>
+</ul>
+<p>包含关系和扩展关系的区别：包含关系表示是“必需”的，如果没有包含用例，基本用例是不完整的，同时如果没有基本用例，包含用例是不能单独存在的；扩展关系表示是“可选”的，如果没有扩展用例，基本用例也是完整的；如果没有基本用例，扩展用例是不能单独存在的；如果有多个扩展用例，同一时间用例实例也只会使用其中的一个。</p>
+<h1 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBeda5757d3bd8ca4078237f993d54507e?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>实现关系特别用于在用例模型中连接用例和用例的实现，说明基本用例的一个实现方式。基本用例描述了一个业务目标，但是该业务目标有多种可能的实现途径，每一种实现途径可以用用例实现（或称用例实例）来表示，而用例实现与基本用例之间就构成了实现关系。即每个实现实例都能实现业务目标。</p>
+<h1 id="精化关系"><a href="#精化关系" class="headerlink" title="精化关系"></a>精化关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB70ef110d350e92a8fa4ad820815e1b2c?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>精化关系特别用于用例模型，一个基本用例可以分解出许多更小的关键精化用例，这些更小的精化用例更细致地展示了基本用例的核心业务。精化关系也可以用于模型与模型之间，表示某个模型是通过另一个模型而得来的。</p>
+<h1 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBdb5c8205fb0cd06d27e2ba2fcb477f36?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>泛化关系表示一个类对另一个类的继承，即两个对象之间的继承关系。虽然在UML认识用例之间使用泛化关系是合法的，但并不赞同这样使用，因为很难描述子用例继承了基本用例的什么，过程还是业务实体，其次用例之间的可复用部分和可扩展部分可以使用包含关系和扩展关系描述。</p>
+<p>泛化关系和精化关系的区别：</p>
+<ul>
+<li>精化关系表示有基本对象可以分解为更明确、更精细的子对象，这些子对象并没有增加、减少、改变基本对象那个的行为和属性，仅仅是更加细致和明确化了。在泛化关系中，基本对象被泛化称为子对象后，子对象继承了基本对象的所有特征，并且子对象可以增加、改变基本对象的行为和属性。</li>
+<li>精化关系仅仅用于建模阶段，在实现语言中是没有精化这一语义的。泛化则等同于实现语言中的继承语义。</li>
+</ul>
+<h1 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBf9c0340c85476c58b331b13b57ef51ff?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>聚合关系用于类图，特别用于表示实体对象之间的关系，表达整体由部分构成的语义。</p>
+<h1 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB054a4667f1b44a48cc7eb621d02acf92?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>组合关系用于类图，特别用于表示实体对象关系，表达整体部分的语义。</p>
+<p>组合关系和聚合关系的区别：</p>
+<ul>
+<li>组合是一个种强依赖的特殊聚合关系，如果整体不存在了，则部分也将消亡。</li>
+<li>在聚合关系中，整体和部分不是强依赖，即使整体不存在了，部分仍然存在。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/06/UML/统一过程（RUP）/" itemprop="url">
+                  统一过程（RUP）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T11:33:37+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/UML/统一过程（RUP）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/UML/统一过程（RUP）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="统一过程（RUP）的简介"><a href="#统一过程（RUP）的简介" class="headerlink" title="统一过程（RUP）的简介"></a>统一过程（RUP）的简介</h1><p>统一过程（以下简称RUP）归纳和整理了很多在实践中总结出来的软件工程的最佳实践，是一个采用了面向对象思想，使用UML作为软件分析设计语言，并且结合了项目管理、质量保证等许多软件工程知识综合而成的一个非常完整和庞大的软件方法。</p>
+<p>统一过程定义了软件开发过程中最重要的四个阶段和九个核心工作流：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBba19abf4ba9b13a180e4ff6c0e5c4d03?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<p>一个软件从开始到产品推出要经过多次的演进，每一个演进会有一个迭代计划来描述这次演进要达到的目标、要经历的阶段以及要进行的工作流。统一过程对每一个工作流都规定了标准的流程、参与角色和工件模板，而在迭代计划里可以依据实际情况对这些流程、角色和模板进行裁剪。</p>
+<h1 id="RUP和UML"><a href="#RUP和UML" class="headerlink" title="RUP和UML"></a>RUP和UML</h1><p>UML是一种语言，用来描述软件生产过程中要产生的文档；RUP则是指导如何产生这些文档以及这些文档要讲述什么的方法。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9a480f8a1dcd5bb790a8036ac20c385d?method=download&amp;inline=true&amp;shareKey=451042a8f768a3a31414c72a34d72df0" alt="image"></p>
+<p>学习UML之前，应当先系统学习软件过程。只有掌握了软件过程，才会知道为什么要有用例，为什么要有分析模型；站在软件过程的立场，那些孤独的UML视图才会变得有生命力，才会知道在什么时候，在什么地方需要用什么样的UML图符来表达软件的观点，也才会知道UML的那些视图到底在软件开发过程里起到什么作用。</p>
+<h1 id="RUP和XP（极限编程）方法"><a href="#RUP和XP（极限编程）方法" class="headerlink" title="RUP和XP（极限编程）方法"></a>RUP和XP（极限编程）方法</h1><p>RUP是一种追求稳定的重量型软件方法，它追求开发稳定架构，控制变更，立足于长期战略，适用于指导大中型软件产品的开发。但实施RUP难度大，成本高，也不能快速适应需求的变化。</p>
+<p>XP是一种追求在变化中用最快速的办法适应变更，用小的管理成本保障软件质量的轻量型敏捷方法。</p>
+<p>在中大型软件产品的开发过程中，对整体软件设计往往会使用到RUP，在具体到细化功能设计往往会结合XP方法一起开发。</p>
+<h1 id="RUP和构件式开发"><a href="#RUP和构件式开发" class="headerlink" title="RUP和构件式开发"></a>RUP和构件式开发</h1><p>构件式开发：软件开发能够像其他工业产品一样，可以单独生产标准零部件，然后按照要求来组装它们，用较少的投入完成最终的软件产品。是一种基于架构的软件开发模式。</p>
+<p>构件式开发的困难：一方面：构件的难以精确抽象，其次还要求构件有“自适应”和“自我成长”的能力。另一方面：软件构件的组装（接口+标准）也难以标准化实现。</p>
+<p>RUP是目前为止最全面、最广泛、最综合的软件体系。RUP也是最有可能实现构件式开发的软件过程。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5ae3d93d624058dde51e9e9d7b9fa145?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/06/UML/建模基础/" itemprop="url">
+                  建模基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T09:43:37+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/UML/建模基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/UML/建模基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><p>建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。</p>
+<h2 id="怎么建："><a href="#怎么建：" class="headerlink" title="怎么建："></a>怎么建：</h2><p>快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点</p>
+<ul>
+<li>站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的</li>
+<li>站在使用的角度：都需要用手拿，不同的是手的动作不同</li>
+<li>站在字面的角度：都有一个子字…</li>
+</ul>
+<p>当为现实世界建模时，首先要决定的是抽象的角度，即建立这个模型的目的是什么。</p>
+<p>面对问题领域的时候首先不要决定去通盘考虑，而是找出问题领域里面包含的抽象角度。如果把抽象角度都找全了，并且这些角度都分析清楚了，问题领域也就解决了。这就是用例。</p>
+<h2 id="模是什么："><a href="#模是什么：" class="headerlink" title="模是什么："></a>模是什么：</h2><p>决定了抽象角度，就决定了一个目标。模就是能够满足这一目标的事物。换个概念便是：人、事、物和规则。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBb6c08d7293abb332ada4031430ab115a?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<h1 id="用例驱动"><a href="#用例驱动" class="headerlink" title="用例驱动"></a>用例驱动</h1><p>用例驱动的原理：要解决问题领域就要归纳出所有必要的抽象角度（用例），为这些用例描述出可能的特定场景，并找到实现这些场景的事物、规则和行为。如果我们找到的那些事物、规则和行为实现了所有必要的用例，那么问题领域就解决了。</p>
+<p>在实际的软件项目中，一个软件要实现的功能通过用例来捕获，接下来的所有分析、设计、实现、测试都由用例来驱动，即以实现用例为目标</p>
+<p>在统一过程中，用例可以驱动的内容：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBdc23d269743d16f1365e7e959d93a4c3?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<p>逻辑视图：说明关键的用例实现、子系统、包和类，包含在构架方面具有重要意义的行为。“人”、“事”、“物”、“规则”是如何分类组织的。</p>
+<p>进程视图：说明系统中进程的详细组织结构，其中包括类和子系统到进程和线程的映射。“人”、“事”、“物”、“规则”是如何交互的，他们的关系如何。</p>
+<p>部署视图：说明处理活动在系统中各节点的分布，包括进程和线程的物理分布。“人”、“事”、“物”、“规则”是如何部署在物理节点（主机、网络环境）上的。</p>
+<p>实施视图：获取为实施制定的架构决策。<br>内容：</p>
+<ul>
+<li>列举实施模型中的所有子系统</li>
+<li>描述子系统如何组织为层次和分层结构的构件图</li>
+<li>描述子系统间的导入依赖关系的图解<br>作用：</li>
+<li>为个人、团队或分包商分配实施工作</li>
+<li>估算要开发、修改或删除的代码数量</li>
+<li>阐明大规模复用的理由</li>
+<li>考虑发布策略</li>
+</ul>
+<p>“人”、“事”、“物”、“规则”如何构成系统的“零部件”，以及我们如何组织人力生产和组装这些“零部件”以建成最终系统</p>
+<h1 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h1><p>误解：越抽象的东西越难理解，越具体的东西越容易认识！<br>人们认识的事物概念都是抽象的，具象只是一个相对的概念。例如，石头是硬的这个普遍认识也是一种抽象的，之所以人们觉得硬度这个抽象概念容易理解，是因为经过了多年的积累，这个抽象的概念已经被消化了。<br>所谓的具体也是一种抽象，一种已经被你接受和理解的抽象。<br>抽象层次越高，被屏蔽的信息也就越多，信息量越少，也就越容易理解和处理。如果抽象层次太高，信息量太少，又会因为信息量不足而实施不了。用例粒度选择的困难本质上是由于没有找到抽象层次而产生的。</p>
+<p>抽象的方法：</p>
+<ul>
+<li>自顶向下：适用于让人们从头开始认识一个事物</li>
+<li>自底向上：适用于在实践中改进和提高认识</li>
+</ul>
+<p>在软件开发过程中，主体上应当选择自顶向下的方法，用少量的概念覆盖系统需求，在逐渐降低抽象层次，直到代码编写。辅以自底向上的方法，通过总结在较低抽象层次的实践经验来改进较高层次的概念以提升软件质量。</p>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>建立模型的目的是想相关的人（干系人）展示将要生产的软件产品，软件产品有着很多不同的方面。只有把这些方面都描述清楚，用很多不同的视图去展示软件这些不同的方面——静态的、动态的、结构性的、逻辑性的等——才能够说明建立了一个完整的模型。</p>
+<p>建模最主要的工作就是为软件绘制那些表达软件含义的视图来完整地表达软件的含义。</p>
+<ul>
+<li>问题一：应该为哪些软件信息绘制哪些视图？</li>
+<li>问题二：应该给哪些干系人展示哪些视角？</li>
+</ul>
+<h1 id="对象分析方法"><a href="#对象分析方法" class="headerlink" title="对象分析方法"></a>对象分析方法</h1><p>一切都是对象：一切有名字的东西都是对象，都应当使用对象的观点看待它，分析它。哪怕是一个业务流程。</p>
+<h2 id="对象都是独立的"><a href="#对象都是独立的" class="headerlink" title="对象都是独立的"></a>对象都是独立的</h2><p>对象与对象之间是天然独立，只是在某个特定的场景下，它们的某一个特定的实例才相互联系在一起。</p>
+<p>对象是离散的，它不是因为特定场景而存在。场景中的对象只是对象“映射”到该场景中的一个侧面，称之为对象实例。通过一个场景，仅能得到对象的一个侧面的信息。</p>
+<p>对象的分析方法：分析很多个该对象的实例所参与的场景，以获得独享的多个侧面，再通过归纳整理这些对象的多个实例，抽象出对象的一般特性。<br>对象的独立性带来的正是对象的可抽象能力和可扩展能力。</p>
+<h2 id="对象都具有原子性"><a href="#对象都具有原子性" class="headerlink" title="对象都具有原子性"></a>对象都具有原子性</h2><p>同一个抽象层次上，在分析过程中都应当将对象视为一个不可分割的原子，它与其它对象交互时就是一个整体。原子性是抽象层次有意义的重要保证，一旦破坏了原子性，则表示在同一抽象层次上的对象不具备同样的粒度，这使得分析工作陷入混乱。</p>
+<p>面向接口编程：将分析过程中得到的所有对于对象的认识附加在对象边界上，在实现这个对象之前不理会其内部的细节。</p>
+<h2 id="对象都是可抽象的"><a href="#对象都是可抽象的" class="headerlink" title="对象都是可抽象的"></a>对象都是可抽象的</h2><p>对象参与一个场景时会展现某一个方面。总可以将对象的某一个方面抽象出来，让其作为对象的一个代表来参与场景交互。通常这种抽象总是会以接口来命名。<br>在分析过程中，应当关注那些参与了很多场景的对象，它们往往是分析设计中的重点以及成败关键。</p>
+<h2 id="对象都有层次性"><a href="#对象都有层次性" class="headerlink" title="对象都有层次性"></a>对象都有层次性</h2><p>层次越高，其描述越粗略但适应能力越广；层次越低则描述越精确但适应能力越下降。</p>
+<p>在分析过程中，应当根据问题领域的复杂程度设定多个抽象层次，在每个层次上使用适合的抽象程度的对象描述。</p>
+<h2 id="对象分析方法总结"><a href="#对象分析方法总结" class="headerlink" title="对象分析方法总结"></a>对象分析方法总结</h2><p>独立性、原子性、抽象性和层次性是面向对象分析时应当遵循的一些原则和方法。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBe6c0cf7ff58bf56f3cddf79132595e63?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -949,7 +1719,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +1727,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -966,7 +1736,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
