@@ -409,6 +409,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/08/iOS开发/UIBezierPath/" itemprop="url">
+                  UIBezierPath
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/iOS开发/UIBezierPath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/UIBezierPath/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="UIBezierPath的简单实例"><a href="#UIBezierPath的简单实例" class="headerlink" title="UIBezierPath的简单实例"></a>UIBezierPath的简单实例</h4><p><img src="http://note.youdao.com/yws/api/personal/file/WEBe05bc7c7b329e8afda0e0fa092224e39?method=download&amp;shareKey=000c09a6286d8f52d0ab5d028a9c56d5" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图示代码 在UIView的drawRect:方法中实现</span></div><div class="line"><span class="comment">//创建曲线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</div><div class="line"><span class="comment">//设置起点</span></div><div class="line">[path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">100</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">200</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>)];</div><div class="line"><span class="comment">//绘制图形</span></div><div class="line">[path addCurveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>) controlPoint1:<span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>) controlPoint2:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">300</span>)];</div><div class="line"></div><div class="line"><span class="comment">//设置线宽</span></div><div class="line">[path setLineWidth:<span class="number">3</span>];</div><div class="line"><span class="comment">//设置颜色</span></div><div class="line">[[<span class="built_in">UIColor</span> redColor] setStroke];</div><div class="line"><span class="comment">//将路径绘制出来</span></div><div class="line">[path stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path2 = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path2 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path2 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建椭圆Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path3 = [<span class="built_in">UIBezierPath</span> bezierPathWithOvalInRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">400</span>, <span class="number">80</span>, <span class="number">50</span>)];</div><div class="line"></div><div class="line">[path3 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[[<span class="built_in">UIColor</span> greenColor] setFill];</div><div class="line">[path3 stroke];</div><div class="line">[path3 fill];</div><div class="line"></div><div class="line"><span class="comment">//创建圆角矩形Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path4 = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">300</span>, <span class="number">50</span>, <span class="number">80</span>) cornerRadius:<span class="number">15</span>];</div><div class="line"></div><div class="line">[path4 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path4 stroke];</div><div class="line"></div><div class="line"><span class="comment">//创建一个弧线Path</span></div><div class="line"><span class="built_in">UIBezierPath</span> *path5 = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(<span class="number">300</span>, <span class="number">400</span>) radius:<span class="number">50</span> startAngle:<span class="number">0</span> endAngle:M_PI_4 clockwise:<span class="literal">NO</span>];</div><div class="line"></div><div class="line">[path5 setLineWidth:<span class="number">3</span>];</div><div class="line">[[<span class="built_in">UIColor</span> brownColor] setStroke];</div><div class="line">[path5 stroke];</div></pre></td></tr></table></figure>
+<h4 id="UIBezeiPath的常用绘图函数"><a href="#UIBezeiPath的常用绘图函数" class="headerlink" title="UIBezeiPath的常用绘图函数"></a>UIBezeiPath的常用绘图函数</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//绘直线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addLineToPoint:</span>(CGPoint)point</div><div class="line"><span class="comment">//绘弧线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addArcWithCenter:</span>(CGPoint)center <span class="string">radius:</span>(CGFloat)radius <span class="string">startAngle:</span>(CGFloat)startAngle <span class="string">endAngle:</span>(CGFloat)endAngle <span class="string">clockwise:</span>(BOOL)clockwise</div><div class="line"><span class="comment">//绘曲线</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint1:</span>(CGPoint)controlPoint1 <span class="string">controlPoint2:</span>(CGPoint)controlPoint2</div><div class="line">- (<span class="keyword">void</span>)<span class="string">addQuadCurveToPoint:</span>(CGPoint)endPoint <span class="string">controlPoint:</span>(CGPoint)controlPoint</div></pre></td></tr></table></figure>
+<h4 id="UIBezierPath的有关参数配置"><a href="#UIBezierPath的有关参数配置" class="headerlink" title="UIBezierPath的有关参数配置"></a>UIBezierPath的有关参数配置</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">readonly</span>,<span class="keyword">getter</span>=isEmpty) <span class="built_in">BOOL</span> empty;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGRect</span> bounds;</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">CGPoint</span> currentPoint;</div><div class="line">- (<span class="built_in">BOOL</span>)containsPoint:(<span class="built_in">CGPoint</span>)point;</div><div class="line"></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> lineWidth;</div><div class="line"></div><div class="line"><span class="comment">//线段风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineCapButt, //默认</div><div class="line">kCGLineCapRound, //圆角</div><div class="line">kCGLineCapSquare //矩形</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineCap</span> lineCapStyle;</div><div class="line"></div><div class="line"><span class="comment">//线段交点风格</span></div><div class="line"><span class="comment">/*</span></div><div class="line">kCGLineJoinMiter, //默认</div><div class="line">kCGLineJoinRound, //圆角</div><div class="line">kCGLineJoinBevel //斜角</div><div class="line">*/</div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGLineJoin</span> lineJoinStyle;</div><div class="line"></div><div class="line"><span class="comment">//最大斜接长度</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> miterLimit; <span class="comment">// Used when lineJoinStyle is kCGLineJoinMiter</span></div><div class="line"></div><div class="line"><span class="comment">//平滑度 会增大性能消耗</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> flatness;</div><div class="line"></div><div class="line"><span class="comment">//单双数圈规则是否用于绘制路径，默认是NO</span></div><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> usesEvenOddFillRule; </div><div class="line"></div><div class="line"><span class="comment">//设置虚线</span></div><div class="line">- (<span class="keyword">void</span>)setLineDash:(<span class="keyword">nullable</span> <span class="keyword">const</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="built_in">NSInteger</span>)count phase:(<span class="built_in">CGFloat</span>)phase;</div><div class="line">- (<span class="keyword">void</span>)getLineDash:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)pattern count:(<span class="keyword">nullable</span> <span class="built_in">NSInteger</span> *)count phase:(<span class="keyword">nullable</span> <span class="built_in">CGFloat</span> *)phase;</div><div class="line"></div><div class="line"><span class="comment">//填充</span></div><div class="line">- (<span class="keyword">void</span>)fill;</div><div class="line"><span class="comment">//描边</span></div><div class="line">- (<span class="keyword">void</span>)stroke;</div><div class="line"></div><div class="line"><span class="comment">//设置混合模式</span></div><div class="line">- (<span class="keyword">void</span>)fillWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line">- (<span class="keyword">void</span>)strokeWithBlendMode:(<span class="built_in">CGBlendMode</span>)blendMode alpha:(<span class="built_in">CGFloat</span>)alpha;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)addClip;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/Linux/CentOS7.2 配置FTP服务器/" itemprop="url">
                   FTP服务器
                 </a>
@@ -668,6 +791,128 @@
 <p>automaticallyAdjustsScrollViewInsets用于设置ViewController是否自动调整他的scroll View insets。默认为YES,表示允许ViewController自动调整由于适用scroll View 而生成的各种navigation bar,status bar,tool bar和tab bar.也就是说在默认情况下ViewController会为用户自动调整ScrollView及其子类，已适用ViewController上面的各种Bar</p>
 <p>解决方法：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.edgesForExtendedLayout = <span class="built_in">UIRectEdgeBottom</span>;</div><div class="line"><span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="literal">NO</span>;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/08/iOS开发/Demo/LoginVC/" itemprop="url">
+                  登录界面
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/iOS开发/Demo/LoginVC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/Demo/LoginVC/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这个Demo做了一个富有创意的登录界面，好玩也好看。</p>
+<p><a href="http://note.youdao.com/noteshare?id=5b087a09f114217600453e77b0fe9fb0" target="_blank" rel="external">有道云笔记下载Demo</a></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBc83252c42992880bf40f03aeea43edc1?method=download&amp;inline=true&amp;shareKey=4c37885998d7e4aa7645892f0ded0bc1" alt="图示"></p>
 
           
         
@@ -1502,183 +1747,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/06/UML/建模基础/" itemprop="url">
-                  建模基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-06T09:43:37+08:00" content="2016-08-06">
-              2016-08-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/UML/" itemprop="url" rel="index">
-                    <span itemprop="name">UML</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/06/UML/建模基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/UML/建模基础/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><p>建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。</p>
-<h2 id="怎么建："><a href="#怎么建：" class="headerlink" title="怎么建："></a>怎么建：</h2><p>快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点</p>
-<ul>
-<li>站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的</li>
-<li>站在使用的角度：都需要用手拿，不同的是手的动作不同</li>
-<li>站在字面的角度：都有一个子字…</li>
-</ul>
-<p>当为现实世界建模时，首先要决定的是抽象的角度，即建立这个模型的目的是什么。</p>
-<p>面对问题领域的时候首先不要决定去通盘考虑，而是找出问题领域里面包含的抽象角度。如果把抽象角度都找全了，并且这些角度都分析清楚了，问题领域也就解决了。这就是用例。</p>
-<h2 id="模是什么："><a href="#模是什么：" class="headerlink" title="模是什么："></a>模是什么：</h2><p>决定了抽象角度，就决定了一个目标。模就是能够满足这一目标的事物。换个概念便是：人、事、物和规则。</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBb6c08d7293abb332ada4031430ab115a?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
-<h1 id="用例驱动"><a href="#用例驱动" class="headerlink" title="用例驱动"></a>用例驱动</h1><p>用例驱动的原理：要解决问题领域就要归纳出所有必要的抽象角度（用例），为这些用例描述出可能的特定场景，并找到实现这些场景的事物、规则和行为。如果我们找到的那些事物、规则和行为实现了所有必要的用例，那么问题领域就解决了。</p>
-<p>在实际的软件项目中，一个软件要实现的功能通过用例来捕获，接下来的所有分析、设计、实现、测试都由用例来驱动，即以实现用例为目标</p>
-<p>在统一过程中，用例可以驱动的内容：</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBdc23d269743d16f1365e7e959d93a4c3?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
-<p>逻辑视图：说明关键的用例实现、子系统、包和类，包含在构架方面具有重要意义的行为。“人”、“事”、“物”、“规则”是如何分类组织的。</p>
-<p>进程视图：说明系统中进程的详细组织结构，其中包括类和子系统到进程和线程的映射。“人”、“事”、“物”、“规则”是如何交互的，他们的关系如何。</p>
-<p>部署视图：说明处理活动在系统中各节点的分布，包括进程和线程的物理分布。“人”、“事”、“物”、“规则”是如何部署在物理节点（主机、网络环境）上的。</p>
-<p>实施视图：获取为实施制定的架构决策。<br>内容：</p>
-<ul>
-<li>列举实施模型中的所有子系统</li>
-<li>描述子系统如何组织为层次和分层结构的构件图</li>
-<li>描述子系统间的导入依赖关系的图解<br>作用：</li>
-<li>为个人、团队或分包商分配实施工作</li>
-<li>估算要开发、修改或删除的代码数量</li>
-<li>阐明大规模复用的理由</li>
-<li>考虑发布策略</li>
-</ul>
-<p>“人”、“事”、“物”、“规则”如何构成系统的“零部件”，以及我们如何组织人力生产和组装这些“零部件”以建成最终系统</p>
-<h1 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h1><p>误解：越抽象的东西越难理解，越具体的东西越容易认识！<br>人们认识的事物概念都是抽象的，具象只是一个相对的概念。例如，石头是硬的这个普遍认识也是一种抽象的，之所以人们觉得硬度这个抽象概念容易理解，是因为经过了多年的积累，这个抽象的概念已经被消化了。<br>所谓的具体也是一种抽象，一种已经被你接受和理解的抽象。<br>抽象层次越高，被屏蔽的信息也就越多，信息量越少，也就越容易理解和处理。如果抽象层次太高，信息量太少，又会因为信息量不足而实施不了。用例粒度选择的困难本质上是由于没有找到抽象层次而产生的。</p>
-<p>抽象的方法：</p>
-<ul>
-<li>自顶向下：适用于让人们从头开始认识一个事物</li>
-<li>自底向上：适用于在实践中改进和提高认识</li>
-</ul>
-<p>在软件开发过程中，主体上应当选择自顶向下的方法，用少量的概念覆盖系统需求，在逐渐降低抽象层次，直到代码编写。辅以自底向上的方法，通过总结在较低抽象层次的实践经验来改进较高层次的概念以提升软件质量。</p>
-<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>建立模型的目的是想相关的人（干系人）展示将要生产的软件产品，软件产品有着很多不同的方面。只有把这些方面都描述清楚，用很多不同的视图去展示软件这些不同的方面——静态的、动态的、结构性的、逻辑性的等——才能够说明建立了一个完整的模型。</p>
-<p>建模最主要的工作就是为软件绘制那些表达软件含义的视图来完整地表达软件的含义。</p>
-<ul>
-<li>问题一：应该为哪些软件信息绘制哪些视图？</li>
-<li>问题二：应该给哪些干系人展示哪些视角？</li>
-</ul>
-<h1 id="对象分析方法"><a href="#对象分析方法" class="headerlink" title="对象分析方法"></a>对象分析方法</h1><p>一切都是对象：一切有名字的东西都是对象，都应当使用对象的观点看待它，分析它。哪怕是一个业务流程。</p>
-<h2 id="对象都是独立的"><a href="#对象都是独立的" class="headerlink" title="对象都是独立的"></a>对象都是独立的</h2><p>对象与对象之间是天然独立，只是在某个特定的场景下，它们的某一个特定的实例才相互联系在一起。</p>
-<p>对象是离散的，它不是因为特定场景而存在。场景中的对象只是对象“映射”到该场景中的一个侧面，称之为对象实例。通过一个场景，仅能得到对象的一个侧面的信息。</p>
-<p>对象的分析方法：分析很多个该对象的实例所参与的场景，以获得独享的多个侧面，再通过归纳整理这些对象的多个实例，抽象出对象的一般特性。<br>对象的独立性带来的正是对象的可抽象能力和可扩展能力。</p>
-<h2 id="对象都具有原子性"><a href="#对象都具有原子性" class="headerlink" title="对象都具有原子性"></a>对象都具有原子性</h2><p>同一个抽象层次上，在分析过程中都应当将对象视为一个不可分割的原子，它与其它对象交互时就是一个整体。原子性是抽象层次有意义的重要保证，一旦破坏了原子性，则表示在同一抽象层次上的对象不具备同样的粒度，这使得分析工作陷入混乱。</p>
-<p>面向接口编程：将分析过程中得到的所有对于对象的认识附加在对象边界上，在实现这个对象之前不理会其内部的细节。</p>
-<h2 id="对象都是可抽象的"><a href="#对象都是可抽象的" class="headerlink" title="对象都是可抽象的"></a>对象都是可抽象的</h2><p>对象参与一个场景时会展现某一个方面。总可以将对象的某一个方面抽象出来，让其作为对象的一个代表来参与场景交互。通常这种抽象总是会以接口来命名。<br>在分析过程中，应当关注那些参与了很多场景的对象，它们往往是分析设计中的重点以及成败关键。</p>
-<h2 id="对象都有层次性"><a href="#对象都有层次性" class="headerlink" title="对象都有层次性"></a>对象都有层次性</h2><p>层次越高，其描述越粗略但适应能力越广；层次越低则描述越精确但适应能力越下降。</p>
-<p>在分析过程中，应当根据问题领域的复杂程度设定多个抽象层次，在每个层次上使用适合的抽象程度的对象描述。</p>
-<h2 id="对象分析方法总结"><a href="#对象分析方法总结" class="headerlink" title="对象分析方法总结"></a>对象分析方法总结</h2><p>独立性、原子性、抽象性和层次性是面向对象分析时应当遵循的一些原则和方法。</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBe6c0cf7ff58bf56f3cddf79132595e63?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1719,7 +1792,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1736,7 +1809,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

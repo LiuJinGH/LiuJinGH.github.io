@@ -86,7 +86,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="流愚">
-<meta property="og:url" content="https://liujingh.github.io/categories/iOS开发/index.html">
+<meta property="og:url" content="https://liujingh.github.io/page/3/index.html">
 <meta property="og:site_name" content="流愚">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="流愚">
@@ -110,9 +110,9 @@
 
 
 
-  <link rel="canonical" href="https://liujingh.github.io/categories/iOS开发/"/>
+  <link rel="canonical" href="https://liujingh.github.io/page/3/"/>
 
-  <title> 分类: iOS开发 | 流愚 </title>
+  <title> 流愚 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +143,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,292 +255,176 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        iOS开发
-        <small>分类</small>
-      </h2>
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/06/UML/建模基础/" itemprop="url">
+                  建模基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-06T09:43:37+08:00" content="2016-08-06">
+              2016-08-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/06/UML/建模基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/06/UML/建模基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><p>建模，是指通过对客观事物建立一种抽象的方法用以表征事物并获得对事物本身的理解，同时把这种理解概念化，将这些逻辑概念组织起来，构成一种对所观察的对象的内部结构和工作原理的便于理解的表达。</p>
+<h2 id="怎么建："><a href="#怎么建：" class="headerlink" title="怎么建："></a>怎么建：</h2><p>快速的小测试：在30秒内说出尽可能多的筷子、勺子和盘子的相同点和不同点</p>
+<ul>
+<li>站在用途的角度：都是餐具，筷子是用夹的，勺子是用舀的，盘子是用于盛的</li>
+<li>站在使用的角度：都需要用手拿，不同的是手的动作不同</li>
+<li>站在字面的角度：都有一个子字…</li>
+</ul>
+<p>当为现实世界建模时，首先要决定的是抽象的角度，即建立这个模型的目的是什么。</p>
+<p>面对问题领域的时候首先不要决定去通盘考虑，而是找出问题领域里面包含的抽象角度。如果把抽象角度都找全了，并且这些角度都分析清楚了，问题领域也就解决了。这就是用例。</p>
+<h2 id="模是什么："><a href="#模是什么：" class="headerlink" title="模是什么："></a>模是什么：</h2><p>决定了抽象角度，就决定了一个目标。模就是能够满足这一目标的事物。换个概念便是：人、事、物和规则。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBb6c08d7293abb332ada4031430ab115a?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<h1 id="用例驱动"><a href="#用例驱动" class="headerlink" title="用例驱动"></a>用例驱动</h1><p>用例驱动的原理：要解决问题领域就要归纳出所有必要的抽象角度（用例），为这些用例描述出可能的特定场景，并找到实现这些场景的事物、规则和行为。如果我们找到的那些事物、规则和行为实现了所有必要的用例，那么问题领域就解决了。</p>
+<p>在实际的软件项目中，一个软件要实现的功能通过用例来捕获，接下来的所有分析、设计、实现、测试都由用例来驱动，即以实现用例为目标</p>
+<p>在统一过程中，用例可以驱动的内容：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBdc23d269743d16f1365e7e959d93a4c3?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<p>逻辑视图：说明关键的用例实现、子系统、包和类，包含在构架方面具有重要意义的行为。“人”、“事”、“物”、“规则”是如何分类组织的。</p>
+<p>进程视图：说明系统中进程的详细组织结构，其中包括类和子系统到进程和线程的映射。“人”、“事”、“物”、“规则”是如何交互的，他们的关系如何。</p>
+<p>部署视图：说明处理活动在系统中各节点的分布，包括进程和线程的物理分布。“人”、“事”、“物”、“规则”是如何部署在物理节点（主机、网络环境）上的。</p>
+<p>实施视图：获取为实施制定的架构决策。<br>内容：</p>
+<ul>
+<li>列举实施模型中的所有子系统</li>
+<li>描述子系统如何组织为层次和分层结构的构件图</li>
+<li>描述子系统间的导入依赖关系的图解<br>作用：</li>
+<li>为个人、团队或分包商分配实施工作</li>
+<li>估算要开发、修改或删除的代码数量</li>
+<li>阐明大规模复用的理由</li>
+<li>考虑发布策略</li>
+</ul>
+<p>“人”、“事”、“物”、“规则”如何构成系统的“零部件”，以及我们如何组织人力生产和组装这些“零部件”以建成最终系统</p>
+<h1 id="抽象层次"><a href="#抽象层次" class="headerlink" title="抽象层次"></a>抽象层次</h1><p>误解：越抽象的东西越难理解，越具体的东西越容易认识！<br>人们认识的事物概念都是抽象的，具象只是一个相对的概念。例如，石头是硬的这个普遍认识也是一种抽象的，之所以人们觉得硬度这个抽象概念容易理解，是因为经过了多年的积累，这个抽象的概念已经被消化了。<br>所谓的具体也是一种抽象，一种已经被你接受和理解的抽象。<br>抽象层次越高，被屏蔽的信息也就越多，信息量越少，也就越容易理解和处理。如果抽象层次太高，信息量太少，又会因为信息量不足而实施不了。用例粒度选择的困难本质上是由于没有找到抽象层次而产生的。</p>
+<p>抽象的方法：</p>
+<ul>
+<li>自顶向下：适用于让人们从头开始认识一个事物</li>
+<li>自底向上：适用于在实践中改进和提高认识</li>
+</ul>
+<p>在软件开发过程中，主体上应当选择自顶向下的方法，用少量的概念覆盖系统需求，在逐渐降低抽象层次，直到代码编写。辅以自底向上的方法，通过总结在较低抽象层次的实践经验来改进较高层次的概念以提升软件质量。</p>
+<h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><p>建立模型的目的是想相关的人（干系人）展示将要生产的软件产品，软件产品有着很多不同的方面。只有把这些方面都描述清楚，用很多不同的视图去展示软件这些不同的方面——静态的、动态的、结构性的、逻辑性的等——才能够说明建立了一个完整的模型。</p>
+<p>建模最主要的工作就是为软件绘制那些表达软件含义的视图来完整地表达软件的含义。</p>
+<ul>
+<li>问题一：应该为哪些软件信息绘制哪些视图？</li>
+<li>问题二：应该给哪些干系人展示哪些视角？</li>
+</ul>
+<h1 id="对象分析方法"><a href="#对象分析方法" class="headerlink" title="对象分析方法"></a>对象分析方法</h1><p>一切都是对象：一切有名字的东西都是对象，都应当使用对象的观点看待它，分析它。哪怕是一个业务流程。</p>
+<h2 id="对象都是独立的"><a href="#对象都是独立的" class="headerlink" title="对象都是独立的"></a>对象都是独立的</h2><p>对象与对象之间是天然独立，只是在某个特定的场景下，它们的某一个特定的实例才相互联系在一起。</p>
+<p>对象是离散的，它不是因为特定场景而存在。场景中的对象只是对象“映射”到该场景中的一个侧面，称之为对象实例。通过一个场景，仅能得到对象的一个侧面的信息。</p>
+<p>对象的分析方法：分析很多个该对象的实例所参与的场景，以获得独享的多个侧面，再通过归纳整理这些对象的多个实例，抽象出对象的一般特性。<br>对象的独立性带来的正是对象的可抽象能力和可扩展能力。</p>
+<h2 id="对象都具有原子性"><a href="#对象都具有原子性" class="headerlink" title="对象都具有原子性"></a>对象都具有原子性</h2><p>同一个抽象层次上，在分析过程中都应当将对象视为一个不可分割的原子，它与其它对象交互时就是一个整体。原子性是抽象层次有意义的重要保证，一旦破坏了原子性，则表示在同一抽象层次上的对象不具备同样的粒度，这使得分析工作陷入混乱。</p>
+<p>面向接口编程：将分析过程中得到的所有对于对象的认识附加在对象边界上，在实现这个对象之前不理会其内部的细节。</p>
+<h2 id="对象都是可抽象的"><a href="#对象都是可抽象的" class="headerlink" title="对象都是可抽象的"></a>对象都是可抽象的</h2><p>对象参与一个场景时会展现某一个方面。总可以将对象的某一个方面抽象出来，让其作为对象的一个代表来参与场景交互。通常这种抽象总是会以接口来命名。<br>在分析过程中，应当关注那些参与了很多场景的对象，它们往往是分析设计中的重点以及成败关键。</p>
+<h2 id="对象都有层次性"><a href="#对象都有层次性" class="headerlink" title="对象都有层次性"></a>对象都有层次性</h2><p>层次越高，其描述越粗略但适应能力越广；层次越低则描述越精确但适应能力越下降。</p>
+<p>在分析过程中，应当根据问题领域的复杂程度设定多个抽象层次，在每个层次上使用适合的抽象程度的对象描述。</p>
+<h2 id="对象分析方法总结"><a href="#对象分析方法总结" class="headerlink" title="对象分析方法总结"></a>对象分析方法总结</h2><p>独立性、原子性、抽象性和层次性是面向对象分析时应当遵循的一些原则和方法。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBe6c0cf7ff58bf56f3cddf79132595e63?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+
+          
+        
+      
     </div>
 
-    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/" itemprop="url">
-              
-                <span itemprop="name">runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-25T10:34:20+08:00"
-              content="2016-10-25" >
-          10-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/24/iOS开发/Demo/WMPageController/" itemprop="url">
-              
-                <span itemprop="name">WMPageController</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-24T02:13:25+08:00"
-              content="2016-10-24" >
-          10-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/21/iOS开发/UIKit/UIViewController/UIViewController生命周期/" itemprop="url">
-              
-                <span itemprop="name">UIViewController生命周期</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-21T19:23:27+08:00"
-              content="2016-10-21" >
-          10-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/19/iOS开发/其他/iOS地图/" itemprop="url">
-              
-                <span itemprop="name">iOS地图</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-19T09:09:27+08:00"
-              content="2016-10-19" >
-          10-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
+        <div class="post-eof"></div>
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/13/iOS开发/Demo/iOS毛玻璃效果/" itemprop="url">
-              
-                <span itemprop="name">iOS毛玻璃效果</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-13T10:09:18+08:00"
-              content="2016-10-13" >
-          10-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/iOS开发/UIKit/TableView和TableViewCell学习笔记/" itemprop="url">
-              
-                <span itemprop="name">UITableView</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T17:11:37+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/iOS开发/CoreAnimation/" itemprop="url">
-              
-                <span itemprop="name">CoreAnimation</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T17:11:37+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/iOS开发/iOS 多线程/" itemprop="url">
-              
-                <span itemprop="name">iOS多线程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T17:11:37+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/iOS开发/Demo/WorkBasketVC/" itemprop="url">
-              
-                <span itemprop="name">输入界面</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T17:11:37+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/08/iOS开发/UIBezierPath/" itemprop="url">
-              
-                <span itemprop="name">UIBezierPath</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-08T17:11:37+08:00"
-              content="2016-10-08" >
-          10-08
-        </time>
-      </div>
-
-    </header>
+    </footer>
   </article>
 
 
@@ -547,9 +433,8 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/iOS开发/page/2/">2</a><a class="extend next" rel="next" href="/categories/iOS开发/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
-
 
 
 

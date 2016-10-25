@@ -1,0 +1,867 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS高级开发,runtime,iOS Demo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="方法简介objc_getAssociatedObject、objc_setAssociatedObject是runtime机制中对类库进行动态操作属性的两个方法。
+objc_getAssociatedObject官方定义12OBJC_EXPORT id objc_getAssociatedObject(id object, const void *key)    __OSX_AVAILABLE_S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明">
+<meta property="og:url" content="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/index.html">
+<meta property="og:site_name" content="流愚">
+<meta property="og:description" content="方法简介objc_getAssociatedObject、objc_setAssociatedObject是runtime机制中对类库进行动态操作属性的两个方法。
+objc_getAssociatedObject官方定义12OBJC_EXPORT id objc_getAssociatedObject(id object, const void *key)    __OSX_AVAILABLE_S">
+<meta property="og:updated_time" content="2016-10-25T03:44:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明">
+<meta name="twitter:description" content="方法简介objc_getAssociatedObject、objc_setAssociatedObject是runtime机制中对类库进行动态操作属性的两个方法。
+objc_getAssociatedObject官方定义12OBJC_EXPORT id objc_getAssociatedObject(id object, const void *key)    __OSX_AVAILABLE_S">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6338635710714611000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/"/>
+
+  <title> runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明 | 流愚 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?a9bf73cc00296d16c37b1bb493b0e1c8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">流愚</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学海无涯，流愚寻昧</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T10:34:20+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"> 阅读量</i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="方法简介"><a href="#方法简介" class="headerlink" title="方法简介"></a>方法简介</h1><p>objc_getAssociatedObject、objc_setAssociatedObject是runtime机制中对类库进行动态操作属性的两个方法。</p>
+<h2 id="objc-getAssociatedObject"><a href="#objc-getAssociatedObject" class="headerlink" title="objc_getAssociatedObject"></a>objc_getAssociatedObject</h2><h3 id="官方定义"><a href="#官方定义" class="headerlink" title="官方定义"></a>官方定义</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">OBJC_EXPORT id <span class="title">objc_getAssociatedObject</span>(<span class="params">id <span class="keyword">object</span>, <span class="keyword">const</span> <span class="keyword">void</span> *key</span>)</span></div><div class="line">    __<span class="title">OSX_AVAILABLE_STARTING</span>(<span class="params">__MAC_10_6, __IPHONE_3_1</span>);</div></pre></td></tr></table></figure>
+<h3 id="官方注解"><a href="#官方注解" class="headerlink" title="官方注解"></a>官方注解</h3><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/** </div><div class="line"> * Returns the value associated <span class="keyword">with</span> a given <span class="built_in">object</span> <span class="keyword">for</span> a given <span class="keyword">key</span>.</div><div class="line"> * </div><div class="line"> * @param <span class="built_in">object</span> The source <span class="built_in">object</span> <span class="keyword">for</span> the association.</div><div class="line"> * @param <span class="keyword">key</span> The <span class="keyword">key</span> <span class="keyword">for</span> the association.</div><div class="line"> * </div><div class="line"> * @<span class="keyword">return</span> The value associated <span class="keyword">with</span> the <span class="keyword">key</span> \e <span class="keyword">key</span> <span class="keyword">for</span> \e <span class="built_in">object</span>.</div><div class="line"> * </div><div class="line"> * @see objc_setAssociatedObject</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h3 id="个人注解"><a href="#个人注解" class="headerlink" title="个人注解"></a>个人注解</h3><ul>
+<li>objc_getAssociatedObject方法是获取动态类库属性的一个方法。</li>
+<li>参数：object 是指明要获取的属性是来自哪个实例对象</li>
+<li>参数：key 是用来标识该属性</li>
+<li>函数返回参数中对应对象的对应属性</li>
+</ul>
+<h2 id="objc-setAssociatedObject"><a href="#objc-setAssociatedObject" class="headerlink" title="objc_setAssociatedObject"></a>objc_setAssociatedObject</h2><h3 id="官方定义-1"><a href="#官方定义-1" class="headerlink" title="官方定义"></a>官方定义</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">OBJC_EXPORT <span class="keyword">void</span> <span class="title">objc_setAssociatedObject</span>(<span class="params">id <span class="keyword">object</span>, <span class="keyword">const</span> <span class="keyword">void</span> *key, id <span class="keyword">value</span>, objc_AssociationPolicy policy</span>)</span></div><div class="line">    __<span class="title">OSX_AVAILABLE_STARTING</span>(<span class="params">__MAC_10_6, __IPHONE_3_1</span>);</div></pre></td></tr></table></figure>
+<h3 id="官方注解-1"><a href="#官方注解-1" class="headerlink" title="官方注解"></a>官方注解</h3><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/** </div><div class="line"> * Sets an associated value <span class="keyword">for</span> a given <span class="built_in">object</span> <span class="keyword">using</span> a given <span class="keyword">key</span> <span class="keyword">and</span> association policy.</div><div class="line"> * </div><div class="line"> * @param <span class="built_in">object</span> The source <span class="built_in">object</span> <span class="keyword">for</span> the association.</div><div class="line"> * @param <span class="keyword">key</span> The <span class="keyword">key</span> <span class="keyword">for</span> the association.</div><div class="line"> * @param value The value <span class="keyword">to</span> associate <span class="keyword">with</span> the <span class="keyword">key</span> <span class="keyword">key</span> <span class="keyword">for</span> <span class="built_in">object</span>. Pass nil <span class="keyword">to</span> clear an existing association.</div><div class="line"> * @param policy The policy <span class="keyword">for</span> the association. <span class="keyword">For</span> possible values, see “Associative <span class="built_in">Object</span> Behaviors.”</div><div class="line"> * </div><div class="line"> * @see objc_setAssociatedObject</div><div class="line"> * @see objc_removeAssociatedObjects</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h3 id="个人注解-1"><a href="#个人注解-1" class="headerlink" title="个人注解"></a>个人注解</h3><ul>
+<li>objc_setAssociatedObject方法是动态设置类库中属性的一个方法。</li>
+<li>参数：object 指明要动态设置属性实例对象</li>
+<li>参数：key 为该属性设置一个标识</li>
+<li>参数：value 设置设个属性的值</li>
+<li>参数：policy 设置该属性的关联策略</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">typedef OBJC_ENUM(uintptr_t, objc_AssociationPolicy) &#123;</div><div class="line"><span class="comment">/**&lt; Specifies a weak reference to the associated object. */</span></div><div class="line">    <span class="comment">//弱引用 weak</span></div><div class="line">    OBJC_ASSOCIATION_ASSIGN = <span class="number">0</span>,  </div><div class="line">    </div><div class="line"><span class="comment">/**&lt; Specifies a strong reference to the associated object.     *   The association is not made atomically. */</span></div><div class="line">    <span class="comment">//强引用，非原子性 strong nonatomic</span></div><div class="line">    OBJC_ASSOCIATION_RETAIN_NONATOMIC = <span class="number">1</span>, </div><div class="line">    </div><div class="line"><span class="comment">/**&lt; Specifies that the associated object is copied.     *   The association is not made atomically. */</span></div><div class="line">    <span class="comment">//拷贝，非原子性 copy nonatomic</span></div><div class="line">    OBJC_ASSOCIATION_COPY_NONATOMIC = <span class="number">3</span>, </div><div class="line">    </div><div class="line"><span class="comment">/**&lt; Specifies a strong reference to the associated object.    *   The association is made atomically. */</span></div><div class="line">    <span class="comment">//强引用，原子性 strong atomic</span></div><div class="line">    OBJC_ASSOCIATION_RETAIN = <span class="number">01401</span>,  </div><div class="line">    </div><div class="line"><span class="comment">/**&lt; Specifies that the associated object is copied.    *   The association is made atomically. */</span></div><div class="line">    <span class="comment">//拷贝，原子性 copy atomic</span></div><div class="line">    OBJC_ASSOCIATION_COPY = <span class="number">01403</span>          </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>在使用未开源的源码时，往往会使用分类来增加原始类的方法。但是，在分类中不能定义成员变量，这也导致无法给原始类增加成员变量。解决这个问题的其中一个方法就是使用runtime的objc_getAssociatedObject和objc_setAssociatedObject来为原始类的实例对象动态增加一个属性。</p>
+<p><a href="http://note.youdao.com/noteshare?id=fe39374f234a0cdb718f23f2bb575d62" target="_blank" rel="external">源码连接_有道云笔记</a></p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>新建一个NSString类型的分类</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在.h文件中</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"><span class="comment">//需要导入的头文件</span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">LJ_runtime_Demo</span>)</span></div><div class="line"><span class="comment">//定义了一个属性，当实现了它的getter和setter方法</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *ljDemo;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在.m文件中</span></div><div class="line"><span class="meta">#import <span class="meta-string">"NSString+LJ_runtime_Demo.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">LJ_runtime_Demo</span>)</span></div><div class="line"></div><div class="line">-(<span class="built_in">NSString</span> *)ljDemo&#123;</div><div class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="string">@"LJDEMO"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setLjDemo:(<span class="built_in">NSString</span> *)ljDemo&#123;</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="string">@"LJDEMO"</span>, ljDemo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在main函数中</span></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</div><div class="line">    <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        <span class="built_in">NSString</span> *str = <span class="string">@"这是测试Demo"</span>;</div><div class="line">        str.ljDemo = <span class="string">@"您好，美丽的世界"</span>;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, str.ljDemo);</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span>打印测试</div><div class="line"><span class="number">2016</span>-<span class="number">10</span>-<span class="number">25</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">07.100</span> LJ_runtime_AssociatedObject_Demo[<span class="number">3571</span>:<span class="number">113511</span>] 您好，美丽的世界</div><div class="line">Program ended with <span class="keyword">exit</span> code: <span class="number">0</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS高级开发/" rel="tag">#iOS高级开发</a>
+          
+            <a href="/tags/runtime/" rel="tag">#runtime</a>
+          
+            <a href="/tags/iOS-Demo/" rel="tag">#iOS Demo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/24/iOS开发/Demo/WMPageController/" rel="next" title="WMPageController">
+                <i class="fa fa-chevron-left"></i> WMPageController
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/"
+     data-title="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明"
+     data-content=""
+     data-url="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/"
+           data-title="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明" data-url="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://note.youdao.com/yws/api/personal/file/WEB4b94daf00c4060c6efc2b3bf12646d46?method=download&inline=true&shareKey=541c48a7c51931198062a6ecd777028c"
+               alt="刘瑾" />
+          <p class="site-author-name" itemprop="name">刘瑾</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法简介"><span class="nav-number">1.</span> <span class="nav-text">方法简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#objc-getAssociatedObject"><span class="nav-number">1.1.</span> <span class="nav-text">objc_getAssociatedObject</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官方定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">官方定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方注解"><span class="nav-number">1.1.2.</span> <span class="nav-text">官方注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人注解"><span class="nav-number">1.1.3.</span> <span class="nav-text">个人注解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#objc-setAssociatedObject"><span class="nav-number">1.2.</span> <span class="nav-text">objc_setAssociatedObject</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#官方定义-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">官方定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方注解-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">官方注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人注解-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">个人注解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用示例"><span class="nav-number">2.</span> <span class="nav-text">使用示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">2.1.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码示例"><span class="nav-number">2.2.</span> <span class="nav-text">代码示例</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘瑾</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"> 访客数</i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"> 访问量</i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"liujinxixi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
