@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS Demo,iOS第三方," />
+  <meta name="keywords" content="iOS Demo,iOS高级开发," />
 
 
 
@@ -84,36 +84,33 @@
 
 
 
-<meta name="description" content="WMPageController简介上方切换栏效果的控制器
-WMPageControllerHithub链接
+<meta name="description" content="Demo展示
+Demo_有道云笔记下载
 
-WMPageController使用说明使用注意点
-WMPageController是国人写的一个第三方，固然有中文注释。所以有关属性和方法的说明，可以直接到源码中看注释即可。
+对列表项的添加、删除和移动操作都必须和列表的数据源处理同步！！！
 
-WMPageController的部分属性配置不能在viewDidLoad方法中设置，只能在其之前，比如：初">
+添加操作说明12//插入操作需要调用到该函数 indexPath表示插入列表项的位置  animation表示操作使用到的动画- (void)insertRowsAtIndexPaths:(NSArray&amp;lt;NSIndexPath *&amp;gt; *)indexPaths withRowA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WMPageController">
-<meta property="og:url" content="https://liujingh.github.io/2016/10/24/iOS开发/Demo/WMPageController/index.html">
+<meta property="og:title" content="TableView的添加，删除，移动列表操作">
+<meta property="og:url" content="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/index.html">
 <meta property="og:site_name" content="流愚">
-<meta property="og:description" content="WMPageController简介上方切换栏效果的控制器
-WMPageControllerHithub链接
+<meta property="og:description" content="Demo展示
+Demo_有道云笔记下载
 
-WMPageController使用说明使用注意点
-WMPageController是国人写的一个第三方，固然有中文注释。所以有关属性和方法的说明，可以直接到源码中看注释即可。
+对列表项的添加、删除和移动操作都必须和列表的数据源处理同步！！！
 
-WMPageController的部分属性配置不能在viewDidLoad方法中设置，只能在其之前，比如：初">
-<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB47e983d7db17742d006d6b0121973a7f?method=download&inline=true&shareKey=2f27af2463eeb1dfde7d353249ebfccc">
-<meta property="og:updated_time" content="2016-10-25T03:44:20.000Z">
+添加操作说明12//插入操作需要调用到该函数 indexPath表示插入列表项的位置  animation表示操作使用到的动画- (void)insertRowsAtIndexPaths:(NSArray&amp;lt;NSIndexPath *&amp;gt; *)indexPaths withRowA">
+<meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB8d57cb05896e2687e9f163534ea8e863?method=download&inline=true&shareKey=02b887db246e2dabccc49db97228073d">
+<meta property="og:updated_time" content="2016-10-25T11:02:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WMPageController">
-<meta name="twitter:description" content="WMPageController简介上方切换栏效果的控制器
-WMPageControllerHithub链接
+<meta name="twitter:title" content="TableView的添加，删除，移动列表操作">
+<meta name="twitter:description" content="Demo展示
+Demo_有道云笔记下载
 
-WMPageController使用说明使用注意点
-WMPageController是国人写的一个第三方，固然有中文注释。所以有关属性和方法的说明，可以直接到源码中看注释即可。
+对列表项的添加、删除和移动操作都必须和列表的数据源处理同步！！！
 
-WMPageController的部分属性配置不能在viewDidLoad方法中设置，只能在其之前，比如：初">
-<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEB47e983d7db17742d006d6b0121973a7f?method=download&inline=true&shareKey=2f27af2463eeb1dfde7d353249ebfccc">
+添加操作说明12//插入操作需要调用到该函数 indexPath表示插入列表项的位置  animation表示操作使用到的动画- (void)insertRowsAtIndexPaths:(NSArray&amp;lt;NSIndexPath *&amp;gt; *)indexPaths withRowA">
+<meta name="twitter:image" content="http://note.youdao.com/yws/api/personal/file/WEB8d57cb05896e2687e9f163534ea8e863?method=download&inline=true&shareKey=02b887db246e2dabccc49db97228073d">
 
 
 
@@ -134,9 +131,9 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
 
 
 
-  <link rel="canonical" href="https://liujingh.github.io/2016/10/24/iOS开发/Demo/WMPageController/"/>
+  <link rel="canonical" href="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/"/>
 
-  <title> WMPageController | 流愚 </title>
+  <title> TableView的添加，删除，移动列表操作 | 流愚 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -299,7 +296,7 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
             
             
               
-                WMPageController
+                TableView的添加，删除，移动列表操作
               
             
           </h1>
@@ -311,8 +308,8 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-24T02:13:25+08:00" content="2016-10-24">
-              2016-10-24
+            <time itemprop="dateCreated" datetime="2016-10-25T17:09:19+08:00" content="2016-10-25">
+              2016-10-25
             </time>
           </span>
 
@@ -341,8 +338,8 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/24/iOS开发/Demo/WMPageController/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/iOS开发/Demo/WMPageController/" itemprop="commentsCount"></span>
+                <a href="/2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -370,31 +367,17 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
       
 
       
-        <h1 id="WMPageController简介"><a href="#WMPageController简介" class="headerlink" title="WMPageController简介"></a>WMPageController简介</h1><p>上方切换栏效果的控制器</p>
-<p><a href="https://github.com/wangmchn/WMPageController" target="_blank" rel="external">WMPageControllerHithub链接</a></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB47e983d7db17742d006d6b0121973a7f?method=download&amp;inline=true&amp;shareKey=2f27af2463eeb1dfde7d353249ebfccc" alt="Demo图片"></p>
-<h1 id="WMPageController使用说明"><a href="#WMPageController使用说明" class="headerlink" title="WMPageController使用说明"></a>WMPageController使用说明</h1><h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><ul>
-<li><p>WMPageController是国人写的一个第三方，固然有中文注释。所以有关属性和方法的说明，可以直接到源码中看注释即可。</p>
-</li>
-<li><p>WMPageController的部分属性配置不能在viewDidLoad方法中设置，只能在其之前，比如：初始化方法或loadView方法</p>
-</li>
-</ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//目前发现这三个属性符合以上说明</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> showOnNavigationBar;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) WMMenuViewStyle menuViewStyle;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *menuBGColor;</div></pre></td></tr></table></figure>
-<ul>
-<li>WMPageController对子层ViewController有缓存机制，如果子蹭ViewController是第一次加载，会调用以下方法，否则不会再次调用。</li>
-</ul>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(__kindof UIViewController *)</span>pageController:<span class="params">(WMPageController *)</span>pageController viewControllerAtIndex:<span class="params">(NSInteger)</span>index;</div></pre></td></tr></table></figure>
-<ul>
-<li>WMPageController在viewDidAppear方法中设置了标题栏的一些动画操作。</li>
-</ul>
-<p>使用步骤</p>
-<ul>
-<li>需要新建一个类，继承WMPageController</li>
-<li>设置标题栏的一些属性</li>
-<li>实现相关父类方法</li>
-</ul>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *titles;</div><div class="line"></div><div class="line">- (<span class="built_in">NSInteger</span>)numbersOfChildControllersInPageController:(WMPageController *)pageController;</div><div class="line"></div><div class="line">- (__kindof <span class="built_in">UIViewController</span> *)pageController:(WMPageController *)pageController viewControllerAtIndex:(<span class="built_in">NSInteger</span>)index;</div></pre></td></tr></table></figure>
-<p><a href="http://note.youdao.com/noteshare?id=e406af192ace47dbca3828ff5638e684" target="_blank" rel="external">Demo下载_有道云笔记</a></p>
+        <h1 id="Demo展示"><a href="#Demo展示" class="headerlink" title="Demo展示"></a>Demo展示</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8d57cb05896e2687e9f163534ea8e863?method=download&amp;inline=true&amp;shareKey=02b887db246e2dabccc49db97228073d" alt="TabeViewDemo"></p>
+<p><a href="http://note.youdao.com/noteshare?id=6de14ec5182fb6f2ff014a797a984923" target="_blank" rel="external">Demo_有道云笔记下载</a></p>
+<blockquote>
+<p>对列表项的添加、删除和移动操作都必须和列表的数据源处理同步！！！</p>
+</blockquote>
+<h1 id="添加操作说明"><a href="#添加操作说明" class="headerlink" title="添加操作说明"></a>添加操作说明</h1><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//插入操作需要调用到该函数 indexPath表示插入列表项的位置  animation表示操作使用到的动画</span></div><div class="line">- (<span class="keyword">void</span>)insertRowsAtIndexPaths:(<span class="built_in">NSArray</span>&lt;<span class="built_in">NSIndexPath</span> *&gt; *)indexPaths withRowAnimation:(<span class="built_in">UITableViewRowAnimation</span>)animation;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line">-(<span class="keyword">void</span> )toAddTableViewCell:(<span class="built_in">UIBarButtonItem</span> *)sender&#123;</div><div class="line">    <span class="comment">//先向数据源增加数据</span></div><div class="line">    [<span class="keyword">self</span>.dataList addObject:<span class="string">@"火龙果"</span>];</div><div class="line">    <span class="comment">//这里是向列表尾部添加列表项，故row值取数据源的最大值</span></div><div class="line">    <span class="built_in">NSInteger</span> lastRow = <span class="keyword">self</span>.dataList.count - <span class="number">1</span>;</div><div class="line">    </div><div class="line">    <span class="built_in">NSIndexPath</span> *indexPath = [<span class="built_in">NSIndexPath</span> indexPathForRow:lastRow inSection:<span class="number">0</span>];</div><div class="line">    <span class="comment">//向列表项进行插入操作</span></div><div class="line">    [<span class="keyword">self</span>.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:<span class="built_in">UITableViewRowAnimationTop</span>];</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="删除操作说明"><a href="#删除操作说明" class="headerlink" title="删除操作说明"></a>删除操作说明</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//删除操作需要使用到该函数</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">tableView:</span>(UITableView *)tableView <span class="string">commitEditingStyle:</span>(UITableViewCellEditingStyle)editingStyle <span class="string">forRowAtIndexPath:</span>(NSIndexPath *)indexPath;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line">-(<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</div><div class="line">    </div><div class="line">    <span class="comment">//判断编辑类型是否是删除</span></div><div class="line">    <span class="keyword">if</span> (editingStyle == <span class="built_in">UITableViewCellEditingStyleDelete</span>) &#123;</div><div class="line">        [<span class="keyword">self</span>.dataList removeObjectIdenticalTo:<span class="keyword">self</span>.dataList[indexPath.row]];</div><div class="line">        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:<span class="built_in">UITableViewRowAnimationAutomatic</span>];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="移动操作说明"><a href="#移动操作说明" class="headerlink" title="移动操作说明"></a>移动操作说明</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//实现这个方法，可以让tableView在编辑状态时，出现移动辅助图标，并进行移动列表操作</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">tableView:</span>(UITableView *)tableView <span class="string">moveRowAtIndexPath:</span>(NSIndexPath *)sourceIndexPath <span class="string">toIndexPath:</span>(NSIndexPath *)destinationIndexPath;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码示例</span></div><div class="line">-(<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView moveRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)sourceIndexPath toIndexPath:(<span class="built_in">NSIndexPath</span> *)destinationIndexPath&#123;</div><div class="line">    <span class="keyword">id</span> obj = <span class="keyword">self</span>.dataList[sourceIndexPath.row];</div><div class="line">    [<span class="keyword">self</span>.dataList removeObjectAtIndex:sourceIndexPath.row];</div><div class="line">    [<span class="keyword">self</span>.dataList insertObject:obj atIndex:destinationIndexPath.row];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -419,7 +402,7 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
           
             <a href="/tags/iOS-Demo/" rel="tag">#iOS Demo</a>
           
-            <a href="/tags/iOS第三方/" rel="tag">#iOS第三方</a>
+            <a href="/tags/iOS高级开发/" rel="tag">#iOS高级开发</a>
           
         </div>
       
@@ -428,17 +411,13 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/21/iOS开发/UIKit/UIViewController/UIViewController生命周期/" rel="next" title="UIViewController生命周期">
-                <i class="fa fa-chevron-left"></i> UIViewController生命周期
+              <a href="/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/" rel="next" title="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明">
+                <i class="fa fa-chevron-left"></i> runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/" rel="prev" title="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明">
-                runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,10 +432,10 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/24/iOS开发/Demo/WMPageController/"
-     data-title="WMPageController"
+        <div class="ds-share flat" data-thread-key="2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/"
+     data-title="TableView的添加，删除，移动列表操作"
      data-content=""
-     data-url="https://liujingh.github.io/2016/10/24/iOS开发/Demo/WMPageController/">
+     data-url="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -486,8 +465,8 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/24/iOS开发/Demo/WMPageController/"
-           data-title="WMPageController" data-url="https://liujingh.github.io/2016/10/24/iOS开发/Demo/WMPageController/">
+      <div class="ds-thread" data-thread-key="2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/"
+           data-title="TableView的添加，删除，移动列表操作" data-url="https://liujingh.github.io/2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/">
       </div>
     
   </div>
@@ -578,7 +557,7 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WMPageController简介"><span class="nav-number">1.</span> <span class="nav-text">WMPageController简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WMPageController使用说明"><span class="nav-number">2.</span> <span class="nav-text">WMPageController使用说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用注意点"><span class="nav-number">2.1.</span> <span class="nav-text">使用注意点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo展示"><span class="nav-number">1.</span> <span class="nav-text">Demo展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加操作说明"><span class="nav-number">2.</span> <span class="nav-text">添加操作说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除操作说明"><span class="nav-number">3.</span> <span class="nav-text">删除操作说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动操作说明"><span class="nav-number">4.</span> <span class="nav-text">移动操作说明</span></a></li></ol></div>
             
           </div>
         </section>
