@@ -408,6 +408,145 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/" itemprop="url">
+                  Swift基础——可选类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-25T10:34:20+08:00" content="2016-10-25">
+              2016-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Swift基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift基础</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="可选类型简介"><a href="#可选类型简介" class="headerlink" title="可选类型简介"></a>可选类型简介</h1><p>在C语言或其它大多数高级语言中，对于一个数据类型标识其零值和空值往往是混淆的。</p>
+<p>比如C语言中，往往用0或-1来标识一个类型是空值，但是如果这个类型真的存在值为0或-1时，就会混淆有值和空值的情况。其它高级语言往往会中NULL，nil等来标识零值，但是对于NULL和nil等到底还是用0来表示，还是无法从根本上解决这个问题。</p>
+<p>可选类型则是很大程度上为了解决这个问题而诞生。在Swift中，可选类型可以表示在任何数据类型中，用于区分该数据类型的有值和空值情况。其次，可选类型其实上是一个枚举类型，将数据类型划分为两种情况：空值为nil，有值则为其本身数据类型。</p>
+<p>理解可选类型需要注意一下几点：</p>
+<ul>
+<li>是可以作用于任何数据类型，用?问号修饰</li>
+<li>任意的数据类型不可赋值为nil, nil只能作用于可选型类型上</li>
+<li>可选类型不能直接使用，需要解包之后在再使用</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//显示定义一个Int可选类型的变量imInt</span></div><div class="line"><span class="keyword">var</span> imInt: <span class="type">Int</span>? = <span class="literal">nil</span></div><div class="line"><span class="comment">//非可选类型不能赋值nil，编译报错</span></div><div class="line"><span class="comment">//var imInt2: Int = nil</span></div><div class="line">imInt = <span class="number">404</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt)</span>"</span>)</div><div class="line"><span class="comment">// 打印结果为：Optional(404) 并非 404</span></div><div class="line"><span class="comment">//这表示Int可选类型虽然有值，但并非是Int类型数据，需要解包。</span></div></pre></td></tr></table></figure>
+<h1 id="可选类型解包"><a href="#可选类型解包" class="headerlink" title="可选类型解包"></a>可选类型解包</h1><p>可选类型解包是指将可选类型中的数据从可选类型中解析出来，封装成原数据类型。</p>
+<p>例如：在上面例子中：Optional(404)，是一个可选的Int数据类型，其包含了404这个Int数据，解包就是将这个数据拿出来。</p>
+<h2 id="强制解包"><a href="#强制解包" class="headerlink" title="强制解包"></a>强制解包</h2><p>强制解包是指无论该可选类型是否有值都进行强制解包，这样会造成当可选类型值为nil的时候，发生编译错误。</p>
+<p>强制解包方法：直接在可选类型常量/变量后面加！感叹号</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//强制解包</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt!)</span>"</span>)</div><div class="line"><span class="comment">//但可选类型为nil（空值）时，强制解包编译错误</span></div><div class="line">imInt = <span class="literal">nil</span></div><div class="line"><span class="comment">//print("\(imInt!)")</span></div><div class="line"><span class="comment">//推荐使用安全的强制解包方法</span></div><div class="line"><span class="keyword">if</span> imInt != <span class="literal">nil</span>&#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt!)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="if-let解包"><a href="#if-let解包" class="headerlink" title="if let解包"></a>if let解包</h2><p>if let解包是指使用if语言进行判断可选类型是否能够给解包，如果能解包才进行解包</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//if let 解包</span></div><div class="line">imInt = <span class="number">404</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> imInt3 = imInt&#123;</div><div class="line">    <span class="comment">//解包后的imInt只能在这个作用范围内使用</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt3)</span>"</span>)</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="string">"imInt 是空值"</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//打印 404</span></div></pre></td></tr></table></figure>
+<h1 id="可选元组类型的理解"><a href="#可选元组类型的理解" class="headerlink" title="可选元组类型的理解"></a>可选元组类型的理解</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//元组可选类型</span></div><div class="line"><span class="comment">//元组不是可选类型，但元组中的第二个元素是可选类型</span></div><div class="line"><span class="keyword">var</span> errorOne: (errorCode: Int, errorMessage: <span class="built_in">String</span>?) = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</div><div class="line"><span class="comment">//元组是可选类型，但元组中的元素不是可选类型</span></div><div class="line"><span class="keyword">var</span> errorTwo: (errorCode: Int, errorMessage: <span class="built_in">String</span>)? = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</div><div class="line"><span class="comment">//元组是可选类型，且元组中的第二个元组是可选类型</span></div><div class="line"><span class="keyword">var</span> errorThree: (errorCode: Int, errorMessage: <span class="built_in">String</span>?)? = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</div></pre></td></tr></table></figure>
+<h2 id="可选型链式表达"><a href="#可选型链式表达" class="headerlink" title="可选型链式表达"></a>可选型链式表达</h2><p>可选型链式表达:作用于嵌套层级的可选类型，可以通过. 点语法，自行判断nil值情况进行下层级元素调用</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">errorThree?.errorMessage!</div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(errorThree?.errorMessage)</span>"</span>)</div><div class="line"><span class="comment">//打印为 Optional("Not Found")</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/" itemprop="url">
                   runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明
                 </a>
@@ -1346,182 +1485,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/08/iOS开发/Context/" itemprop="url">
-                  CGContext
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
-              2016-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/08/iOS开发/Context/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/Context/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
-<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
-<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
-<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
-<li>获取图形上下文：</li>
-</ol>
-<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
-<ol>
-<li>绘制图形：</li>
-</ol>
-<p>先设置绘制起点</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>然后根据需要绘制图形</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<ol>
-<li>绘制参数配置：</li>
-</ol>
-<p>宽度：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>颜色：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>将图形上下文绘制出来：</li>
-</ol>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
-<ol>
-<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
-<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
-</ol>
-<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
-<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
-<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
-<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p>CGContextFillPath是填充</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
-<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
-<p>画矩形</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
-<p>画曲线</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
-<p>画椭圆</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
-<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p>设置线之间的交点为圆角</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>设置透明度</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/10/08/iOS开发/iOS 多线程/" itemprop="url">
                   iOS多线程
                 </a>
@@ -1848,7 +1811,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1856,7 +1819,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1865,7 +1828,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

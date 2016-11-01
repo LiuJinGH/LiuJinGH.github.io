@@ -278,6 +278,169 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/08/UML/UML·关系/" itemprop="url">
+                  UML·关系
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-08T18:23:37+08:00" content="2016-08-08">
+              2016-08-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/08/UML/UML·关系/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/UML/UML·关系/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a>关联关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8f5e2d39186628e68f53bf0514b62007?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>关联关系是一种静态关系，通常与运行状态无关，而是有“常识”、“规则”、“法律”等因素决定的，所以关联关系是一种“强关联”的关系。</p>
+<p>关联关系一般不强调关联的方向，在默认情况下，表示关联双方相互“知道”。如果特别强调了关联方向，如上图，在用例模型中，表示参与者A“知道”用例“B”，但用例“B”不知道参与者“A” 。</p>
+<h1 id="依赖关系"><a href="#依赖关系" class="headerlink" title="依赖关系"></a>依赖关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB6448b9b637f701214d787c493e6deb0b?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>依赖关系描述一个对象在运行期会使用到另一个对象的关系。与关联关系不同的是，依赖关系一种临时性的“弱”关系，它不是天然存在的，并且随着运行场景的不同，依赖关系也可能发生变化。</p>
+<p>依赖关系和关联关系的区别：在关联关系中，B修改了之后，A不会发生变化。在依赖关系中，A不仅“知道”B的存在，还会使用到B的属性和方法，所以B修改了之后，可能会导致A发生修改。</p>
+<p>依赖关系也有单向和双向依赖，但我们应当杜绝双向依赖关系的产生。</p>
+<h1 id="扩展关系"><a href="#扩展关系" class="headerlink" title="扩展关系"></a>扩展关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB8b1b98bdcf60858a01a86ffc7f472f61?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>扩展关系特别用于在用例模型中说明向基本用例中的某个扩展点插入扩展用例。扩展用例是带有抽象性质的，它表示了用例场景中的某个“支流”，有特定的扩展点触发而被启动。</p>
+<p>使用扩展关系可能基于以下理由：</p>
+<ul>
+<li>表明用例的某一部分是可选（或可能可选）的系统行为。这样就可以将模型中的可选行为和必选行为分开。</li>
+<li>表明只在特定条件（有时是例外条件）下猜执行分支流，如触发警报</li>
+<li>表明可能有一组行为段，其中的一个或多个段可以在基本用例的扩展点处插入。所插入的行为段（以及插入的顺序）将取决于在执行基本用例时与主角的交互。</li>
+<li>表明多个基本用例中都有可能触发一个可选的分支流。这个意义上说，扩展用例也代表了多个用例的可复用部分。</li>
+</ul>
+<h1 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBc302e93b10c73ea7b8d5ef0e252e948a?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>包含关系特别用于用例模型，说明在执行基本用例的用例实例过程中插入的行为段。包含用例总是带有抽象性质的，基本用例可控制与包含用例的关系，并可依赖于执行包含用例的结果，但基本用例和包含用例都不能访问对方的属性。</p>
+<p>在建模过程中使用包含关系可以基于以下理由：</p>
+<ul>
+<li>从基本用例中分解出这样的行为：它对于了解基本用例的主要目的并不是必需的，只要它的结果才比较重要。</li>
+<li>分解出两个或更多个用例所共有的行为。</li>
+</ul>
+<p>包含关系和扩展关系的区别：包含关系表示是“必需”的，如果没有包含用例，基本用例是不完整的，同时如果没有基本用例，包含用例是不能单独存在的；扩展关系表示是“可选”的，如果没有扩展用例，基本用例也是完整的；如果没有基本用例，扩展用例是不能单独存在的；如果有多个扩展用例，同一时间用例实例也只会使用其中的一个。</p>
+<h1 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBeda5757d3bd8ca4078237f993d54507e?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>实现关系特别用于在用例模型中连接用例和用例的实现，说明基本用例的一个实现方式。基本用例描述了一个业务目标，但是该业务目标有多种可能的实现途径，每一种实现途径可以用用例实现（或称用例实例）来表示，而用例实现与基本用例之间就构成了实现关系。即每个实现实例都能实现业务目标。</p>
+<h1 id="精化关系"><a href="#精化关系" class="headerlink" title="精化关系"></a>精化关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB70ef110d350e92a8fa4ad820815e1b2c?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>精化关系特别用于用例模型，一个基本用例可以分解出许多更小的关键精化用例，这些更小的精化用例更细致地展示了基本用例的核心业务。精化关系也可以用于模型与模型之间，表示某个模型是通过另一个模型而得来的。</p>
+<h1 id="泛化关系"><a href="#泛化关系" class="headerlink" title="泛化关系"></a>泛化关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBdb5c8205fb0cd06d27e2ba2fcb477f36?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>泛化关系表示一个类对另一个类的继承，即两个对象之间的继承关系。虽然在UML认识用例之间使用泛化关系是合法的，但并不赞同这样使用，因为很难描述子用例继承了基本用例的什么，过程还是业务实体，其次用例之间的可复用部分和可扩展部分可以使用包含关系和扩展关系描述。</p>
+<p>泛化关系和精化关系的区别：</p>
+<ul>
+<li>精化关系表示有基本对象可以分解为更明确、更精细的子对象，这些子对象并没有增加、减少、改变基本对象那个的行为和属性，仅仅是更加细致和明确化了。在泛化关系中，基本对象被泛化称为子对象后，子对象继承了基本对象的所有特征，并且子对象可以增加、改变基本对象的行为和属性。</li>
+<li>精化关系仅仅用于建模阶段，在实现语言中是没有精化这一语义的。泛化则等同于实现语言中的继承语义。</li>
+</ul>
+<h1 id="聚合关系"><a href="#聚合关系" class="headerlink" title="聚合关系"></a>聚合关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEBf9c0340c85476c58b331b13b57ef51ff?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>聚合关系用于类图，特别用于表示实体对象之间的关系，表达整体由部分构成的语义。</p>
+<h1 id="组合关系"><a href="#组合关系" class="headerlink" title="组合关系"></a>组合关系</h1><p><img src="http://note.youdao.com/yws/api/personal/file/WEB054a4667f1b44a48cc7eb621d02acf92?method=download&amp;inline=true&amp;shareKey=9c17c0c8d0f700dbce25a66581d9ee65" alt="image"></p>
+<p>组合关系用于类图，特别用于表示实体对象关系，表达整体部分的语义。</p>
+<p>组合关系和聚合关系的区别：</p>
+<ul>
+<li>组合是一个种强依赖的特殊聚合关系，如果整体不存在了，则部分也将消亡。</li>
+<li>在聚合关系中，整体和部分不是强依赖，即使整体不存在了，部分仍然存在。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/06/UML/统一过程（RUP）/" itemprop="url">
                   统一过程（RUP）
                 </a>
@@ -607,7 +770,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -615,7 +778,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -624,7 +787,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac配置," />
+  <meta name="keywords" content="Swift基础," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="Mac Apache启动与相关配置在Mac OS 系统中已经默认安装了Apache服务器！
-启动Apache关于Apahce的一些操作命名 （其中一些可能需要使用sudo来提高权限）1234567//Apache版本$ apachectl -vServer version: Apache/2.4.23 (Unix)Server built:   Aug  8 2016 16:31:34//启动Ap">
+<meta name="description" content="可选类型简介在C语言或其它大多数高级语言中，对于一个数据类型标识其零值和空值往往是混淆的。
+比如C语言中，往往用0或-1来标识一个类型是空值，但是如果这个类型真的存在值为0或-1时，就会混淆有值和空值的情况。其它高级语言往往会中NULL，nil等来标识零值，但是对于NULL和nil等到底还是用0来表示，还是无法从根本上解决这个问题。
+可选类型则是很大程度上为了解决这个问题而诞生。在Swift中，可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac配置Apache和PHP">
-<meta property="og:url" content="https://liujingh.github.io/2016/10/11/Mac各种配置/Mac配置Apache和PHP/index.html">
+<meta property="og:title" content="Swift基础——可选类型">
+<meta property="og:url" content="https://liujingh.github.io/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/index.html">
 <meta property="og:site_name" content="流愚">
-<meta property="og:description" content="Mac Apache启动与相关配置在Mac OS 系统中已经默认安装了Apache服务器！
-启动Apache关于Apahce的一些操作命名 （其中一些可能需要使用sudo来提高权限）1234567//Apache版本$ apachectl -vServer version: Apache/2.4.23 (Unix)Server built:   Aug  8 2016 16:31:34//启动Ap">
-<meta property="og:updated_time" content="2016-10-11T11:18:56.000Z">
+<meta property="og:description" content="可选类型简介在C语言或其它大多数高级语言中，对于一个数据类型标识其零值和空值往往是混淆的。
+比如C语言中，往往用0或-1来标识一个类型是空值，但是如果这个类型真的存在值为0或-1时，就会混淆有值和空值的情况。其它高级语言往往会中NULL，nil等来标识零值，但是对于NULL和nil等到底还是用0来表示，还是无法从根本上解决这个问题。
+可选类型则是很大程度上为了解决这个问题而诞生。在Swift中，可">
+<meta property="og:updated_time" content="2016-11-01T08:04:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac配置Apache和PHP">
-<meta name="twitter:description" content="Mac Apache启动与相关配置在Mac OS 系统中已经默认安装了Apache服务器！
-启动Apache关于Apahce的一些操作命名 （其中一些可能需要使用sudo来提高权限）1234567//Apache版本$ apachectl -vServer version: Apache/2.4.23 (Unix)Server built:   Aug  8 2016 16:31:34//启动Ap">
+<meta name="twitter:title" content="Swift基础——可选类型">
+<meta name="twitter:description" content="可选类型简介在C语言或其它大多数高级语言中，对于一个数据类型标识其零值和空值往往是混淆的。
+比如C语言中，往往用0或-1来标识一个类型是空值，但是如果这个类型真的存在值为0或-1时，就会混淆有值和空值的情况。其它高级语言往往会中NULL，nil等来标识零值，但是对于NULL和nil等到底还是用0来表示，还是无法从根本上解决这个问题。
+可选类型则是很大程度上为了解决这个问题而诞生。在Swift中，可">
 
 
 
@@ -117,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="https://liujingh.github.io/2016/10/11/Mac各种配置/Mac配置Apache和PHP/"/>
+  <link rel="canonical" href="https://liujingh.github.io/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/"/>
 
-  <title> Mac配置Apache和PHP | 流愚 </title>
+  <title> Swift基础——可选类型 | 流愚 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +285,7 @@
             
             
               
-                Mac配置Apache和PHP
+                Swift基础——可选类型
               
             
           </h1>
@@ -294,8 +297,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-11T16:17:50+08:00" content="2016-10-11">
-              2016-10-11
+            <time itemprop="dateCreated" datetime="2016-10-25T10:34:20+08:00" content="2016-10-25">
+              2016-10-25
             </time>
           </span>
 
@@ -308,8 +311,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Mac配置/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac配置</span>
+                  <a href="/categories/Swift基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift基础</span>
                   </a>
                 </span>
 
@@ -324,8 +327,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/10/11/Mac各种配置/Mac配置Apache和PHP/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/Mac各种配置/Mac配置Apache和PHP/" itemprop="commentsCount"></span>
+                <a href="/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -353,28 +356,26 @@
       
 
       
-        <h1 id="Mac-Apache启动与相关配置"><a href="#Mac-Apache启动与相关配置" class="headerlink" title="Mac Apache启动与相关配置"></a>Mac Apache启动与相关配置</h1><p>在Mac OS 系统中已经默认安装了Apache服务器！</p>
-<h2 id="启动Apache"><a href="#启动Apache" class="headerlink" title="启动Apache"></a>启动Apache</h2><p>关于Apahce的一些操作命名 （其中一些可能需要使用sudo来提高权限）<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Apache版本</span></div><div class="line">$ apachectl -v</div><div class="line"><span class="built_in">Server</span> version: Apache/<span class="number">2.4</span><span class="number">.23</span> (Unix)</div><div class="line"><span class="built_in">Server</span> built:   Aug  <span class="number">8</span> <span class="number">2016</span> <span class="number">16</span>:<span class="number">31</span>:<span class="number">34</span></div><div class="line"></div><div class="line"><span class="comment">//启动Apache 可能需要管理员密码</span></div><div class="line">sudo apachectl star</div></pre></td></tr></table></figure></p>
-<p>验证Apache是否启动</p>
-<p>在浏览器地址栏中输入 </p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">http:</span><span class="comment">//localhost</span></div></pre></td></tr></table></figure>
-<p>如果出现 “It works!” 界面说明启动成功</p>
-<h2 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h2><p>Apache的安装目录在：/etc/apache2/<br>Apache的默认根目录: /Library（资源库）/WebServer/Documents/</p>
-<h3 id="设置Apache虚拟主机"><a href="#设置Apache虚拟主机" class="headerlink" title="设置Apache虚拟主机"></a>设置Apache虚拟主机</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#cd</span> 到Apache安装目录</div><div class="line">$ cd /etc/apache2/</div><div class="line"></div><div class="line">#需要修改到httpd.conf文件，最好先将其拷贝一份</div><div class="line"></div><div class="line">#备份httpd<span class="selector-class">.conf</span></div><div class="line"><span class="variable">$sudo</span> cp httpd<span class="selector-class">.conf</span> httpd<span class="selector-class">.conf</span><span class="selector-class">.copy</span></div><div class="line"></div><div class="line">#开始配置</div><div class="line"><span class="variable">$sudo</span> vim httpd.conf</div></pre></td></tr></table></figure>
-<p>找到“#Include /private/etc/apache2/extra/httpd-vhosts.conf” 将前面的#号去掉，在Vim中，在命令界面下可以使用“/”来搜索</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Virtual hosts</span></div><div class="line">Include <span class="regexp">/private/</span>etc<span class="regexp">/apache2/</span>extra<span class="regexp">/httpd-vhosts.conf</span></div></pre></td></tr></table></figure>
-<p>重启Apache来启动配置 开启虚拟主机配置功能</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#重启Apache </span></div><div class="line">$sudo apachectl restart</div></pre></td></tr></table></figure>
-<p>虚拟主机文件路径：/etc/apache2/extra/httpd-vhosts.conf</p>
-<p>配置虚拟主机文件<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#同样，备份之前保存原件</span></div><div class="line">$sudo cp httpd-vhosts.conf httpd-vhosts.conf.bak</div><div class="line"></div><div class="line">$sudo vim <span class="meta-keyword">/etc/</span>apache2<span class="meta-keyword">/extra/</span>httpd-vhosts.conf</div><div class="line"></div><div class="line"><span class="meta">#删掉以前的，增加如下的</span></div><div class="line"><span class="meta">#这个是系统层级的，不要随意改动</span></div><div class="line"><span class="params">&lt;VirtualHost *:<span class="number">80</span>&gt;</span></div><div class="line">    DocumentRoot <span class="string">"/Library/WebServer/Documents"</span></div><div class="line">    ServerName localhost</div><div class="line">    ErrorLog <span class="string">"/private/var/log/apache2/localhost-error_log"</span></div><div class="line">    CustomLog <span class="string">"/private/var/log/apache2/localhost-access_log"</span> common</div><div class="line"><span class="params">&lt;/VirtualHost&gt;</span></div><div class="line"></div><div class="line"><span class="meta">#这个是自己的，要根据自己的需求配置</span></div><div class="line"><span class="meta">#DocumentRoot是自己的站点的根目录</span></div><div class="line"><span class="meta">#ServerName 是自己站点的名称</span></div><div class="line"><span class="params">&lt;VirtualHost *:<span class="number">80</span>&gt;</span></div><div class="line">    DocumentRoot <span class="string">"/Users/liujin/Sites"</span></div><div class="line">    ServerName www.ljsites.com</div><div class="line">    ErrorLog <span class="string">"/private/var/log/apache2/sites-error_log"</span></div><div class="line">    CustomLog <span class="string">"/private/var/log/apache2/sites-access_log"</span> common</div><div class="line">    <span class="params">&lt;Directory /&gt;</span></div><div class="line">                Options Indexes FollowSymLinks MultiViews</div><div class="line">                AllowOverride None</div><div class="line">                Order deny,allow</div><div class="line">                Allow from all</div><div class="line">      <span class="params">&lt;/Directory&gt;</span></div><div class="line"><span class="params">&lt;/VirtualHost&gt;</span></div></pre></td></tr></table></figure></p>
-<p>修改hosts配置文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#增加一条</div><div class="line">127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span>       <span class="selector-tag">www</span><span class="selector-class">.ljsites</span><span class="selector-class">.com</span></div></pre></td></tr></table></figure>
-<p>还需要打开Apache的默认权限</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="section">&lt;Directory /&gt;</span></div><div class="line"><span class="comment">#    AllowOverride none</span></div><div class="line"><span class="comment">#    Require all denied</span></div><div class="line">    <span class="attribute"><span class="nomarkup">Options</span></span> Indexes FollowSymLinks</div><div class="line">    <span class="attribute">AllowOverride</span> None</div><div class="line"><span class="section">&lt;/Directory&gt;</span></div></pre></td></tr></table></figure>
-<p>重启Apache<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sudo apachectl restart</span></div></pre></td></tr></table></figure></p>
-<h2 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h2><p>如果你上面都做成功了，那么开启PHP也就简单多了。</p>
-<p>Mac中已经默认安装了PHP了，在Apache中配置就好了</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">vim</span> httpd.<span class="keyword">conf</span></div><div class="line"></div><div class="line">#将这句话的注释打开</div><div class="line">LoadModule php5_module libexec/apache2/libphp5.<span class="keyword">so</span></div></pre></td></tr></table></figure>
+        <h1 id="可选类型简介"><a href="#可选类型简介" class="headerlink" title="可选类型简介"></a>可选类型简介</h1><p>在C语言或其它大多数高级语言中，对于一个数据类型标识其零值和空值往往是混淆的。</p>
+<p>比如C语言中，往往用0或-1来标识一个类型是空值，但是如果这个类型真的存在值为0或-1时，就会混淆有值和空值的情况。其它高级语言往往会中NULL，nil等来标识零值，但是对于NULL和nil等到底还是用0来表示，还是无法从根本上解决这个问题。</p>
+<p>可选类型则是很大程度上为了解决这个问题而诞生。在Swift中，可选类型可以表示在任何数据类型中，用于区分该数据类型的有值和空值情况。其次，可选类型其实上是一个枚举类型，将数据类型划分为两种情况：空值为nil，有值则为其本身数据类型。</p>
+<p>理解可选类型需要注意一下几点：</p>
+<ul>
+<li>是可以作用于任何数据类型，用?问号修饰</li>
+<li>任意的数据类型不可赋值为nil, nil只能作用于可选型类型上</li>
+<li>可选类型不能直接使用，需要解包之后在再使用</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//显示定义一个Int可选类型的变量imInt</span></div><div class="line"><span class="keyword">var</span> imInt: <span class="type">Int</span>? = <span class="literal">nil</span></div><div class="line"><span class="comment">//非可选类型不能赋值nil，编译报错</span></div><div class="line"><span class="comment">//var imInt2: Int = nil</span></div><div class="line">imInt = <span class="number">404</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt)</span>"</span>)</div><div class="line"><span class="comment">// 打印结果为：Optional(404) 并非 404</span></div><div class="line"><span class="comment">//这表示Int可选类型虽然有值，但并非是Int类型数据，需要解包。</span></div></pre></td></tr></table></figure>
+<h1 id="可选类型解包"><a href="#可选类型解包" class="headerlink" title="可选类型解包"></a>可选类型解包</h1><p>可选类型解包是指将可选类型中的数据从可选类型中解析出来，封装成原数据类型。</p>
+<p>例如：在上面例子中：Optional(404)，是一个可选的Int数据类型，其包含了404这个Int数据，解包就是将这个数据拿出来。</p>
+<h2 id="强制解包"><a href="#强制解包" class="headerlink" title="强制解包"></a>强制解包</h2><p>强制解包是指无论该可选类型是否有值都进行强制解包，这样会造成当可选类型值为nil的时候，发生编译错误。</p>
+<p>强制解包方法：直接在可选类型常量/变量后面加！感叹号</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//强制解包</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt!)</span>"</span>)</div><div class="line"><span class="comment">//但可选类型为nil（空值）时，强制解包编译错误</span></div><div class="line">imInt = <span class="literal">nil</span></div><div class="line"><span class="comment">//print("\(imInt!)")</span></div><div class="line"><span class="comment">//推荐使用安全的强制解包方法</span></div><div class="line"><span class="keyword">if</span> imInt != <span class="literal">nil</span>&#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt!)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="if-let解包"><a href="#if-let解包" class="headerlink" title="if let解包"></a>if let解包</h2><p>if let解包是指使用if语言进行判断可选类型是否能够给解包，如果能解包才进行解包</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//if let 解包</span></div><div class="line">imInt = <span class="number">404</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> imInt3 = imInt&#123;</div><div class="line">    <span class="comment">//解包后的imInt只能在这个作用范围内使用</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(imInt3)</span>"</span>)</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="string">"imInt 是空值"</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//打印 404</span></div></pre></td></tr></table></figure>
+<h1 id="可选元组类型的理解"><a href="#可选元组类型的理解" class="headerlink" title="可选元组类型的理解"></a>可选元组类型的理解</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//元组可选类型</span></div><div class="line"><span class="comment">//元组不是可选类型，但元组中的第二个元素是可选类型</span></div><div class="line"><span class="keyword">var</span> errorOne: (errorCode: Int, errorMessage: <span class="built_in">String</span>?) = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</div><div class="line"><span class="comment">//元组是可选类型，但元组中的元素不是可选类型</span></div><div class="line"><span class="keyword">var</span> errorTwo: (errorCode: Int, errorMessage: <span class="built_in">String</span>)? = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</div><div class="line"><span class="comment">//元组是可选类型，且元组中的第二个元组是可选类型</span></div><div class="line"><span class="keyword">var</span> errorThree: (errorCode: Int, errorMessage: <span class="built_in">String</span>?)? = (<span class="number">404</span>, <span class="string">"Not Found"</span>)</div></pre></td></tr></table></figure>
+<h2 id="可选型链式表达"><a href="#可选型链式表达" class="headerlink" title="可选型链式表达"></a>可选型链式表达</h2><p>可选型链式表达:作用于嵌套层级的可选类型，可以通过. 点语法，自行判断nil值情况进行下层级元素调用</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">errorThree?.errorMessage!</div><div class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(errorThree?.errorMessage)</span>"</span>)</div><div class="line"><span class="comment">//打印为 Optional("Not Found")</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -397,7 +398,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mac配置/" rel="tag">#Mac配置</a>
+            <a href="/tags/Swift基础/" rel="tag">#Swift基础</a>
           
         </div>
       
@@ -406,16 +407,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/08/iOS开发/iOS 多线程/" rel="next" title="iOS多线程">
-                <i class="fa fa-chevron-left"></i> iOS多线程
+              <a href="/2016/10/25/iOS开发/iOS高级开发/runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明/" rel="next" title="runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明">
+                <i class="fa fa-chevron-left"></i> runtime中objc_getAssociatedObject、objc_setAssociatedObject的使用说明
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/13/iOS开发/Demo/iOS毛玻璃效果/" rel="prev" title="iOS毛玻璃效果">
-                iOS毛玻璃效果 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/25/iOS开发/iOS高级开发/TableView的添加，删除和移动列表操作/" rel="prev" title="TableView的添加，删除，移动列表操作">
+                TableView的添加，删除，移动列表操作 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -431,10 +432,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/10/11/Mac各种配置/Mac配置Apache和PHP/"
-     data-title="Mac配置Apache和PHP"
+        <div class="ds-share flat" data-thread-key="2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/"
+     data-title="Swift基础——可选类型"
      data-content=""
-     data-url="https://liujingh.github.io/2016/10/11/Mac各种配置/Mac配置Apache和PHP/">
+     data-url="https://liujingh.github.io/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -464,8 +465,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/10/11/Mac各种配置/Mac配置Apache和PHP/"
-           data-title="Mac配置Apache和PHP" data-url="https://liujingh.github.io/2016/10/11/Mac各种配置/Mac配置Apache和PHP/">
+      <div class="ds-thread" data-thread-key="2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/"
+           data-title="Swift基础——可选类型" data-url="https://liujingh.github.io/2016/10/25/iOS开发/Swift/Swift基础/Swift基础——可选类型/">
       </div>
     
   </div>
@@ -556,7 +557,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-Apache启动与相关配置"><span class="nav-number">1.</span> <span class="nav-text">Mac Apache启动与相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Apache"><span class="nav-number">1.1.</span> <span class="nav-text">启动Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Apache"><span class="nav-number">1.2.</span> <span class="nav-text">配置Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Apache虚拟主机"><span class="nav-number">1.2.1.</span> <span class="nav-text">设置Apache虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PHP"><span class="nav-number">1.3.</span> <span class="nav-text">配置PHP</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#可选类型简介"><span class="nav-number">1.</span> <span class="nav-text">可选类型简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可选类型解包"><span class="nav-number">2.</span> <span class="nav-text">可选类型解包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#强制解包"><span class="nav-number">2.1.</span> <span class="nav-text">强制解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-let解包"><span class="nav-number">2.2.</span> <span class="nav-text">if let解包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可选元组类型的理解"><span class="nav-number">3.</span> <span class="nav-text">可选元组类型的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可选型链式表达"><span class="nav-number">3.1.</span> <span class="nav-text">可选型链式表达</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
