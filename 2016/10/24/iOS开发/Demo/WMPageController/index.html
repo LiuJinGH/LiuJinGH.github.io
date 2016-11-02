@@ -103,7 +103,7 @@ WMPageController是国人写的一个第三方，固然有中文注释。所以�
 
 WMPageController的部分属性配置不能在viewDidLoad方法中设置，只能在其之前，比如：初">
 <meta property="og:image" content="http://note.youdao.com/yws/api/personal/file/WEB47e983d7db17742d006d6b0121973a7f?method=download&inline=true&shareKey=2f27af2463eeb1dfde7d353249ebfccc">
-<meta property="og:updated_time" content="2016-10-25T03:44:20.000Z">
+<meta property="og:updated_time" content="2016-11-01T08:22:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WMPageController">
 <meta name="twitter:description" content="WMPageController简介上方切换栏效果的控制器
@@ -381,7 +381,7 @@ WMPageController的部分属性配置不能在viewDidLoad方法中设置，只�
 </ul>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//目前发现这三个属性符合以上说明</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> showOnNavigationBar;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) WMMenuViewStyle menuViewStyle;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *menuBGColor;</div></pre></td></tr></table></figure>
 <ul>
-<li>WMPageController对子层ViewController有缓存机制，如果子蹭ViewController是第一次加载，会调用以下方法，否则不会再次调用。</li>
+<li>WMPageController对子层ViewController有缓存机制，如果子层ViewController是第一次加载，会调用以下方法，否则不会再次调用。</li>
 </ul>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- <span class="params">(__kindof UIViewController *)</span>pageController:<span class="params">(WMPageController *)</span>pageController viewControllerAtIndex:<span class="params">(NSInteger)</span>index;</div></pre></td></tr></table></figure>
 <ul>
