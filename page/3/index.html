@@ -278,6 +278,196 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/14/UML/UML核心元素——用例/" itemprop="url">
+                  UML核心元素——用例
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-14T20:24:08+08:00" content="2016-09-14">
+              2016-09-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UML/" itemprop="url" rel="index">
+                    <span itemprop="name">UML</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/14/UML/UML核心元素——用例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/14/UML/UML核心元素——用例/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>用例定义了一组用例实例，其中每个实例都是系统所执行的系列操作，这些操作生成特定主角可以观测的值。</p>
+<p>做一件事情可以有很多不同的办法和步骤，也可能会遇到各种各样的意外情况，因此这件事情是由很多不同情况的集合构成的。在UML中称为用例场景。一个场景就是一个用例的实例。</p>
+<p>一个完整的用例定义有参与者、前置条件、场景、后置场景。</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9824b86267784cc123fa9318ae66051e?method=download&amp;inline=true&amp;shareKey=b752ea537c0cfc990b24a3fc8e916e13" alt="image"></p>
+<p>一个系统的功能性是由一些对系统有愿望的参与者要做的一些事情构成的，事情完成后就达成了参与者的一个愿望，当全部参与者的所有愿望都能够通过用例来达到，那么这个系统就被确定下来了。</p>
+<h1 id="用例的特征"><a href="#用例的特征" class="headerlink" title="用例的特征"></a>用例的特征</h1><ul>
+<li><p>用例是相对独立的</p>
+<p>  用例不需要与其他用例交互而独自完成参与者的目的。用例从“功能”上说是完备的。用例本质体现了系统参与者的愿望，不能完整达到参与者愿望的不能称为用例。</p>
+</li>
+<li><p>用例的执行结果对参与者来说是可观测的和有意义的。</p>
+</li>
+<li><p>这件必须有一个参与者发起。不存在没有参与者的用例，用例不应该自动启动，也不应该主动启动另一个用例。</p>
+</li>
+<li><p>用例必然是以动宾短语形式出现的</p>
+</li>
+<li><p>一个用例就是一个需求单元，分析单元，设计单元</p>
+</li>
+</ul>
+<h1 id="用例的粒度"><a href="#用例的粒度" class="headerlink" title="用例的粒度"></a>用例的粒度</h1><p>在业务建模阶段，用例的粒度以每个用例能够说明一件完整的事情为宜，即一个用例可以描述一项完整的业务流程。这将有助于明确需求范围。</p>
+<p>在用例分析阶段，即概念建模阶段，用例的粒度以每个用例能描述一个完整的事件流为宜。</p>
+<p>在系统建模阶段，用例视角是针对计算机的，因此用例的粒度以一个用例能够描述操作者与计算机的一次完整交互为宜。</p>
+<p>在RUP中，项目计划要依据系统模型编写，因此另一个可参考的粒度是一个用例的开发工作量在一周左右为宜。</p>
+<p>用例粒度的划分依据（尤其是业务用例）最标准的方法是以该用例是否完成了参与者的某个完整目的为依据的。</p>
+<p>用例的粒度大小不是从用例包含的步骤的多少来判断。</p>
+<p>一般来说，一个系统的业务用例定义在多于10个，少于50个之间，否则就应考虑一下粒度选择是否适合了。</p>
+<p>粒度选择的问题本质上是因为边界认定不同而产生的。</p>
+<h1 id="用例的获得"><a href="#用例的获得" class="headerlink" title="用例的获得"></a>用例的获得</h1><p>不要指望客户和你一样对什么是用例了如指掌，也不要期望客户能有条有理分层次地把他对系统的期望表达出来</p>
+<p>通过以下问题引导客户</p>
+<ul>
+<li>您对系统有什么期望</li>
+<li>您打算在这个系统里做些什么事情</li>
+<li>您做这件事情的目的是什么</li>
+<li>您做完这件事希望有一个什么样的结果</li>
+</ul>
+<p>不同主角的目标可能会相互重叠，呈现一种交集的状态。是否这些主角所谈的都只是某个完整目标的一个部分？如果这样，应当合并成一个用例，并假定这两个主角在这个用例中只是担任业务工人的角色而不知真正的主角。或者这些主角所谈的是有交叉的部分，但的确是两个不同的目标。如果这样，应当就是两个用例。</p>
+<p>提取公共的业务单元</p>
+<ul>
+<li>一个明确的有效的目标才是一个用例的来源</li>
+<li>一个真实的目标应当完备地表达主角的期望</li>
+<li>一个有效的目标应当在系统边界内，有主角发动，并具有明确的后果</li>
+</ul>
+<p>建立业务模型遇到困难和矛盾</p>
+<ul>
+<li>调整系统边界和主角</li>
+<li>扩大或缩小系统边界</li>
+<li>变更主角</li>
+<li>重新开始</li>
+</ul>
+<h1 id="用例和功能的误区"><a href="#用例和功能的误区" class="headerlink" title="用例和功能的误区"></a>用例和功能的误区</h1><p>错误：认为用例就是功能的划分和描述</p>
+<p>功能是计算机术语，它是用来描述计算机的，而非定义需求的术语。功能实际的描述是：输入 -&gt; 计算 -&gt; 输出 是典型的面向过程分析模型。用例是面向对象的。</p>
+<p>描述一个事物：</p>
+<ul>
+<li>这个事物是什么？</li>
+<li>这个事物能做什么？</li>
+<li>人们能够用这个事物做什么？</li>
+</ul>
+<p>结构性观点：即事物的客观存在。但是这个观点不能够说明事物的作用，也就是功能性方面的信息。</p>
+<p>功能性观点：说明事物可利用的价值。但是这个观点不能够说明事物在某种情形下的真正价值。</p>
+<p>使用者观点：说明事物对于使用者的意义，以及使用者可以怎么使用它，得到什么样的利益。这种观点不能够说明事物的结构。</p>
+<p>对于创造一种还不存在的事物，最好的方式就是从使用者的观点出发，描述希望这个事物使用者能用它做什么，能获得什么。</p>
+<p>从使用者观点出发来描述软件，至于功能性观点和结构性观点，则可以通过使用者观点推导出来。</p>
+<p>使用者观点实际上就是用例的观点。一个用例是一个参与者如何使用系统，获得设么结果的一个集合，通过分析用例，得出结构性的和功能性的内容，最终实现用例，也就实现了使用者的观点。</p>
+<p>总结：</p>
+<ul>
+<li>功能是脱离使用者的愿望而存在的。</li>
+<li>功能是孤立的。给一个输入，通过计算就有一个固定的输出。用例是系统的，它 需要描述谁在什么情况下通过什么方式得到什么结果。</li>
+<li>如果非要从功能的角度解释用例，那么用例可以解释为一系列完成一个特定目标的“功能”组合，针对不同的场景，这些“功能”体现不同的组合方式。（UML是没有功能这一术语）</li>
+</ul>
+<h1 id="目标和步骤的误区"><a href="#目标和步骤的误区" class="headerlink" title="目标和步骤的误区"></a>目标和步骤的误区</h1><p>误区：混淆目标和完成目标的步骤。</p>
+<p>一个用例是参与者对目标系统的一个愿望，一个完整的实践。为了完成这个事件需要经由很多步骤，但这些步骤不能够完整地反映参与者的目标，不能够作为用例。</p>
+<p>在概念模型阶段，在对需求进行分析的时候，用例的边界已经被打破，有了用例的上下文环境，这时步骤也可以作为用例。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/08/UML/UML·关系/" itemprop="url">
                   UML·关系
                 </a>
@@ -770,7 +960,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -787,7 +977,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
