@@ -278,165 +278,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/02/iOS开发/Foundation/KVO/" itemprop="url">
-                  KVO
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T19:34:17+08:00" content="2016-11-02">
-              2016-11-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/02/iOS开发/Foundation/KVO/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/iOS开发/Foundation/KVO/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="KVO简介"><a href="#KVO简介" class="headerlink" title="KVO简介"></a>KVO简介</h1><p><a href="http://note.youdao.com/noteshare?id=ff45aa9631110105f6f31ac09b66e04b" target="_blank" rel="external">Demo下载_有道云笔记</a></p>
-<p>KVO 其实为 Key-Value-Observe 键-值-观察者</p>
-<p>在开发中时常会遇到这类问题：需要时刻监听某个对象的某个属性值，当该属性值发什么变化时，对应也要进行相应的操作。例如：金融交易软件对交易状态这一属性时刻监听，一旦交易状态发生变化便要启动相对应的操作步骤。面对这一类似问题，使用观察者模式便可以轻松解决，而在OC中，KVO便是一种观察者模式的机制。</p>
-<p><img src="http://note.youdao.com/yws/api/personal/file/WEB12ee62e6f15140eaaad6ad652277cc2d?method=download&amp;inline=true&amp;shareKey=a44427f0e6e820cbc87289e57c9c2dfa" alt="KVO解析图"></p>
-<h1 id="KVO使用说明"><a href="#KVO使用说明" class="headerlink" title="KVO使用说明"></a>KVO使用说明</h1><h2 id="KVO使用步骤"><a href="#KVO使用步骤" class="headerlink" title="KVO使用步骤"></a>KVO使用步骤</h2><ul>
-<li>添加观察者，即设置某个对象监听另一个对象的名为Key的属性。</li>
-<li>实现监听方法，即观察者发现所观察对象的值发生变化时，回调该函数</li>
-<li>移除观察者，当不再需要该观察者时，需要移除观察者。</li>
-</ul>
-<h2 id="KVO相关函数"><a href="#KVO相关函数" class="headerlink" title="KVO相关函数"></a>KVO相关函数</h2><blockquote>
-<p>Register or deregister as an observer of the value at a key path relative to the receiver. The options determine what is included in observer notifications and when they’re sent, as described above, and the context is passed in observer notifications as described above. You should use -removeObserver:forKeyPath:context: instead of -removeObserver:forKeyPath: whenever possible because it allows you to more precisely specify your intent. When the same observer is registered for the same key path multiple times, but with different context pointers each time, -removeObserver:forKeyPath: has to guess at the context pointer when deciding what exactly to remove, and it can guess wrong.</p>
-</blockquote>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加观察者 observer：观察者 keyPath：被观察属性的属性名 options：观察的模式 context：上下文信息</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">addObserver:</span>(NSObject *)observer <span class="string">forKeyPath:</span>(NSString *)keyPath <span class="string">options:</span>(NSKeyValueObservingOptions)options <span class="string">context:</span>(nullable <span class="keyword">void</span> *)context;</div><div class="line"></div><div class="line"><span class="comment">//有两个移除的函数，苹果官方推荐使用第一个，但是最常用的还是第二个。</span></div><div class="line">- (<span class="keyword">void</span>)<span class="string">removeObserver:</span>(NSObject *)observer <span class="string">forKeyPath:</span>(NSString *)keyPath <span class="string">context:</span>(nullable <span class="keyword">void</span> *)context;</div><div class="line">- (<span class="keyword">void</span>)<span class="string">removeObserver:</span>(NSObject *)observer <span class="string">forKeyPath:</span>(NSString *)keyPath;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Given that the receiver has been registered as an observer of the value at a key path relative to an object, be notified of a change to that value.</p>
-<p>The change dictionary always contains an NSKeyValueChangeKindKey entry whose value is an NSNumber wrapping an NSKeyValueChange (use -[NSNumber unsignedIntegerValue]). The meaning of NSKeyValueChange depends on what sort of property is identified by the key path:</p>
-<p>For any sort of property (attribute, to-one relationship, or ordered or unordered to-many relationship) NSKeyValueChangeSetting indicates that the observed object has received a -setValue:forKey: message, or that the key-value coding-compliant set method for the key has been invoked, or that a -willChangeValueForKey:/-didChangeValueForKey: pair has otherwise been invoked.</p>
-<p>For an <em>ordered</em> to-many relationship, NSKeyValueChangeInsertion, NSKeyValueChangeRemoval, and NSKeyValueChangeReplacement indicate that a mutating message has been sent to the array returned by a -mutableArrayValueForKey: message sent to the object, or sent to the ordered set returned by a -mutableOrderedSetValueForKey: message sent to the object, or that one of the key-value coding-compliant array or ordered set mutation methods for the key has been invoked, or that a -willChange:valuesAtIndexes:forKey:/-didChange:valuesAtIndexes:forKey: pair has otherwise been invoked.</p>
-<p>For an <em>unordered</em> to-many relationship (introduced in Mac OS 10.4), NSKeyValueChangeInsertion, NSKeyValueChangeRemoval, and NSKeyValueChangeReplacement indicate that a mutating message has been sent to the set returned by a -mutableSetValueForKey: message sent to the object, or that one of the key-value coding-compliant set mutation methods for the key has been invoked, or that a -willChangeValueForKey:withSetMutation:usingObjects:/-didChangeValueForKey:withSetMutation:usingObjects: pair has otherwise been invoked.</p>
-<p>For any sort of property, the change dictionary contains an NSKeyValueChangeNewKey entry if NSKeyValueObservingOptionNew was specified at observer registration time, it’s the right kind of change, and this isn’t a prior notification. The change dictionary contains an NSKeyValueChangeOldKey if NSKeyValueObservingOptionOld was specified and it’s the right kind of change. See the comments for the NSKeyValueObserverNotification informal protocol methods for what the values of those entries can be.</p>
-<p>For an <em>ordered</em> to-many relationship, the change dictionary always contains an NSKeyValueChangeIndexesKey entry whose value is an NSIndexSet containing the indexes of the inserted, removed, or replaced objects, unless the change is an NSKeyValueChangeSetting.</p>
-<p>If NSKeyValueObservingOptionPrior (introduced in Mac OS 10.5) was specified at observer registration time, and this notification is one being sent prior to a change as a result, the change dictionary contains an NSKeyValueChangeNotificationIsPriorKey entry whose value is an NSNumber wrapping YES (use -[NSNumber boolValue]).</p>
-<p>context is always the same pointer that was passed in at observer registration time.</p>
-</blockquote>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当观察者发现被观察属性的值发生改变时，回调该函数</span></div><div class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)object change:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSKeyValueChangeKey</span>, <span class="keyword">id</span>&gt; *)change context:(<span class="keyword">nullable</span> <span class="keyword">void</span> *)context;</div></pre></td></tr></table></figure>
-<p>对于NSKeyValueObservingOptions 观察的模式 有如下几种</p>
-<blockquote>
-<p>Whether the change dictionaries sent in notifications should contain NSKeyValueChangeNewKey and NSKeyValueChangeOldKey entries, respectively.</p>
-</blockquote>
-<p>NSKeyValueObservingOptionNew</p>
-<p>NSKeyValueObservingOptionOld</p>
-<blockquote>
-<p>Whether a notification should be sent to the observer immediately, before the observer registration method even returns. The change dictionary in the notification will always contain an NSKeyValueChangeNewKey entry if NSKeyValueObservingOptionNew is also specified but will never contain an NSKeyValueChangeOldKey entry. (In an initial notification the current value of the observed property may be old, but it’s new to the observer.) You can use this option instead of explicitly invoking, at the same time, code that is also invoked by the observer’s -observeValueForKeyPath: ofObject:change:context: method. When this option is used with -addObserver:toObjectsAtIndexes:forKeyPath: options:context: a notification will be sent for each indexed object to which the observer is being added.</p>
-</blockquote>
-<p>NSKeyValueObservingOptionInitial</p>
-<blockquote>
-<p>Whether separate notifications should be sent to the observer before and after each change, instead of a single notification after the change. The change dictionary in a notification sent before a change always contains an NSKeyValueChangeNotificationIsPriorKey entry whose value is [NSNumber numberWithBool:YES], but never contains an NSKeyValueChangeNewKey entry. You can use this option when the observer’s own KVO-compliance requires it to invoke one of the -willChange… methods for one of its own properties, and the value of that property depends on the value of the observed object’s property. (In that situation it’s too late to easily invoke -willChange… properly in response to receiving an -observeValueForKeyPath: ofObject:change:context: message after the change.)</p>
-<p>When this option is specified, the change dictionary in a notification sent after a change contains the same entries that it would contain if this option were not specified, except for ordered unique to-many relationships represented by NSOrderedSets.  For those, for NSKeyValueChangeInsertion and NSKeyValueChangeReplacement changes, the change dictionary for a will-change notification contains an NSKeyValueChangeIndexesKey (and NSKeyValueChangeOldKey in the case of Replacement where the NSKeyValueObservingOptionOld option was specified at registration time) which give the indexes (and objects) which <em>may</em> be changed by the operation.  The second notification, after the change, contains entries reporting what did actually change.  For NSKeyValueChangeRemoval changes, removals by index are precise.</p>
-</blockquote>
-<p>NSKeyValueObservingOptionPrior</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/11/01/iOS开发/Swift/Swift基础/Swift基础——可选类型/" itemprop="url">
                   Swift基础——可选类型
                 </a>
@@ -1647,6 +1488,182 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/08/iOS开发/Context/" itemprop="url">
+                  CGContext
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T17:11:37+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/iOS开发/Context/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/iOS开发/Context/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简单示例——画一条线"><a href="#简单示例——画一条线" class="headerlink" title="简单示例——画一条线"></a>简单示例——画一条线</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB98f9bd9c1e545e1b3b345371fe47e67c?method=download&amp;shareKey=852a99b9ff5d8ce0eaaa60b8a4b17b3c" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h2 id="简单示例二——画一个正方形"><a href="#简单示例二——画一个正方形" class="headerlink" title="简单示例二——画一个正方形"></a>简单示例二——画一个正方形</h2><p><img src="http://note.youdao.com/yws/api/personal/file/WEB336971125b5f99eea6e2880e53150055?method=download&amp;shareKey=02532a25231bd37d7aa273e411cb7828" alt="image"></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//将画笔的起点移动到（100，100）</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//画一条线，起点为(100，100) 终点（200，100）</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">//设置画笔的宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">5.0</span>f);</div><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">//设置画笔的颜色</span></div><div class="line"><span class="built_in">CGContextSetStrokeColorWithColor</span>(ctx, [<span class="built_in">UIColor</span> redColor].CGColor);</div><div class="line"><span class="comment">//让画笔在图形上下文中画画</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<p><a href="http://note.youdao.com/yws/api/personal/file/WEB6400c8ffc27d0de4c21822bdeb5dcef2?method=download&amp;inline=true&amp;shareKey=a818d5ff398f55f4c6660024f0c0f541" target="_blank" rel="external">Demo下载</a></p>
+<h2 id="使用Context绘图的步骤"><a href="#使用Context绘图的步骤" class="headerlink" title="使用Context绘图的步骤"></a>使用Context绘图的步骤</h2><ol>
+<li>获取图形上下文：</li>
+</ol>
+<p>一般是获取当前图形上下文，也可以根据需要自行创建其它的<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">CGContextRef ctx</span> = UIGraphicsGetCurrentContext();</div></pre></td></tr></table></figure></p>
+<ol>
+<li>绘制图形：</li>
+</ol>
+<p>先设置绘制起点</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>然后根据需要绘制图形</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddLineToPoint(<span class="name">ctx</span>, <span class="number">200</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>绘制参数配置：</li>
+</ol>
+<p>宽度：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineWidth(<span class="name">ctx</span>, <span class="number">5.0</span>f)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>颜色：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">CGContextSetStrokeColorWithColor</span>(<span class="selector-tag">ctx</span>, <span class="selector-attr">[UIColor redColor]</span><span class="selector-class">.CGColor</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>将图形上下文绘制出来：</li>
+</ol>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h2 id="Context的几个注意点"><a href="#Context的几个注意点" class="headerlink" title="Context的几个注意点"></a>Context的几个注意点</h2><h3 id="为什么要使用起点移动函数？"><a href="#为什么要使用起点移动函数？" class="headerlink" title="为什么要使用起点移动函数？"></a><em>为什么要使用起点移动函数？</em></h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextMoveToPoint(<span class="name">ctx</span>, <span class="number">100</span>, <span class="number">100</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>解释：因为很多Context的绘制函数是没有包含起点参数的，但是绘制图形又必须有一个起点：比如上面的绘制直线函数：CGContextAddLineToPoint(ctx, 200, 100)参数只是告诉终点位置是（200，100）。并没有起点参数。在图形上下文中会给出起点，起点有两种情况：</p>
+<ol>
+<li>使用CGContextMoveToPoint函数给出指定位置为起点</li>
+<li>不指定位置情况下，默认使用上次绘图的终点为本次绘图的起点</li>
+</ol>
+<p>由此，第一次绘图的时候是没有上次绘图的终点，这时便要给出指定位置的起点。</p>
+<h3 id="起点和终点怎么闭合？"><a href="#起点和终点怎么闭合？" class="headerlink" title="起点和终点怎么闭合？"></a><em>起点和终点怎么闭合？</em></h3><p>在使用绘线函数绘制闭合图形时，会出现起点和终点无法闭合的情况：</p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB9ed95c4ae70749df58ad13519687b8ad?method=download&amp;shareKey=cfbc6cf2981002d82841ba2ea0db6834" alt="image"></p>
+<p>使用函数解决<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将起点和终点闭合起来</span></div><div class="line"><span class="selector-tag">CGContextClosePath</span>(ctx);</div></pre></td></tr></table></figure></p>
+<h3 id="CGContextStrokePath和CGContextFillPath的区别"><a href="#CGContextStrokePath和CGContextFillPath的区别" class="headerlink" title="CGContextStrokePath和CGContextFillPath的区别"></a><em>CGContextStrokePath和CGContextFillPath的区别</em></h3><p>CGContextStrokePath是绘制边<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CGContextSetStrokeColorWithColor(<span class="name">ctx</span>, [UIColor redColor].CGColor)<span class="comment">;</span></div><div class="line">CGContextStrokePath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>CGContextFillPath是填充</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[[<span class="name">UIColor</span> purpleColor] set]<span class="comment">;</span></div><div class="line">CGContextFillPath(<span class="name">ctx</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBf64eb8644c1de99f47aa81f2a9ad7b25?method=download&amp;shareKey=612230f9050e5912511d9d8b1d64b1df" alt="image"></p>
+<h2 id="Context其它绘制函数"><a href="#Context其它绘制函数" class="headerlink" title="Context其它绘制函数"></a>Context其它绘制函数</h2><p>画弧<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> <span class="built_in">CGContextAddArc</span>(<span class="built_in">CGContextRef</span> __<span class="keyword">nullable</span> c, <span class="built_in">CGFloat</span> x, <span class="built_in">CGFloat</span> y,</div><div class="line">    <span class="built_in">CGFloat</span> radius, <span class="built_in">CGFloat</span> startAngle, <span class="built_in">CGFloat</span> endAngle, <span class="keyword">int</span> clockwise)</div><div class="line"><span class="comment">//圆心（x,y）、半径 radius、开始角 startAngle、结束角 endStart、绘制方向 clockwise</span></div><div class="line"><span class="comment">//示例</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">150</span>, <span class="number">150</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI_4, <span class="literal">YES</span>);</div></pre></td></tr></table></figure></p>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB7dc2e677363b0ec649387293074f41d9?method=download&amp;shareKey=6979128287040dd3d1494c279a6df126" alt="image"></p>
+<p>画矩形</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddRect(ctx, CGRectMake(<span class="number">80</span>, <span class="number">80</span>, <span class="number">200</span>, <span class="number">100</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB3ced639793970ff1fabcf787619cba53?method=download&amp;shareKey=051d2262078d81071b525ee64632d5af" alt="image"></p>
+<p>画曲线</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddCurveToPoint(ctx, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEB5589f48e553c0e08a4dcb36c18490b2e?method=download&amp;shareKey=fd355a40bc260311fdeb871363255ff1" alt="image"></p>
+<p>画椭圆</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextAddEllipseInRect(ctx, CGRectMake(<span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">200</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/api/personal/file/WEBd02445e7942598e9eb890106a3d04e07?method=download&amp;shareKey=f269636280541f08a799fd38cf981879" alt="image"></p>
+<h2 id="Context参数配置函数"><a href="#Context参数配置函数" class="headerlink" title="Context参数配置函数"></a>Context参数配置函数</h2><p>设置线的端点为圆角<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineCap(<span class="name">ctx</span>, kCGLineCapRound)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>设置线之间的交点为圆角</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetLineJoin(<span class="name">ctx</span>, kCGLineJoinRound)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>设置透明度</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGContextSetAlpha(<span class="name">ctx</span>, <span class="number">0.3</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/iOS开发/CoreAnimation/" itemprop="url">
                   CoreAnimation
                 </a>
@@ -1885,7 +1902,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1902,7 +1919,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
